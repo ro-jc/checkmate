@@ -17,19 +17,4 @@ bp = Blueprint("views", __name__, url_prefix="/")
 
 @bp.route("/")
 def index():
-    return redirect(url_for("views.friends"))
-
-
-@bp.route("/friends")
-def friends():
-    return render_template("friends.html")
-
-
-@bp.route("/groups")
-def groups():
-    return render_template("groups.html")
-
-
-@bp.route("/starred")
-def starred():
-    return render_template("starred.html")
+    return render_template("index.html")

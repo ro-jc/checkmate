@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 maximum-scale=1.0, user-scalable=no" >
+    <title>thengakola</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+        integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styleOne.css') }}">
+</head>
+<body>
+    <div id="mySidenav" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <a href="#">About</a>
+        <a href="#">Services</a>
+        <a href="#">Clients</a>
+        <a href="#">Contact</a>
+    </div>
+
+    <div class="container-fluid topBar fixed-top">
+        <div class="row">
+            <div class="col-2 reqTab">
+                <a href="">
+                    <i class="fa-solid topBarIcon fa-eye"></i>
+                </a>
+            </div>
+            <div class="col-8 searchTab">
+                <form class="searchBox" action="">
+                    <input class="searchTxt" type="text" placeholder="find..." name="search">
+                    <button class="searchBtn" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+                </form>
+            </div>
+            <!-- <div class="col-2 blankTab"></div> -->
+            <div class="col-2 accTab">
+                <a href="">
+                    <i onclick="openNav()" class="fa-solid topBarIcon fa-circle-user"></i>
+                </a>
+
+                
+            </div>
+        </div>
+    </div>
+
+    <div id="empty">
+    </div>
+
+    <div class="container-fluid bottomBar fixed-bottom">
+        <div class="row">
+            <div class="col-4">
+                <i onclick="groupPageOnly()" id="groupBtn" class="fa-solid  bottomBarIcon fa-people-group"></i>
+            </div>
+            <div class="col-4">
+                <i onclick="friendPageOnly()" id="friendBtn" class="fa-solid  bottomBarIcon fa-address-card"></i>
+            </div>
+            <div class="col-4">
+                <i onclick="starPageOnly()" id="starBtn" class="fa-solid  bottomBarIcon fa-star"></i>
+            </div>
+        </div>
+    </div>
+
+    <div class="slideView">
+        <div id="groupPage">
+            <div class="card groupCard container m-auto px-3 mt-2">
+                <div class="row no-gutters">
+                    <div class="col-3 groupImageBox">
+            
+                        <div class="groupImage">
+                            <!-- <img src="..." class="card-img" alt="..."> -->
+                            <i class="fa-solid fa-users cardImage"></i>
+                        </div>
+                    </div>
+                    <div class="col-9">
+                        <div class="card-body">
+                            <div class="groupNameBox">
+                                <div class="groupName">
+                                    Thengakola
+                                </div>
+                                <div class="memberCount mt-1">
+                                    12 members
+                                </div>
+                            </div>
+                            <div class="groupNotif mt-2">
+                                3 in foodys now !
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card groupCard container m-auto px-3 mt-2" aria-hidden="true">
+                <div class="row no-gutters">
+                    <div class="col-3 groupImageBox">
+            
+                        <div class="groupImage">
+                            <!-- <img src="..." class="card-img" alt="..."> -->
+                            <i class="fa-solid fa-users cardImage"></i>
+                        </div>
+                    </div>
+                    <div class="col-9">
+                        <div class="card-body placeholder-glow">
+                            <div class="groupNameBox placeholder-glow">
+                                <div class="groupName placeholder">
+                                    Thengakola
+                                </div>
+                                <div class="memberCount mt-1 placeholder">
+                                    12 members
+                                </div>
+                            </div>
+                            <div class="groupNotif plceholder-glow mt-2">
+                                <div class="groupNotifText placeholder">
+                                    3 in foodys now !
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card groupCard container m-auto px-3 mt-2" aria-hidden="true">
+                <div class="row no-gutters">
+                    <div class="col-3 groupImageBox">
+            
+                        <div class="groupImage">
+                            <!-- <img src="..." class="card-img" alt="..."> -->
+                            <i class="fa-solid fa-users cardImage"></i>
+                        </div>
+                    </div>
+                    <div class="col-9">
+                        <div class="card-body placeholder-glow">
+                            <div class="groupNameBox placeholder-glow">
+                                <div class="groupName placeholder">
+                                    Thengakola
+                                </div>
+                                <div class="memberCount mt-1 placeholder">
+                                    12 members
+                                </div>
+                            </div>
+                            <div class="groupNotif plceholder-glow mt-2">
+                                <div class="groupNotifText placeholder">
+                                    3 in foodys now !
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="friendPage">
+            <div class="card personCard container m-auto px-3 mt-2">
+                <div class="row no-gutters">
+                    <div class="col-3 avatarBox">
+            
+                        <div class="avatarImageBox">
+                            <!-- <img src="..." class="card-img" alt="..."> -->
+                            <i class="bi bi-person-circle cardAvatar"></i>
+                        </div>
+                    </div>
+                    <div class="col-9">
+                        <div class="card-body">
+                            <div class="currentClassBox">
+                                <div class="ccSub">
+                                    Technical English
+                                </div>
+                                <div class="ccTimeLoc">
+                                    <div class="ccTime">
+                                        08:00-09:40
+                                    </div>
+                                    <div class="ccLoc">
+                                        SJT 720
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="nextClassBox mt-2">
+                                <div class="nextClassText">next: 10:00</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card personCard container m-auto px-3 mt-2" aria-hidden="true">
+                <div class="row no-gutters">
+                    <div class="col-3 avatarBox">
+            
+                        <div class="avatarImageBox">
+                            <!-- <img src="..." class="card-img" alt="..."> -->
+                            <i class="bi bi-person-circle cardAvatar"></i>
+                        </div>
+                    </div>
+                    <div class="col-9">
+                        <div class="card-body">
+                            <div class="currentClassBox placeholder-glow">
+                                <div class="ccSub placeholder">
+                                    Technical English
+                                </div>
+                                <div class="ccTimeLoc">
+                                    <div class="ccTime mt-1 placeholder">
+                                        00:00-00:00
+                                    </div>
+                                    <div class="ccLoc mt-1 placeholder">
+                                        00:00-00:00
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="nextClassBox placeholder-glow mt-2">
+                                <div class="nextClassText placeholder">next: 10:00</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card personCard container m-auto px-3 mt-2" aria-hidden="true">
+                <div class="row no-gutters">
+                    <div class="col-3 avatarBox">
+            
+                        <div class="avatarImageBox">
+                            <!-- <img src="..." class="card-img" alt="..."> -->
+                            <i class="bi bi-person-circle cardAvatar"></i>
+                        </div>
+                    </div>
+                    <div class="col-9">
+                        <div class="card-body">
+                            <div class="currentClassBox placeholder-glow">
+                                <div class="ccSub placeholder">
+                                    Technical English
+                                </div>
+                                <div class="ccTimeLoc">
+                                    <div class="ccTime mt-1 placeholder">
+                                        00:00-00:00
+                                    </div>
+                                    <div class="ccLoc mt-1 placeholder">
+                                        00:00-00:00
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="nextClassBox placeholder-glow mt-2">
+                                <div class="nextClassText placeholder">next: 10:00</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card personCard container m-auto px-3 mt-2" aria-hidden="true">
+                <div class="row no-gutters">
+                    <div class="col-3 avatarBox">
+            
+                        <div class="avatarImageBox">
+                            <!-- <img src="..." class="card-img" alt="..."> -->
+                            <i class="bi bi-person-circle cardAvatar"></i>
+                        </div>
+                    </div>
+                    <div class="col-9">
+                        <div class="card-body">
+                            <div class="currentClassBox placeholder-glow">
+                                <div class="ccSub placeholder">
+                                    Technical English
+                                </div>
+                                <div class="ccTimeLoc">
+                                    <div class="ccTime mt-1 placeholder">
+                                        00:00-00:00
+                                    </div>
+                                    <div class="ccLoc mt-1 placeholder">
+                                        00:00-00:00
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="nextClassBox placeholder-glow mt-2">
+                                <div class="nextClassText placeholder">next: 10:00</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card personCard container m-auto px-3 mt-2" aria-hidden="true">
+                <div class="row no-gutters">
+                    <div class="col-3 avatarBox">
+            
+                        <div class="avatarImageBox">
+                            <!-- <img src="..." class="card-img" alt="..."> -->
+                            <i class="bi bi-person-circle cardAvatar"></i>
+                        </div>
+                    </div>
+                    <div class="col-9">
+                        <div class="card-body">
+                            <div class="currentClassBox placeholder-glow">
+                                <div class="ccSub placeholder">
+                                    Technical English
+                                </div>
+                                <div class="ccTimeLoc">
+                                    <div class="ccTime mt-1 placeholder">
+                                        00:00-00:00
+                                    </div>
+                                    <div class="ccLoc mt-1 placeholder">
+                                        00:00-00:00
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="nextClassBox placeholder-glow mt-2">
+                                <div class="nextClassText placeholder">next: 10:00</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card personCard container m-auto px-3 mt-2" aria-hidden="true">
+                <div class="row no-gutters">
+                    <div class="col-3 avatarBox">
+            
+                        <div class="avatarImageBox">
+                            <!-- <img src="..." class="card-img" alt="..."> -->
+                            <i class="bi bi-person-circle cardAvatar"></i>
+                        </div>
+                    </div>
+                    <div class="col-9">
+                        <div class="card-body">
+                            <div class="currentClassBox placeholder-glow">
+                                <div class="ccSub placeholder">
+                                    Technical English
+                                </div>
+                                <div class="ccTimeLoc">
+                                    <div class="ccTime mt-1 placeholder">
+                                        00:00-00:00
+                                    </div>
+                                    <div class="ccLoc mt-1 placeholder">
+                                        00:00-00:00
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="nextClassBox placeholder-glow mt-2">
+                                <div class="nextClassText placeholder">next: 10:00</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card personCard container m-auto px-3 mt-2" aria-hidden="true">
+                <div class="row no-gutters">
+                    <div class="col-3 avatarBox">
+            
+                        <div class="avatarImageBox">
+                            <!-- <img src="..." class="card-img" alt="..."> -->
+                            <i class="bi bi-person-circle cardAvatar"></i>
+                        </div>
+                    </div>
+                    <div class="col-9">
+                        <div class="card-body">
+                            <div class="currentClassBox placeholder-glow">
+                                <div class="ccSub placeholder">
+                                    Technical English
+                                </div>
+                                <div class="ccTimeLoc">
+                                    <div class="ccTime mt-1 placeholder">
+                                        00:00-00:00
+                                    </div>
+                                    <div class="ccLoc mt-1 placeholder">
+                                        00:00-00:00
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="nextClassBox placeholder-glow mt-2">
+                                <div class="nextClassText placeholder">next: 10:00</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card personCard container m-auto px-3 mt-2" aria-hidden="true">
+                <div class="row no-gutters">
+                    <div class="col-3 avatarBox">
+            
+                        <div class="avatarImageBox">
+                            <!-- <img src="..." class="card-img" alt="..."> -->
+                            <i class="bi bi-person-circle cardAvatar"></i>
+                        </div>
+                    </div>
+                    <div class="col-9">
+                        <div class="card-body">
+                            <div class="currentClassBox placeholder-glow">
+                                <div class="ccSub placeholder">
+                                    Technical English
+                                </div>
+                                <div class="ccTimeLoc">
+                                    <div class="ccTime mt-1 placeholder">
+                                        00:00-00:00
+                                    </div>
+                                    <div class="ccLoc mt-1 placeholder">
+                                        00:00-00:00
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="nextClassBox placeholder-glow mt-2">
+                                <div class="nextClassText placeholder">next: 10:00</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="starPage">
+            <div class="card personCard container m-auto px-3 mt-2">
+                <div class="row no-gutters">
+                    <div class="col-3 avatarBox">
+            
+                        <div class="avatarImageBox">
+                            <!-- <img src="..." class="card-img" alt="..."> -->
+                            <i class="bi bi-person-hearts cardAvatar"></i>
+                        </div>
+                    </div>
+                    <div class="col-9">
+                        <div class="card-body">
+                            <div class="currentClassBox">
+                                <div class="ccSub">
+                                    Technical English
+                                </div>
+                                <div class="ccTimeLoc">
+                                    <div class="ccTime">
+                                        08:00-09:40
+                                    </div>
+                                    <div class="ccLoc">
+                                        SJT 720
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="nextClassBox mt-2">
+                                next: 10:00
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card personCard container m-auto px-3 mt-2" aria-hidden="true">
+                <div class="row no-gutters">
+                    <div class="col-3 avatarBox">
+            
+                        <div class="avatarImageBox">
+                            <!-- <img src="..." class="card-img" alt="..."> -->
+                            <i class="bi bi-person-hearts cardAvatar"></i>
+                        </div>
+                    </div>
+                    <div class="col-9">
+                        <div class="card-body">
+                            <div class="currentClassBox placeholder-glow">
+                                <div class="ccSub placeholder">
+                                    Technical English
+                                </div>
+                                <div class="ccTimeLoc">
+                                    <div class="ccTime mt-1 placeholder">
+                                        00:00-00:00
+                                    </div>
+                                    <div class="ccLoc mt-1 placeholder">
+                                        00:00-00:00
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="nextClassBox placeholder-glow mt-2">
+                                <div class="nextClassText placeholder">next: 10:00</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card personCard container m-auto px-3 mt-2" aria-hidden="true">
+                <div class="row no-gutters">
+                    <div class="col-3 avatarBox">
+            
+                        <div class="avatarImageBox">
+                            <!-- <img src="..." class="card-img" alt="..."> -->
+                            <i class="bi bi-person-hearts cardAvatar"></i>
+                        </div>
+                    </div>
+                    <div class="col-9">
+                        <div class="card-body">
+                            <div class="currentClassBox placeholder-glow">
+                                <div class="ccSub placeholder">
+                                    Technical English
+                                </div>
+                                <div class="ccTimeLoc">
+                                    <div class="ccTime mt-1 placeholder">
+                                        00:00-00:00
+                                    </div>
+                                    <div class="ccLoc mt-1 placeholder">
+                                        00:00-00:00
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="nextClassBox placeholder-glow mt-2">
+                                <div class="nextClassText placeholder">next: 10:00</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card personCard container m-auto px-3 mt-2" aria-hidden="true">
+                <div class="row no-gutters">
+                    <div class="col-3 avatarBox">
+            
+                        <div class="avatarImageBox">
+                            <!-- <img src="..." class="card-img" alt="..."> -->
+                            <i class="bi bi-person-hearts cardAvatar"></i>
+                        </div>
+                    </div>
+                    <div class="col-9">
+                        <div class="card-body">
+                            <div class="currentClassBox placeholder-glow">
+                                <div class="ccSub placeholder">
+                                    Technical English
+                                </div>
+                                <div class="ccTimeLoc">
+                                    <div class="ccTime mt-1 placeholder">
+                                        00:00-00:00
+                                    </div>
+                                    <div class="ccLoc mt-1 placeholder">
+                                        00:00-00:00
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="nextClassBox placeholder-glow mt-2">
+                                <div class="nextClassText placeholder">next: 10:00</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card personCard container m-auto px-3 mt-2" aria-hidden="true">
+                <div class="row no-gutters">
+                    <div class="col-3 avatarBox">
+            
+                        <div class="avatarImageBox">
+                            <!-- <img src="..." class="card-img" alt="..."> -->
+                            <i class="bi bi-person-hearts cardAvatar"></i>
+                        </div>
+                    </div>
+                    <div class="col-9">
+                        <div class="card-body">
+                            <div class="currentClassBox placeholder-glow">
+                                <div class="ccSub placeholder">
+                                    Technical English
+                                </div>
+                                <div class="ccTimeLoc">
+                                    <div class="ccTime mt-1 placeholder">
+                                        00:00-00:00
+                                    </div>
+                                    <div class="ccLoc mt-1 placeholder">
+                                        00:00-00:00
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="nextClassBox placeholder-glow mt-2">
+                                <div class="nextClassText placeholder">next: 10:00</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    
+    
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
