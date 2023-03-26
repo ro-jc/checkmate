@@ -2,8 +2,9 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0 maximum-scale=1.0, user-scalable=no" >
+    <!-- <meta http-equiv="X-UA-Compatible" content="IE=edge"> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" >
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0 maximum-scale=1.0, user-scalable=no" > -->
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="mobile-web-app-capable" content="yes" />
     <title>checkmate</title>
@@ -27,19 +28,19 @@
     <div class="container-fluid topBar fixed-top">
         <div class="row">
             <div class="col-2 reqTab">
-                <a href="">
+                <a href="" title="requests">
                     <i class="fa-solid topBarIcon fa-eye"></i>
                 </a>
             </div>
             <div class="col-8 searchTab">
                 <form class="searchBox" action="">
                     <input class="searchTxt" type="text" placeholder="find..." name="search">
-                    <button class="searchBtn" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+                    <button class="searchBtn" title="search" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
                 </form>
             </div>
             <!-- <div class="col-2 blankTab"></div> -->
             <div class="col-2 accTab">
-                <a href="">
+                <a href="" title="profile">
                     <i onclick="openNav()" class="fa-solid topBarIcon fa-circle-user"></i>
                 </a>
 
@@ -144,7 +145,7 @@
                             </div>
                             <div class="groupNotif plceholder-glow mt-2">
                                 <div class="groupNotifText placeholder">
-                                    3 in foodys now !
+                                    3 in foodys now!
                                 </div>
                             </div>
                         </div>
