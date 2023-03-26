@@ -4,10 +4,12 @@ import click
 from flask import current_app, g
 from flask.cli import with_appcontext
 
+DATABASE = "checkmate"
+
 
 def get_db():
     if "db" not in g:
-        client = MongoClient()["checkmate"]
+        client = MongoClient()[DATABASE]
     return g.db
 
 
@@ -19,8 +21,8 @@ def close_db(e=None):
 
 
 def reset_db():
-    MongoClient().drop_database()
-    get_db()  # reset g.db
+    db = get_db()
+    db.client.drop_database(DATABASE)
 
 
 @click.command("init-db")
