@@ -5,7 +5,7 @@
 }
 
 body{
-    background: black;
+    background: #000;
     scrollbar-width: none;
     -ms-overflow-style: none;
     
@@ -74,7 +74,7 @@ body::-webkit-scrollbar {
     box-shadow: 0px -4px 15px 0px rgb(31,31,31);
     width: 100vw;
     position: fixed;
-    top: calc(100vh - 8vh);
+    /* top: calc(100vh - 8vh); */
     left: 0;
 
 }
@@ -98,26 +98,34 @@ body::-webkit-scrollbar {
     align-items: center;
 }
 
-#empty{
+.empty{
     height: 8vh;
 }
+.emptyBottom {
+    height: 9vh;
+}
+/* #emptyBottom {
+    height: 9vh;
+} */
 
 .slideView{
     display: flex;
     width: 100vw;
-    height: calc(100vh - 16vh);
+    margin-bottom: 10vh;
 }
+
 #groupPage{
     display: none;
     /* background: #000; */
     width: 100vw;
-    height: calc(100vh - 16vh);
+    height: calc(100vh - 17vh);
 }
 #friendPage{
     /* background: #a41f1f; */
+    /* background: #000; */
     width: 100vw;
     height: calc(100vh - 16vh);
-    display: none;
+    /* display: none; */
 }
 #starPage {
     /* background: #34cd55; */
