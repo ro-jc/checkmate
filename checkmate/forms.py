@@ -29,9 +29,9 @@ class LoginForm(FlaskForm):
 class SignUpForm(FlaskForm):
     username = StringField("Username", validators=[DataRequired()])
     email = StringField("Email", validators=[Email()])
-    password = PasswordField("Re-Enter Password", validators=[DataRequired()])
+    password = PasswordField("Password", validators=[DataRequired()])
     password2 = PasswordField(
-        "Password", validators=[DataRequired(), EqualTo("password")]
+        "Re-Enter Password", validators=[DataRequired(), EqualTo("password")]
     )
     name = StringField("Name", validators=[DataRequired()])
     timetable = TextAreaField("Timetable", validators=[DataRequired()])
