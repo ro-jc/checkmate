@@ -14,24 +14,24 @@
 </div>
 <!-- <div class="col-2 blankTab"></div> -->
 <div class="col-2 accTab">
-    <a href="" title="profile">
+    <div title="profile">
         <i onclick="openNav()" class="fa-solid topBarIcon fa-circle-user"></i>
-    </a>  
+    </div>  
 </div>
 {% endblock %}
 
 {% block content %}    
     <div class="container-fluid bottomBar fixed-bottom">
         <div class="row">
-            <div class="col-4">
-                <i onclick="groupPageOnly()" id="groupBtn" class="fa-solid  bottomBarIcon fa-people-group"></i>
+            <div class="col-6">
+                <i onclick="groupPageOnly()" id="groupBtn" class="fa-solid  bottomBarIcon fa-user-group"></i>
             </div>
-            <div class="col-4">
-                <i onclick="friendPageOnly()" id="friendBtn" class="fa-solid  bottomBarIcon fa-address-card"></i>
+            <div class="col-6">
+                <i onclick="friendPageOnly()" id="friendBtn" class="fa-solid  bottomBarIcon fa-user"></i>
             </div>
-            <div class="col-4">
+            <!-- <div class="col-4">
                 <i onclick="starPageOnly()" id="starBtn" class="fa-solid  bottomBarIcon fa-star"></i>
-            </div>
+            </div> -->
         </div>
     </div>
 
