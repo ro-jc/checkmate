@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block topBar %}
+<form method="post">
+    {{ form.hidden_tag() }}
+    <p>
+        {{ form.name(size=50) }}<br>
+    </p>
+        {{ form.submit() }}
+</form>
+{% endblock %}
+
+{% block content %}
+{% for user in users %}
+    {{ user.name }}<br>
+    @{{ user.username }}<hr>
+{% endfor %}
+{% endblock %}

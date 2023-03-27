@@ -41,7 +41,6 @@ def signup():
 
     form = SignUpForm()
     if form.validate_on_submit():
-        print(form.password.data)
         get_db().users.insert_one(
             {
                 "username": form.username.data,

@@ -55,3 +55,8 @@ class SignUpForm(FlaskForm):
             create_timetable(timetable.data)
         except Exception:
             raise ValidationError("Please re-check your timetable format")
+
+
+class UserSearch(FlaskForm):
+    name = StringField("Name")
+    submit = SubmitField("Submit")

@@ -2,7 +2,7 @@
 
 {% block topBar %}
 <div class="col-2 reqTab">
-    <a href="" title="requests">
+    <a href="{{ url_for('views.requests') }}" title="requests">
         <i class="fa-solid topBarIcon fa-eye"></i>
     </a>
 </div>
@@ -20,9 +20,7 @@
 </div>
 {% endblock %}
 
-{% block content %}
-    <div class="empty"></div>
-
+{% block content %}    
     <div class="container-fluid bottomBar fixed-bottom">
         <div class="row">
             <div class="col-6">
