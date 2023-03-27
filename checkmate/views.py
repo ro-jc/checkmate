@@ -17,7 +17,7 @@ bp = Blueprint("views", __name__, url_prefix="/")
 
 @bp.route("/")
 def index():
-    if username in session:
+    if "username" in session:
         db = get_db()
 
         friends_usernames = session.get("frineds", [])
