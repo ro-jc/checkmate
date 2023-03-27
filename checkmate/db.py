@@ -9,7 +9,7 @@ DATABASE = "checkmate"
 
 def get_db():
     if "db" not in g:
-        client = MongoClient()[DATABASE]
+        g.db = MongoClient()[DATABASE]
     return g.db
 
 
@@ -17,7 +17,7 @@ def close_db(e=None):
     db = g.pop("db", None)
 
     if db is not None:
-        db.close()
+        db.client.close()
 
 
 def reset_db():

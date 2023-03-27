@@ -1,3 +1,5 @@
 flask
 werkzeug
 pymongo
+email-validator
+flask-wtf
