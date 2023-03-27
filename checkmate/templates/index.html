@@ -1,5 +1,25 @@
 {% extends "base.html" %}
 
+{% block topBar %}
+<div class="col-2 reqTab">
+    <a href="" title="requests">
+        <i class="fa-solid topBarIcon fa-eye"></i>
+    </a>
+</div>
+<div class="col-8 searchTab">
+    <form class="searchBox" action="">
+        <input class="searchTxt" type="text" placeholder="find..." name="search">
+        <button class="searchBtn" title="search" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+    </form>
+</div>
+<!-- <div class="col-2 blankTab"></div> -->
+<div class="col-2 accTab">
+    <a href="" title="profile">
+        <i onclick="openNav()" class="fa-solid topBarIcon fa-circle-user"></i>
+    </a>  
+</div>
+{% endblock %}
+
 {% block content %}
     <div id="empty">
     </div>
