@@ -21,7 +21,6 @@
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styleOne.css') }}">
 </head>
 <body>
-    
     <div id="mySidenav" class="sidenav">
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
         <a href="#">About</a>
@@ -35,7 +34,6 @@
             {% block topBar %}{% endblock %}
         </div>
     </div>
-    <div id="empty">
-    </div>
+    <div id="empty"></div>
     {% block content %}{% endblock %}
 </body>
