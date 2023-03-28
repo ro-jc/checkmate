@@ -58,6 +58,7 @@ def index():
 def requests():
     form = UserSearch()
     db = get_db()
+
     if form.validate_on_submit():
         results = db.users.aggregate(
             [
@@ -88,7 +89,15 @@ def requests():
 
     results = db.users.find_one(
         {"username": session["username"]}, {"_id": 0, "username": 1, "name": 1}
-    ).get("requests", [])
+    ).get("incoming_requests", [])
+
+    if req_name := request.form.get("request_username"):
+        if not req_name == session["username"]:
+            db = get_db()
+            db.users.find_one_and_update(
+                {"username": req_name},
+                {"$push": {"incoming_requests": session["username"]}},
+            )
 
     return render_template(
         "requests.html", form=form, results=results, show_requests=True
