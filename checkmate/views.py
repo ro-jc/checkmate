@@ -11,6 +11,8 @@ from flask import (
 
 from checkmate.db import get_db
 from checkmate.forms import UserSearch
+from checkmate.functions import get_user_status
+from datetime import date
 
 bp = Blueprint("views", __name__, url_prefix="/")
 
@@ -20,18 +22,30 @@ def index():
     if "username" in session:
         db = get_db()
 
-        # friends_usernames = session.get("frineds", [])
-        # starred_usernames = session.get("starred", [])
-        # group_ids = session.get("groups", [])
         user = db.users.find_one({"username": session["username"]})
         friends_usernames = user.get("friends", [])
         starred_usernames = user.get("starred", [])
         group_ids = user.get("groups", [])
 
-        friends = db.users.find({"username": {"$in": friends_usernames}})
+        friends = db.users.aggregate(
+            [
+                {"$match": {"username": {"$in": friends_usernames}}},
+                {
+                    "$project": {
+                        "_id": 0,
+                        "name": 1,
+                        "username": 1,
+                        "timetable": {
+                            "$arrayElemAt": ["$timetable", date.today().isoweekday()]
+                        },
+                    }
+                },
+            ]
+        )
+        friends = [get_user_status(user) for user in friends]
         starred = [user for user in friends if user["username"] in starred_usernames]
-        groups = db.groups.find({"id": {"$in": group_ids}})
-
+        groups = [i for i in db.groups.find({"id": {"$in": group_ids}})]
+        print(friends, starred, groups)
         return render_template(
             "index.html", starred=starred, friends=friends, groups=groups
         )
@@ -54,7 +68,7 @@ def requests():
                         "username": "$username",
                     }
                 },
-                {"$match": {"username": {"$regex": form.name.data}}},
+                {"$match": {"username": {"$regex": form.name.data, "$options": "i"}}},
                 {"$sort": {"username": 1}},
                 {"$limit": 5},
             ]
@@ -69,7 +83,7 @@ def requests():
                         "username": "$username",
                     }
                 },
-                {"$match": {"name": {"$regex": form.name.data}}},
+                {"$match": {"name": {"$regex": form.name.data, "$options": "i"}}},
                 {"$sort": {"name": 1}},
                 {"$limit": 15},
             ]
