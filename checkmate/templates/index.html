@@ -169,19 +169,19 @@
                         <div class="card-body">
                             <div class="currentClassBox">
                                 <div class="ccSub">
-                                    Technical English
+                                    {{ user.period.title }}
                                 </div>
                                 <div class="ccTimeLoc">
                                     <div class="ccTime">
-                                        08:00-09:40
+                                       {{ user.period.start }}-{{ user.period.end }}
                                     </div>
                                     <div class="ccLoc">
-                                        SJT 720
+                                        {{ user.period.venue }}
                                     </div>
                                 </div>
                             </div>
                             <div class="nextClassBox mt-2">
-                                <div class="nextClassText">next: 10:00</div>
+                                <div class="nextClassText">next: {{ user.next_period_time }}</div>
                             </div>
                         </div>
                     </div>
@@ -412,7 +412,4 @@
             </div>
         <div class="emptyBottom"></div>
     </div>
-
-    
-    <script src="{{ url_for('static', filename='script.js') }}"></script>
 {% endblock %}

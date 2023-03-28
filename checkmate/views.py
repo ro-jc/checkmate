@@ -12,7 +12,7 @@ from flask import (
 from checkmate.db import get_db
 from checkmate.forms import UserSearch
 from checkmate.functions import get_user_status
-from datetime import date
+from datetime import datetime
 
 bp = Blueprint("views", __name__, url_prefix="/")
 
@@ -36,12 +36,16 @@ def index():
                         "name": 1,
                         "username": 1,
                         "timetable": {
-                            "$arrayElemAt": ["$timetable", date.today().isoweekday()]
+                            "$arrayElemAt": [
+                                "$timetable",
+                                {"$isoDayOfWeek": datetime.now()},
+                            ]
                         },
                     }
                 },
             ]
         )
+
         friends = [get_user_status(user) for user in friends]
         starred = [user for user in friends if user["username"] in starred_usernames]
         groups = [i for i in db.groups.find({"id": {"$in": group_ids}})]
@@ -87,16 +91,33 @@ def requests():
             "requests.html", form=form, results=results, show_requests=False
         )
 
-    results = db.users.find_one(
-        {"username": session["username"]}, {"_id": 0, "username": 1, "name": 1}
-    ).get("incoming_requests", [])
+    results = db.users.find_one({"username": session["username"]}).get(
+        "incoming_requests", []
+    )
+    results = [
+        db.users.find_one({"username": user}, {"username": 1, "name": 1, "_id": 0})
+        for user in results
+    ]
+
+    if accept_name := request.form.get("accept_username"):
+        db = get_db()
+        db.users.find_one_and_update(
+            {"username": session["username"]},
+            {"$pull": {"incoming_requests": accept_name}},
+        )
+        db.users.find_one_and_update(
+            {"username": session["username"]}, {"$addToSet": {"friends": accept_name}}
+        )
+        db.users.find_one_and_update(
+            {"username": accept_name}, {"$addToSet": {"friends": session["username"]}}
+        )
 
     if req_name := request.form.get("request_username"):
         if not req_name == session["username"]:
             db = get_db()
             db.users.find_one_and_update(
                 {"username": req_name},
-                {"$push": {"incoming_requests": session["username"]}},
+                {"$addToSet": {"incoming_requests": session["username"]}},
             )
 
     return render_template(

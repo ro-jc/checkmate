@@ -3,10 +3,10 @@
 {% block topBar %}
 <form method="post">
     {{ form.hidden_tag() }}
-    <p>
-        {{ form.name(size=50) }}<br>
-    </p>
-        {{ form.submit() }}
+    <div class="form-group row">
+        {{ form.name(size=50, class="form-control form-control-sm") }}
+        {{ form.submit(class="btn btn-primary my-1") }}
+    </div>
 </form>
 {% endblock %}
 
@@ -20,14 +20,15 @@
         @{{ user.username }}
     </div>
     <div class="col-md-2">
-        <!-- <form method="get">
-            <buttom type="submit" value="{{ user.username }}">Accept</buttom>
-        </form> -->
+        <form method="post">
+            <button type="submit" class="btn btn-success" name="accept_username" value="{{ user.username }}">Accept Request</button>
+        </form>
     </div>
 </div>
 <hr>
 {% endfor %}
 {% else %}
+<h3>Results</h3>
 {% for user in results %}
 <div class="row">
     <div class="col-md-10">
@@ -35,8 +36,8 @@
         @{{ user.username }}
     </div>
     <div class="col-md-2">
-        <form id="request" method="post">
-            <button type="submit" class="btn btn-success" name="request_username" value="{{ user.username }}">Send Request</buttom>
+        <form method="post">
+            <button type="submit" class="btn btn-success" name="request_username" value="{{ user.username }}">Send Request</button>
         </form>
     </div>
 </div>
