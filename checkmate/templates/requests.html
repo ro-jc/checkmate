@@ -11,8 +11,36 @@
 {% endblock %}
 
 {% block content %}
-{% for user in users %}
-    {{ user.name }}<br>
-    @{{ user.username }}<hr>
+{% if show_requests %}
+<h3>Incoming Requests</h3>
+{% for user in results %}
+<div class="row">
+    <div class="col-md-10">
+        {{ user.name }}<br>
+        @{{ user.username }}
+    </div>
+    <div class="col-md-2">
+        <!-- <form method="get">
+            <buttom type="submit" value="{{ user.username }}">Accept</buttom>
+        </form> -->
+    </div>
+</div>
+<hr>
 {% endfor %}
+{% else %}
+{% for user in results %}
+<div class="row">
+    <div class="col-md-10">
+        {{ user.name }}<br>
+        @{{ user.username }}
+    </div>
+    <div class="col-md-2">
+        <form id="request" method="post">
+            <button type="submit" class="btn btn-success" name="request_username" value="{{ user.username }}">Send Request</buttom>
+        </form>
+    </div>
+</div>
+<hr>
+{% endfor %}
+{% endif %}
 {% endblock %}
