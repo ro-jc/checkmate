@@ -11,8 +11,16 @@
 {% endblock %}
 
 {% block content %}
-{% for user in users %}
+{% if show_requests %}
+<h3>Incoming Requests</h3>
+{% for user in results %}
     {{ user.name }}<br>
     @{{ user.username }}<hr>
 {% endfor %}
+{% else %}
+{% for user in results %}
+    {{ user.name }}<br>
+    @{{ user.username }}<hr>
+{% endfor %}
+{% endif %}
 {% endblock %}

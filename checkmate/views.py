@@ -45,7 +45,7 @@ def index():
         friends = [get_user_status(user) for user in friends]
         starred = [user for user in friends if user["username"] in starred_usernames]
         groups = [i for i in db.groups.find({"id": {"$in": group_ids}})]
-        print(friends, starred, groups)
+
         return render_template(
             "index.html", starred=starred, friends=friends, groups=groups
         )
@@ -57,9 +57,9 @@ def index():
 @bp.route("/requests", methods=["GET", "POST"])
 def requests():
     form = UserSearch()
+    db = get_db()
     if form.validate_on_submit():
-        db = get_db()
-        username_results = db.users.aggregate(
+        results = db.users.aggregate(
             [
                 {
                     "$project": {
@@ -68,30 +68,28 @@ def requests():
                         "username": "$username",
                     }
                 },
-                {"$match": {"username": {"$regex": form.name.data, "$options": "i"}}},
-                {"$sort": {"username": 1}},
-                {"$limit": 5},
-            ]
-        )
-        username_results = [user for user in username_results]
-        name_results = db.users.aggregate(
-            [
                 {
-                    "$project": {
-                        "_id": 0,
-                        "name": "$name",
-                        "username": "$username",
+                    "$match": {
+                        "$or": [
+                            {"username": {"$regex": form.name.data, "$options": "i"}},
+                            {"name": {"$regex": form.name.data, "$options": "i"}},
+                        ]
                     }
                 },
-                {"$match": {"name": {"$regex": form.name.data, "$options": "i"}}},
                 {"$sort": {"name": 1}},
-                {"$limit": 15},
+                {"$limit": 20},
             ]
         )
-        name_results = [user for user in name_results]
+        results = [user for user in results]
 
         return render_template(
-            "requests.html", form=form, users=username_results + name_results
+            "requests.html", form=form, results=results, show_requests=False
         )
 
-    return render_template("requests.html", form=form)
+    results = db.users.find_one(
+        {"username": session["username"]}, {"_id": 0, "username": 1, "name": 1}
+    ).get("requests", [])
+
+    return render_template(
+        "requests.html", form=form, results=results, show_requests=True
+    )
