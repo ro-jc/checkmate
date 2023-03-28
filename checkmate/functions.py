@@ -8,7 +8,6 @@ def get_user_status(user):
     free = True
     done = False
     for i, period in enumerate(timetable):
-        print(period)
         period["start"] = time(*period["timings"][:2])
         period["end"] = time(*period["timings"][2:])
         if period["start"] > now:
@@ -25,11 +24,10 @@ def get_user_status(user):
         user["period"] = period
         user["period"]["start"] = period["start"].isoformat()[:-3]
         user["period"]["end"] = period["end"].isoformat()[:-3]
-        print(i, len(timetable))
+
         if i <= len(timetable) - 2:
-            user[
-                "next_period_time"
-            ] = f"{timetable[i + 1]['timings'][0]}:{timetable[i + 1]['timings'][1]}"
+            timings = timetable[i + 1]["timings"]
+            user["next_period_time"] = "%02d:%02d" % (timings[0], timings[1])
     user["free"] = free
 
     return user
