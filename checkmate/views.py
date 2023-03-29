@@ -45,7 +45,7 @@ def index():
                 },
             ]
         )
-
+        
         friends = [get_user_status(user) for user in friends]
         starred = [user for user in friends if user["username"] in starred_usernames]
         groups = [i for i in db.groups.find({"id": {"$in": group_ids}})]
