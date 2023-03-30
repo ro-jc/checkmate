@@ -161,7 +161,7 @@ body::-webkit-scrollbar {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background: yellow;
+    background: rgb(190, 0, 82);
 }
 
 .groupImageBox {
@@ -183,6 +183,7 @@ body::-webkit-scrollbar {
     /* border: 0.5px solid white; */
     max-width: 90vw;
     min-height: 13vh;
+    border-radius: 50px;
 }
 
 .groupCard {
