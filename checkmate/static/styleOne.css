@@ -404,36 +404,35 @@ body::-webkit-scrollbar {
     top: 0;
 }
 .loginForm{
-    width: 100%;
+    width: 100vw;
     height: 40vh;
-    padding: 1rem;
+    /* padding: 1rem; */
     /* background: rgb(66, 66, 66); */
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    align-items: center;
+    /* display: flex; */
+    /* flex-direction: column; */
+    /* justify-content: center; */
+    /* align-items: center; */
+    position: absolute;
+
 }
 
-.loginFormEntry{
-    width: 100%;
-    align-items: center;
-    text-align: center;
-    border: 5px solid black;
-    border-radius: 5rem;
-    display: flex;
-    font-size: 2rem;
-    /* text-align: center; */
-    /* justify-content: center; */
-    margin: 0rem;
-}
+
 .loginClick{
-    background: rgb(35, 35, 35);
+    background: rgb(190, 0, 82);
     font-size: 2rem;
     bottom: none;
-    border-radius: 5rem;
+    border-top-right-radius: 50px;
+    border-bottom-right-radius: 50px;
+    position: absolute;
+    left: 0;
+    border: none;
     color: white;
     padding: 5px 30px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    width: 50vw;
 }
+
 .logoBar{
     position: absolute;
     top: 0;
@@ -475,7 +474,7 @@ form label {
 }
 .registerForm input {
     text-align: center;
-    width: 80vw;
+    width: 90vw;
 }
 .registerForm textarea {
     width: 80vw;
@@ -501,7 +500,7 @@ form label {
     font-weight: bold;
 }
 .enterUsername{
-    font-size: 1.5rem ;
+    font-size: 2rem ;
     height: calc(100vh - 13vh);
     /* background: red; */
     display: flex;
@@ -512,7 +511,7 @@ form label {
 }
 
 .enterMail{
-    font-size: 1.5rem;
+    font-size: 2rem;
     height: 100vh;
     display: flex;
     justify-content: center;
@@ -521,7 +520,7 @@ form label {
     position: relative;
 }
 .enterPassword{
-    font-size: 1.5rem;
+    font-size: 2rem;
     height: 100vh;
     /* background: red; */
     display: flex;
@@ -531,7 +530,7 @@ form label {
     position: relative;
 }
 .enterRePassword{
-    font-size: 1.5rem;
+    font-size: 2rem;
     height: 100vh;
     display: flex;
     justify-content: center;
@@ -540,7 +539,7 @@ form label {
     position: relative;
 }
 .enterName{
-    font-size: 1.5rem;
+    font-size: 2rem;
     height: 100vh;
     /* background: red; */
     display: flex;
@@ -550,7 +549,7 @@ form label {
     flex-direction: column;
 }
 .enterTT{
-    font-size: 1.5rem;
+    font-size: 2rem;
     height: 100vh;
     display: flex;
     justify-content: center;
@@ -621,6 +620,8 @@ form label {
 }
 .inputBox{
     border-radius: 50px;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
     border: none;
     background: #ffffff;
 }
@@ -640,4 +641,26 @@ form label {
     font-weight: bold;
     /* letter-spacing: 3px; */
     /* right: 0; */
+}
+.loginForm div{
+    /* position: absolute; */
+    /* right: 0; */
+    display: flex;
+    width: 100vw;
+    justify-content: end;
+    align-items: center;
+}
+
+.loginEntry{
+    background: white;
+    width: 85%;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    font-size: 2rem;
+    border-radius: 50px;
+    border: none;
+    margin: 10px 0;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
 }
