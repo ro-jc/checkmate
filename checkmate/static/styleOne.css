@@ -132,7 +132,7 @@ body::-webkit-scrollbar {
 
 .cardAvatar {
     font-size: 4rem;
-    color: #e8d6cf55;
+    color: #00000055;
 }
 
 .cardImage {
@@ -145,6 +145,7 @@ body::-webkit-scrollbar {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    background: yellow;
 }
 
 .groupImageBox {
