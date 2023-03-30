@@ -1,36 +1,38 @@
 {% extends 'base.html' %}
 
-<div class="container-fluid topBar fixed-top">
-    <div class="row">
-    
-<form method="post">
-    {{ form.hidden_tag() }}
-    <div class="form-group row">
-        {{ form.name(size=50, class="form-control form-control-sm") }}
-        {{ form.submit(class="btn btn-primary my-1") }}
-    </div>
-</form>
-</div>
-</div>
-
 
 {% block content %}
-{% if show_requests %}
-<h3>Incoming Requests</h3>
-{% for user in results %}
-<div class="row">
-    <div class="col-md-10">
-        {{ user.name }}<br>
-        @{{ user.username }}
-    </div>
-    <div class="col-md-2">
+<div class="container-fluid topBar fixed-top">
+    <div class="row">
         <form method="post">
-            <button type="submit" class="btn btn-success" name="accept_username" value="{{ user.username }}">Accept Request</button>
+            {{ form.hidden_tag() }}
+            <div class="form-group row">
+                {{ form.name(size=50, class="form-control form-control-sm") }}
+                {{ form.submit(class="btn btn-primary my-1") }}
+            </div>
         </form>
     </div>
 </div>
-<hr>
-{% endfor %}
+
+<div>
+    {% if show_requests %}
+    <h3>Incoming Requests</h3>
+    {% for user in results %}
+    <div class="row">
+        <div class="col-md-10">
+            {{ user.name }}<br>
+            @{{ user.username }}
+        </div>
+        <div class="col-md-2">
+            <form method="post">
+                <button type="submit" class="btn btn-success" name="accept_username" value="{{ user.username }}">Accept
+                    Request</button>
+            </form>
+        </div>
+    </div>
+    <hr>
+    {% endfor %}
+</div>
 {% else %}
 <h3>Results</h3>
 {% for user in results %}
@@ -41,7 +43,8 @@
     </div>
     <div class="col-md-2">
         <form method="post">
-            <button type="submit" class="btn btn-success" name="request_username" value="{{ user.username }}">Send Request</button>
+            <button type="submit" class="btn btn-success" name="request_username" value="{{ user.username }}">Send
+                Request</button>
         </form>
     </div>
 </div>
