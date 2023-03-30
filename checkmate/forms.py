@@ -36,7 +36,7 @@ class SignUpForm(FlaskForm):
     name = StringField("Name", validators=[DataRequired()])
     timetable = TextAreaField("Timetable", validators=[DataRequired()])
     bio = StringField("Bio")
-    submit = SubmitField("Sign In")
+    submit = SubmitField("Sign Up")
 
     def validate_username(self, username):
         db = get_db()
@@ -59,4 +59,4 @@ class SignUpForm(FlaskForm):
 
 class UserSearch(FlaskForm):
     name = StringField("Name")
-    submit = SubmitField("Submit")
+    submit = SubmitField("search")
