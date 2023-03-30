@@ -27,16 +27,16 @@ class LoginForm(FlaskForm):
 
 
 class SignUpForm(FlaskForm):
-    username = StringField("Username", validators=[DataRequired()])
-    email = StringField("Email", validators=[Email()])
-    password = PasswordField("Password", validators=[DataRequired()])
+    username = StringField("", validators=[DataRequired()])
+    email = StringField("", validators=[Email()])
+    password = PasswordField("", validators=[DataRequired()])
     password2 = PasswordField(
-        "Re-Enter Password", validators=[DataRequired(), EqualTo("password")]
+        "", validators=[DataRequired(), EqualTo("password")]
     )
-    name = StringField("Name", validators=[DataRequired()])
-    timetable = TextAreaField("Timetable", validators=[DataRequired()])
+    name = StringField("", validators=[DataRequired()])
+    timetable = TextAreaField("", validators=[DataRequired()])
     bio = StringField("Bio")
-    submit = SubmitField("Sign Up")
+    submit = SubmitField("REGISTER")
 
     def validate_username(self, username):
         db = get_db()

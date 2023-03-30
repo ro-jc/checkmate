@@ -5,14 +5,21 @@
 }
 
 body{
-    background: #000000;
+    background: #1c1c1c;
+    background:rgb(22, 22, 22);
     scrollbar-width: none;
     -ms-overflow-style: none;
-    
+    -webkit-user-select: none;
+    /* Safari */
+    -ms-user-select: none;
+    /* IE 10 and IE 11 */
+    user-select: none;
+    /* Standard syntax */
 }
 body::-webkit-scrollbar {
     display: none;
 }
+
 .reqBar{
     height: 7.5vh;
     width: 100vw;
@@ -331,12 +338,12 @@ body::-webkit-scrollbar {
     position: fixed;
     width: 100vw;
     bottom: 2vh;
-    background: #000;
+    /* background: #000; */
 }
 .signupBtn, .loginBtn{
     text-decoration: none;
     font-size: 1.8rem;
-    border: 5px solid grey;
+    border: 5px solid rgb(190, 0, 82);
     padding: 0.2rem 0rem;
     width: 36vw;
     display: flex;
@@ -349,7 +356,7 @@ body::-webkit-scrollbar {
     font-weight: bolder;
 }
 .signupBtn{
-    background: grey;
+    background: rgb(190, 0, 82);
     color: #000;
     font-weight: bolder;
 }
@@ -440,7 +447,197 @@ body::-webkit-scrollbar {
     font-size: 1.5rem;
     letter-spacing: 10px;
 }
+.loginLogoBar {
+    position: fixed;
+    background: #000;
+    top: 0;
+    width: calc(100vw - 26px);
+    border-radius: 10px;
+    height: 10vh;
+    margin: 13px;
+    display: flex;
+    justify-content: center;
+    /* background: rgb(48, 48, 48); */
+    align-items: center;
+    color: white;
+    font-size: 1.5rem;
+    letter-spacing: 10px;
+    z-index: 99999;
+}
 .homeBtn{
     color: white;
     font-size: 1.4rem;
+}
+
+
+form label {
+    background: #000;
+}
+.registerForm input {
+    text-align: center;
+    width: 80vw;
+}
+.registerForm textarea {
+    width: 80vw;
+    height: 15vh;
+    border-radius: 25px;
+    border: none;
+}
+
+
+.entryForm{
+    width: 80vw;
+    position: absolute;
+    top: 20vh;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    /* align-items: center; */
+}
+.enterInfo{
+    color: rgb(245, 167, 214);
+    padding: 1rem;
+    font-size: 3rem;
+    font-weight: bold;
+}
+.enterUsername{
+    font-size: 1.5rem ;
+    height: calc(100vh - 13vh);
+    /* background: red; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: relative;
+}
+
+.enterMail{
+    font-size: 1.5rem;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: relative;
+}
+.enterPassword{
+    font-size: 1.5rem;
+    height: 100vh;
+    /* background: red; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: relative;
+}
+.enterRePassword{
+    font-size: 1.5rem;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: relative;
+}
+.enterName{
+    font-size: 1.5rem;
+    height: 100vh;
+    /* background: red; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    flex-direction: column;
+}
+.enterTT{
+    font-size: 1.5rem;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: relative;
+    /* background: blue; */
+}
+.enterSubmit{
+    /* font-size: 1.5rem;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative; */
+    width: 100%;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    /* font-size: 1rem; */
+    /* font-weight: bold; */
+}
+
+
+.swipeDown{
+    font-size: 4rem;
+    position: absolute;
+    bottom: 10vh;
+    animation: mover 0.5s infinite alternate;
+    color: white;
+}
+.goPrevious {
+    font-size: 1.5rem;
+    position: absolute;
+    top: 13.5vh;
+    right: 2rem;
+    color: darkgrey;
+}
+
+@-webkit-keyframes mover {
+    0% {
+        transform: translateY(0);
+    }
+
+    100% {
+        transform: translateY(-15px);
+    }
+}
+
+@keyframes mover {
+    0% {
+        transform: translateY(0);
+    }
+
+    100% {
+        transform: translateY(-15px);
+    }
+}
+
+.registerBtn{
+    margin: 20px 0 0 0;
+    /* width: calc(80vw - 20px); */
+    background: rgb(190, 0, 82);
+    border: none;
+    color: white;
+    padding: 5px;
+    border-radius: 50px;
+}
+.inputBox{
+    border-radius: 50px;
+    border: none;
+    background: #ffffff;
+}
+.topExt{
+    position: fixed;
+    top: 0;
+    width: 100vw;
+    height: 13vh;
+    background: rgb(22, 22, 22);
+    z-index: 9999999;
+}
+#submit{
+    /* width: 45vw; */
+    /* position: absolute; */
+    margin-top: 30px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    /* letter-spacing: 3px; */
+    /* right: 0; */
 }

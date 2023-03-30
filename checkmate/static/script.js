@@ -32,3 +32,12 @@ function closeNav() {
     document.getElementById("mySidenav").style.width = "0";
     document.getElementById("main").style.marginRight = "0";
 }
+
+
+vhpx = document.documentElement.clientHeight
+function scrollDown() {
+    window.scrollBy(0, vhpx);
+}
+function scrollUp() {
+    window.scrollBy(0, -vhpx);
+}
