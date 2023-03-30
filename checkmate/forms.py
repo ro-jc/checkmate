@@ -11,7 +11,7 @@ from scripts.timetable import create_timetable
 class LoginForm(FlaskForm):
     username = StringField("Username", validators=[DataRequired()])
     password = PasswordField("Password", validators=[DataRequired()])
-    submit = SubmitField("Sign In")
+    submit = SubmitField("Login")
 
     def validate_username(self, username):
         db = get_db()
