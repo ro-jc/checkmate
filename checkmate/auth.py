@@ -46,7 +46,7 @@ def signup():
                 "username": form.username.data,
                 "email": form.email.data,
                 "password_hash": generate_password_hash(form.password.data),
-                "name": form.name.data,
+                "name": form.name.data.title(),
                 "timetable": create_timetable(form.timetable.data),
                 "bio": form.bio.data,
             }
