@@ -1,4 +1,4 @@
-from datetime import time, datetime
+from datetime import datetime
 
 
 def get_user_status(user):
@@ -22,7 +22,6 @@ def get_user_status(user):
 
         if i <= len(timetable) - 2:
             user["next_period_time"] = timetable[i + 1]["start"].strftime("%H:%M")
-            timings = timetable[i + 1]["timings"]
 
     user["free"] = free
     del user["timetable"]
