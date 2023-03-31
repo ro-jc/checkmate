@@ -139,7 +139,9 @@
             </div>
             <div class="col-9">
                 <div class="card-body">
+                    {% if 'period' in user %}
                     <div class="currentClassBox">
+
                         <div class="ccSub">
                             {{ user['period']['title'] }}
                         </div>
@@ -155,6 +157,7 @@
                     <div class="nextClassBox mt-2">
                         <div class="nextClassText">next: {{ user['next_period_time'] }}</div>
                     </div>
+                    {% endif %}
                 </div>
             </div>
         </div>
@@ -173,6 +176,7 @@
             </div>
             <div class="col-9">
                 <div class="card-body">
+                    {% if 'period' in user %}
                     <div class="currentClassBox">
                         <div class="ccSub">
                             {{ user['period']['title'] }}
@@ -189,6 +193,7 @@
                     <div class="nextClassBox mt-2">
                         <div class="nextClassText">next: {{ user['next_period_time'] }}</div>
                     </div>
+                    {% endif %}
                 </div>
             </div>
         </div>
