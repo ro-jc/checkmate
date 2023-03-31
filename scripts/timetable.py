@@ -84,16 +84,16 @@ def create_timetable(inp):
 
     timetable = [sorted(day, key=lambda x: x["start"]) for day in timetable]
 
-    for day in timetable:
-        for period in day:
-            period["timings"] = [
-                period["start"].hour,
-                period["start"].minute,
-                period["end"].hour,
-                period["end"].minute,
-            ]
-            del period["start"]
-            del period["end"]
+    # for day in timetable:
+    #     for period in day:
+    #         period["timings"] = [
+    #             period["start"].hour,
+    #             period["start"].minute,
+    #             period["end"].hour,
+    #             period["end"].minute,
+    #         ]
+    #         del period["start"]
+    #         del period["end"]
 
     return timetable
 
