@@ -1,10 +1,10 @@
-from datetime import datetime
+import datetime
 
 
 def get_user_status(user):
     user = user.copy()
     timetable = user["timetable"]
-    now = datetime.now().replace(2022, 9, 19)
+    now = datetime.datetime.now().replace(2022, 9, 19)
     free = True
     done = False
     for i, period in enumerate(timetable):
