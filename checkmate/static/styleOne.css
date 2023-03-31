@@ -233,6 +233,7 @@ body::-webkit-scrollbar {
     align-items: center;
     letter-spacing: 1.2px;
     border-radius: 8px;
+    font-size: 1.1rem;
 }
 
 .ccTimeLoc {
@@ -251,6 +252,7 @@ body::-webkit-scrollbar {
     align-items: center;
     letter-spacing: 1.2px;
     border-radius: 50px;
+    font-size: 1.2rem;
     font-weight: bold;
 }
 .nextClassBox {
