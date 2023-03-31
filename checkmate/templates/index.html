@@ -141,19 +141,19 @@
                 <div class="card-body">
                     <div class="currentClassBox">
                         <div class="ccSub">
-                            {{ user.period.title }}
+                            {{ user['period']['title'] }}
                         </div>
                         <div class="ccTimeLoc">
                             <div class="ccTime">
-                                {{ user.period.start }}-{{ user.period.end }}
+                                {{ user['period']['start'] }}-{{ user['period']['end'] }}
                             </div>
                             <div class="ccLoc">
-                                {{ user.period.venue }}
+                                {{ user['period']['venue'] }}
                             </div>
                         </div>
                     </div>
                     <div class="nextClassBox mt-2">
-                        <div class="nextClassText">next: {{ user.next_period_time }}</div>
+                        <div class="nextClassText">next: {{ user['next_period_time'] }}</div>
                     </div>
                 </div>
             </div>
@@ -175,19 +175,19 @@
                 <div class="card-body">
                     <div class="currentClassBox">
                         <div class="ccSub">
-                            {{ user.period.title }}
+                            {{ user['period']['title'] }}
                         </div>
                         <div class="ccTimeLoc">
                             <div class="ccTime">
-                                {{ user.period.start }}-{{ user.period.end }}
+                                {{ user['period']['start'] }}-{{ user['period']['end'] }}
                             </div>
                             <div class="ccLoc">
-                                {{ user.period.venue }}
+                                {{ user['period']['venue'] }}
                             </div>
                         </div>
                     </div>
                     <div class="nextClassBox mt-2">
-                        <div class="nextClassText">next: {{ user.next_period_time }}</div>
+                        <div class="nextClassText">next: {{ user['next_period_time'] }}</div>
                     </div>
                 </div>
             </div>
