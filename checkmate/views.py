@@ -12,7 +12,7 @@ from flask import (
 from checkmate.db import get_db
 from checkmate.forms import UserSearch
 from checkmate.functions import get_user_status
-from datetime import datetime
+import datetime
 
 bp = Blueprint("views", __name__, url_prefix="/")
 
@@ -38,7 +38,12 @@ def index():
                         "timetable": {
                             "$arrayElemAt": [
                                 "$timetable",
-                                {"$subtract": [{"$isoDayOfWeek": datetime.now()}, 1]},
+                                {
+                                    "$subtract": [
+                                        {"$isoDayOfWeek": datetime.datetime.now()},
+                                        1,
+                                    ]
+                                },
                             ]
                         },
                     }
