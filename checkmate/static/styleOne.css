@@ -145,15 +145,26 @@ body::-webkit-scrollbar {
 
 
 
-
+.card{
+    margin: 0;
+}
 .cardAvatar {
-    font-size: 4rem;
-    color: #00000055;
+    font-size: 15vh;
+    /* height: 100%; */
+    color: white;
 }
 
 .cardImage {
     font-size: 4rem;
     color: #e8d6cf55;
+}
+.cardBody{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: start;
+    padding: 5px 0;
 }
 
 .avatarBox {
@@ -161,7 +172,11 @@ body::-webkit-scrollbar {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background: rgb(190, 0, 82);
+    height: 18.5vh;
+    /* background: #000; */
+    position: relative;
+    /* right: 5vw; */
+    /* background: rgb(190, 0, 82); */
 }
 
 .groupImageBox {
@@ -177,20 +192,25 @@ body::-webkit-scrollbar {
     align-items: center;
     color: white;
 }
-
+.avatarImageBox{
+    position: absolute;
+    right: 1.5vh;
+}
 .personCard {
     background: #2b2b2b;
     /* border: 0.5px solid white; */
-    max-width: 90vw;
-    min-height: 13vh;
-    border-radius: 50px;
+    width: 90vw;
+    height: 18.5vh;
+    border-radius: 15px;
+    border-top-right-radius: 25vh;/* border-bottom-right-radius: 50%; */
+    border-bottom-right-radius: 25.5vh;    /* border-bottom-right-radius: 50%; */
+    position: relative;
 }
-
 .groupCard {
     background: #2b2b2b;
     /* border: 0.5px solid white; */
-    max-width: 90vw;
-    min-height: 13vh;
+    width: 90vw;
+    height: 13vh;
 }
 
 
@@ -200,7 +220,10 @@ body::-webkit-scrollbar {
     justify-content: center;
     align-items: center;
 }
-
+.cardInfo{
+    /* position: absolute; */
+    /* left: -5vw; */
+}
 .ccSub,
 .ccLoc,
 .ccTime {
@@ -217,7 +240,19 @@ body::-webkit-scrollbar {
     justify-content: space-around;
     align-items: center;
 }
-
+.ccPname{
+    color: white;
+    display: flex;
+    /* width: 100%; */
+    background: rgb(190, 0, 82);
+    padding: 0 20px 0 20px;
+    /* padding: 0 10px 0 10px; */
+    justify-content: center;
+    align-items: center;
+    letter-spacing: 1.2px;
+    border-radius: 50px;
+    font-weight: bold;
+}
 .nextClassBox {
     color: white;
     display: flex;

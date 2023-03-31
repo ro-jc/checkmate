@@ -50,8 +50,8 @@
                         <i class="fa-solid fa-users cardImage"></i>
                     </div>
                 </div>
-                <div class="col-9">
-                    <div class="card-body">
+                <div class="col-9 cardInfo">
+                    <div class="cardBody">
                         <div class="groupNameBox">
                             <div class="groupName">
                                 Thengakola
@@ -76,8 +76,8 @@
                         <i class="fa-solid fa-users cardImage"></i>
                     </div>
                 </div>
-                <div class="col-9">
-                    <div class="card-body placeholder-glow">
+                <div class="col-9 cardInfo">
+                    <div class="cardBody placeholder-glow">
                         <div class="groupNameBox placeholder-glow">
                             <div class="groupName placeholder">
                                 Thengakola
@@ -104,8 +104,8 @@
                         <i class="fa-solid fa-users cardImage"></i>
                     </div>
                 </div>
-                <div class="col-9">
-                    <div class="card-body placeholder-glow">
+                <div class="col-9 cardInfo">
+                    <div class="cardBody placeholder-glow">
                         <div class="groupNameBox placeholder-glow">
                             <div class="groupName placeholder">
                                 Thengakola
@@ -129,7 +129,7 @@
 
 <div id="friendPage">
     {% for user in starred %}
-    <div class="card personCard container m-auto px-3 mt-2">
+    <div class="card personCard container m-auto">
         <div class="row no-gutters">
             <div class="col-3 avatarBox">
                 <div class="avatarImageBox">
@@ -137,8 +137,8 @@
                     <i class="bi bi-person-circle cardAvatar"></i>
                 </div>
             </div>
-            <div class="col-9">
-                <div class="card-body">
+            <div class="col-9 cardInfo">
+                <div class="cardBody">
                     {% if 'period' in user %}
                     <div class="currentClassBox">
 
@@ -167,17 +167,12 @@
     {% for user in friends %}
     <div class="card personCard container m-auto px-3 mt-2">
         <div class="row no-gutters">
-            <div class="col-3 avatarBox">
-
-                <div class="avatarImageBox">
-                    <!-- <img src="..." class="card-img" alt="..."> -->
-                    <i class="bi bi-person-circle cardAvatar"></i>
-                </div>
-            </div>
-            <div class="col-9">
-                <div class="card-body">
+            <div class="col-9 cardInfo">
+                <div class="cardBody">
                     {% if 'period' in user %}
-                    <div class="currentClassBox">
+                    <div class="ccPname">
+                            {{ user['name'] }}
+                        </div>
                         <div class="ccSub">
                             {{ user['period']['title'] }}
                         </div>
@@ -189,11 +184,18 @@
                                 {{ user['period']['venue'] }}
                             </div>
                         </div>
-                    </div>
-                    <div class="nextClassBox mt-2">
+                    
+                    <div class="nextClassBox">
                         <div class="nextClassText">next: {{ user['next_period_time'] }}</div>
                     </div>
                     {% endif %}
+                </div>
+            </div>
+            <div class="col-3 avatarBox">
+
+                <div class="avatarImageBox">
+                    <!-- <img src="..." class="card-img" alt="..."> -->
+                    <i class="bi bi-person-circle cardAvatar"></i>
                 </div>
             </div>
         </div>
@@ -201,31 +203,35 @@
     {% endfor %}
     <div class="card personCard container m-auto px-3 mt-2" aria-hidden="true">
         <div class="row no-gutters">
+            
+            <div class="col-9 cardInfo">
+                <div class="cardBody">
+                    <!-- <div class="currentClassBox placeholder-glow"> -->
+                        <div class="ccPname">
+                            NAVEEN
+                        </div>
+                        <div class="ccSub">
+                            Technical English 
+                        </div>
+                        <!-- <div class="ccTimeLoc"> -->
+                            <div class="ccTime mt-1">
+                                00:00-00:00
+                            </div>
+                            <div class="ccLoc mt-1">
+                                00:00-00:00
+                            </div>
+                        <!-- </div> -->
+                    <!-- </div> -->
+                    <div class="nextClassBox ">
+                        <div class="nextClassText">next: 10:00</div>
+                    </div>
+                </div>
+            </div>
             <div class="col-3 avatarBox">
-
+            
                 <div class="avatarImageBox">
                     <!-- <img src="..." class="card-img" alt="..."> -->
                     <i class="bi bi-person-circle cardAvatar"></i>
-                </div>
-            </div>
-            <div class="col-9">
-                <div class="card-body">
-                    <div class="currentClassBox placeholder-glow">
-                        <div class="ccSub placeholder">
-                            Technical English
-                        </div>
-                        <div class="ccTimeLoc">
-                            <div class="ccTime mt-1 placeholder">
-                                00:00-00:00
-                            </div>
-                            <div class="ccLoc mt-1 placeholder">
-                                00:00-00:00
-                            </div>
-                        </div>
-                    </div>
-                    <div class="nextClassBox placeholder-glow mt-2">
-                        <div class="nextClassText placeholder">next: 10:00</div>
-                    </div>
                 </div>
             </div>
         </div>
@@ -233,31 +239,35 @@
 
     <div class="card personCard container m-auto px-3 mt-2" aria-hidden="true">
         <div class="row no-gutters">
+    
+            <div class="col-9 cardInfo">
+                <div class="cardBody">
+                    <!-- <div class="currentClassBox placeholder-glow"> -->
+                    <div class="ccPname">
+                        JUSTUS
+                    </div>
+                    <div class="ccSub">
+                        Technical English 
+                    </div>
+                    <!-- <div class="ccTimeLoc"> -->
+                    <div class="ccTime mt-1">
+                        00:00-00:00
+                    </div>
+                    <div class="ccLoc mt-1">
+                        00:00-00:00
+                    </div>
+                    <!-- </div> -->
+                    <!-- </div> -->
+                    <div class="nextClassBox mt-2">
+                        <div class="nextClassText">next: 10:00</div>
+                    </div>
+                </div>
+            </div>
             <div class="col-3 avatarBox">
-
+    
                 <div class="avatarImageBox">
                     <!-- <img src="..." class="card-img" alt="..."> -->
                     <i class="bi bi-person-circle cardAvatar"></i>
-                </div>
-            </div>
-            <div class="col-9">
-                <div class="card-body">
-                    <div class="currentClassBox placeholder-glow">
-                        <div class="ccSub placeholder">
-                            Technical English
-                        </div>
-                        <div class="ccTimeLoc">
-                            <div class="ccTime mt-1 placeholder">
-                                00:00-00:00
-                            </div>
-                            <div class="ccLoc mt-1 placeholder">
-                                00:00-00:00
-                            </div>
-                        </div>
-                    </div>
-                    <div class="nextClassBox placeholder-glow mt-2">
-                        <div class="nextClassText placeholder">next: 10:00</div>
-                    </div>
                 </div>
             </div>
         </div>
@@ -265,31 +275,70 @@
 
     <div class="card personCard container m-auto px-3 mt-2" aria-hidden="true">
         <div class="row no-gutters">
+    
+            <div class="col-9 cardInfo">
+                <div class="cardBody">
+                    <!-- <div class="currentClassBox placeholder-glow"> -->
+                    <div class="ccPname">
+                        ROHAN
+                    </div>
+                    <div class="ccSub">
+                        Technical English 
+                    </div>
+                    <!-- <div class="ccTimeLoc"> -->
+                    <div class="ccTime mt-1">
+                        00:00-00:00
+                    </div>
+                    <div class="ccLoc mt-1">
+                        00:00-00:00
+                    </div>
+                    <!-- </div> -->
+                    <!-- </div> -->
+                    <div class="nextClassBox mt-2">
+                        <div class="nextClassText">next: 10:00</div>
+                    </div>
+                </div>
+            </div>
             <div class="col-3 avatarBox">
-
+    
                 <div class="avatarImageBox">
                     <!-- <img src="..." class="card-img" alt="..."> -->
                     <i class="bi bi-person-circle cardAvatar"></i>
                 </div>
             </div>
-            <div class="col-9">
-                <div class="card-body">
-                    <div class="currentClassBox placeholder-glow">
-                        <div class="ccSub placeholder">
-                            Technical English
-                        </div>
-                        <div class="ccTimeLoc">
-                            <div class="ccTime mt-1 placeholder">
-                                00:00-00:00
-                            </div>
-                            <div class="ccLoc mt-1 placeholder">
-                                00:00-00:00
-                            </div>
-                        </div>
+        </div>
+    </div>
+    <div class="card personCard container m-auto px-3 mt-2" aria-hidden="true">
+        <div class="row no-gutters">
+    
+            <div class="col-9 cardInfo">
+                <div class="cardBody">
+                    <!-- <div class="currentClassBox placeholder-glow"> -->
+                    <div class="ccPname">
+                        GEORGY
                     </div>
-                    <div class="nextClassBox placeholder-glow mt-2">
-                        <div class="nextClassText placeholder">next: 10:00</div>
+                    <div class="ccSub">
+                        Technical English 
                     </div>
+                    <!-- <div class="ccTimeLoc"> -->
+                    <div class="ccTime mt-1">
+                        00:00-00:00
+                    </div>
+                    <div class="ccLoc mt-1">
+                        00:00-00:00
+                    </div>
+                    <!-- </div> -->
+                    <!-- </div> -->
+                    <div class="nextClassBox mt-2">
+                        <div class="nextClassText">next: 10:00</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-3 avatarBox">
+    
+                <div class="avatarImageBox">
+                    <!-- <img src="..." class="card-img" alt="..."> -->
+                    <i class="bi bi-person-circle cardAvatar"></i>
                 </div>
             </div>
         </div>
@@ -297,31 +346,35 @@
 
     <div class="card personCard container m-auto px-3 mt-2" aria-hidden="true">
         <div class="row no-gutters">
+    
+            <div class="col-9 cardInfo">
+                <div class="cardBody">
+                    <!-- <div class="currentClassBox placeholder-glow"> -->
+                    <div class="ccPname">
+                        ATHARYAN
+                    </div>
+                    <div class="ccSub">
+                        Technical English 
+                    </div>
+                    <!-- <div class="ccTimeLoc"> -->
+                    <div class="ccTime mt-1">
+                        00:00-00:00
+                    </div>
+                    <div class="ccLoc mt-1">
+                        00:00-00:00
+                    </div>
+                    <!-- </div> -->
+                    <!-- </div> -->
+                    <div class="nextClassBox mt-2">
+                        <div class="nextClassText">next: 10:00</div>
+                    </div>
+                </div>
+            </div>
             <div class="col-3 avatarBox">
-
+    
                 <div class="avatarImageBox">
                     <!-- <img src="..." class="card-img" alt="..."> -->
                     <i class="bi bi-person-circle cardAvatar"></i>
-                </div>
-            </div>
-            <div class="col-9">
-                <div class="card-body">
-                    <div class="currentClassBox placeholder-glow">
-                        <div class="ccSub placeholder">
-                            Technical English
-                        </div>
-                        <div class="ccTimeLoc">
-                            <div class="ccTime mt-1 placeholder">
-                                00:00-00:00
-                            </div>
-                            <div class="ccLoc mt-1 placeholder">
-                                00:00-00:00
-                            </div>
-                        </div>
-                    </div>
-                    <div class="nextClassBox placeholder-glow mt-2">
-                        <div class="nextClassText placeholder">next: 10:00</div>
-                    </div>
                 </div>
             </div>
         </div>
@@ -329,98 +382,42 @@
 
     <div class="card personCard container m-auto px-3 mt-2" aria-hidden="true">
         <div class="row no-gutters">
+    
+            <div class="col-9 cardInfo">
+                <div class="cardBody">
+                    <!-- <div class="currentClassBox placeholder-glow"> -->
+                    <div class="ccPname">
+                        KRISHNA
+                    </div>
+                    <div class="ccSub">
+                        Technical English 
+                    </div>
+                    <!-- <div class="ccTimeLoc"> -->
+                    <div class="ccTime mt-1">
+                        00:00-00:00
+                    </div>
+                    <div class="ccLoc mt-1">
+                        00:00-00:00
+                    </div>
+                    <!-- </div> -->
+                    <!-- </div> -->
+                    <div class="nextClassBox mt-2">
+                        <div class="nextClassText">next: 10:00</div>
+                    </div>
+                </div>
+            </div>
             <div class="col-3 avatarBox">
-
+    
                 <div class="avatarImageBox">
                     <!-- <img src="..." class="card-img" alt="..."> -->
                     <i class="bi bi-person-circle cardAvatar"></i>
                 </div>
             </div>
-            <div class="col-9">
-                <div class="card-body">
-                    <div class="currentClassBox placeholder-glow">
-                        <div class="ccSub placeholder">
-                            Technical English
-                        </div>
-                        <div class="ccTimeLoc">
-                            <div class="ccTime mt-1 placeholder">
-                                00:00-00:00
-                            </div>
-                            <div class="ccLoc mt-1 placeholder">
-                                00:00-00:00
-                            </div>
-                        </div>
-                    </div>
-                    <div class="nextClassBox placeholder-glow mt-2">
-                        <div class="nextClassText placeholder">next: 10:00</div>
-                    </div>
-                </div>
-            </div>
         </div>
     </div>
 
-    <div class="card personCard container m-auto px-3 mt-2" aria-hidden="true">
-        <div class="row no-gutters">
-            <div class="col-3 avatarBox">
-
-                <div class="avatarImageBox">
-                    <!-- <img src="..." class="card-img" alt="..."> -->
-                    <i class="bi bi-person-circle cardAvatar"></i>
-                </div>
-            </div>
-            <div class="col-9">
-                <div class="card-body">
-                    <div class="currentClassBox placeholder-glow">
-                        <div class="ccSub placeholder">
-                            Technical English
-                        </div>
-                        <div class="ccTimeLoc">
-                            <div class="ccTime mt-1 placeholder">
-                                00:00-00:00
-                            </div>
-                            <div class="ccLoc mt-1 placeholder">
-                                00:00-00:00
-                            </div>
-                        </div>
-                    </div>
-                    <div class="nextClassBox placeholder-glow mt-2">
-                        <div class="nextClassText placeholder">next: 10:00</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="card personCard container m-auto px-3 mt-2" aria-hidden="true">
-        <div class="row no-gutters">
-            <div class="col-3 avatarBox">
-
-                <div class="avatarImageBox">
-                    <!-- <img src="..." class="card-img" alt="..."> -->
-                    <i class="bi bi-person-circle cardAvatar"></i>
-                </div>
-            </div>
-            <div class="col-9">
-                <div class="card-body">
-                    <div class="currentClassBox placeholder-glow">
-                        <div class="ccSub placeholder">
-                            Technical English
-                        </div>
-                        <div class="ccTimeLoc">
-                            <div class="ccTime mt-1 placeholder">
-                                00:00-00:00
-                            </div>
-                            <div class="ccLoc mt-1 placeholder">
-                                00:00-00:00
-                            </div>
-                        </div>
-                    </div>
-                    <div class="nextClassBox placeholder-glow mt-2">
-                        <div class="nextClassText placeholder">next: 10:00</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+    
+    
     <div class="emptyBottom"></div>
 </div>
 {% endblock %}
