@@ -1,15 +1,13 @@
-from datetime import time, datetime
+from datetime import datetime
 
 
 def get_user_status(user):
     user = user.copy()
     timetable = user["timetable"]
-    now = datetime.now().time()
+    now = datetime.now().replace(2022, 9, 19)
     free = True
     done = False
     for i, period in enumerate(timetable):
-        period["start"] = time(*period["timings"][:2])
-        period["end"] = time(*period["timings"][2:])
         if period["start"] > now:
             break
         if period["end"] > now:
@@ -18,16 +16,14 @@ def get_user_status(user):
     else:
         done = True
 
-    del user["timetable"]
-
     if not done:
-        user["period"] = period
-        user["period"]["start"] = period["start"].isoformat()[:-3]
-        user["period"]["end"] = period["end"].isoformat()[:-3]
+        period["start"] = period["start"].strftime("%H:%M")
+        period["end"] = period["end"].strftime("%H:%M")
 
         if i <= len(timetable) - 2:
-            timings = timetable[i + 1]["timings"]
-            user["next_period_time"] = "%02d:%02d" % (timings[0], timings[1])
+            user["next_period_time"] = timetable[i + 1]["start"].strftime("%H:%M")
+
     user["free"] = free
+    del user["timetable"]
 
     return user

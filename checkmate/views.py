@@ -123,3 +123,18 @@ def requests():
     return render_template(
         "requests.html", form=form, results=results, show_requests=True
     )
+
+
+@bp.route("/profiles/<username>")
+def profile(username):
+    db = get_db()
+    user = db.find_one({"username": username})
+
+    for day in user["timetable"]:
+        for period in day:
+            period["start"] = period["start"].strftime("%H:%M")
+            period["end"] = period["end"].strftime("%H:%M")
+
+    is_friend = session["username"] in user["friends"]
+
+    return render_template("profile.html", user=user, show_full=is_friend)
