@@ -19,6 +19,7 @@ def get_user_status(user):
     if not done:
         period["start"] = period["start"].strftime("%H:%M")
         period["end"] = period["end"].strftime("%H:%M")
+        user["period"] = period
 
         if i <= len(timetable) - 2:
             user["next_period_time"] = timetable[i + 1]["start"].strftime("%H:%M")
