@@ -133,7 +133,7 @@ def requests():
 @bp.route("/profiles/<username>")
 def profile(username):
     db = get_db()
-    user = db.find_one({"username": username})
+    user = db.users.find_one({"username": username})
 
     for day in user["timetable"]:
         for period in day:

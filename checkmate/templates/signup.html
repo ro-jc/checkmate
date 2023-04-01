@@ -3,7 +3,7 @@
 {% block content %}
 
 <div class="topExt"><div class="loginLogoBar">CHECKMATE</div></div>
-    <form class="registerForm" action="" method="post">
+    <form class="registerForm" action="" method="post" enctype="multipart/form-data">
         {{ form.hidden_tag() }}
         <div class="enterUsername">
             <div class="entryForm">
@@ -77,13 +77,7 @@
             </div>
             <!-- <i onclick="scrollDown()" class="swipeDown fa-solid fa-angles-down"></i> -->
         </div>
-        <!-- <p>
-            {{ form.bio.label }}<br>
-            {{ form.bio(size=50) }}<br>
-            {% for error in form.bio.errors %}
-            <span style="color: red;">[{{ error }}]</span>
-            {% endfor %}
-        </p> -->
+    {{ form.avatar() }}
         <!-- <div class="enterSubmit">{{ form.submit() }}</div> -->
     </form>
 {% endblock %}

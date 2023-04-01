@@ -1,14 +1,11 @@
 {% extends "base.html" %}
 
-
-
-
 {% block content %}
 <div class="container-fluid topBar fixed-top">
     <div class="row">
         <div class="col-3 reqTab">
             <a href="{{ url_for('views.requests') }}" title="requests">
-                <i class="fa-solid topBarIcon fa-eye"></i>
+                <i class="fa-solid topBarIcon fa-plus-minus"></i>
             </a>
         </div>
         <div class="col-6 searchTab">
@@ -40,9 +37,9 @@
 
 
 <div class="slideView">
-    <h2 id="groupPage">
+    <!-- <h2 id="groupPage">
 
-        <!-- <div class="card groupCard container m-auto px-3 mt-2">
+         <div class="card groupCard container m-auto px-3 mt-2">
             <div class="row no-gutters">
                 <div class="col-3 groupImageBox">
 
@@ -133,7 +130,7 @@
         <div class="row no-gutters">
             <div class="col-3 avatarBox">
                 <div class="avatarImageBox">
-                    <!-- <img src="..." class="card-img" alt="..."> -->
+{#                    <img src="{{ url_for('static', filename='avatars/{}.jpg'.format(user.username)) }}" class="card-img" alt="...">#}
                     <i class="bi bi-person-circle cardAvatar"></i>
                 </div>
             </div>
@@ -193,10 +190,9 @@
                 </div>
             </div>
             <div class="col-4 avatarBox">
-
                 <div class="avatarImageBox">
-                    <!-- <img src="..." class="card-img" alt="..."> -->
-                    <i class="bi bi-person-circle cardAvatar"></i>
+                    <img src="{{ url_for('assets', filename='avatars/{}'.format(user.username)) }}" class="card-img" alt="{{ user.username }}">
+{#                    <i class="bi bi-person-circle cardAvatar"></i>#}
                 </div>
             </div>
         </div>

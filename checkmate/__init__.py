@@ -11,7 +11,10 @@ def create_app(test_config=None):
     except FileNotFoundError:
         SECRET_KEY = "lfskfhslkfh slkajfh"
 
-    app.config.from_mapping(SECRET_KEY=SECRET_KEY)
+    app.config.from_mapping(
+        SECRET_KEY=SECRET_KEY,
+        MAX_CONTENT_LENGTH=1*1024*1024
+    )
     app.wsgi_app = ProxyFix(app.wsgi_app, x_for=1, x_proto=1, x_host=1, x_prefix=1)
 
     if test_config is None:

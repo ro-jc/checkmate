@@ -1,17 +1,17 @@
 import functools
+import os.path
 
 from flask import (
     Blueprint,
     flash,
-    g,
     redirect,
     render_template,
     request,
     session,
     url_for,
+    current_app,
 )
-from werkzeug.security import check_password_hash, generate_password_hash
-from wtforms import ValidationError
+from werkzeug.security import generate_password_hash
 
 from checkmate.forms import LoginForm, SignUpForm
 from checkmate.db import get_db
@@ -48,9 +48,14 @@ def signup():
                 "password_hash": generate_password_hash(form.password.data),
                 "name": form.name.data.title(),
                 "timetable": create_timetable(form.timetable.data),
-                "bio": form.bio.data,
             }
         )
+
+        assets_dir = os.path.join(
+            os.path.dirname(current_app.instance_path), 'checkmate/assets'
+        )
+        avatar = form.avatar.data
+        avatar.save(os.path.join(assets_dir, "avatars", form.username.data))
 
         session["username"] = form.username.data
         return redirect(url_for("views.index"))
