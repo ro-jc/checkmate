@@ -2,18 +2,24 @@
 
 
 {% block content %}
+
+<div class="logoBar">CHECKMATE</div>
+
+<div class="reqPageBody">
 <div class="reqBar">
     <div class="row">
         <form method="post">
             {{ form.hidden_tag() }}
             <div class="form-group row">
-                <a href="">
+                <!-- <a class="col-12" href="">
                     <div class="homeBtn col-1">
                         <i class="fa-solid fa-house"></i>
                     </div>
-                </a>
-                <div class="col-9">{{ form.name(size=50, class="form-control form-control-sm") }}</div>
-                <div class="col-2">{{ form.submit() }}</div>
+                </a> -->
+                <div class=" col-10">{{ form.name(size=50,class="friendSearchBar") }}</div>
+                <button class="col-2 searchSubmit" name="submit">
+                    <i  class="fa-solid ssBtn fa-magnifying-glass"></i>
+                </button>
             </div>
         </form>
     </div>
@@ -21,7 +27,7 @@
 
 <div>
     {% if show_requests %}
-    <h3>Incoming Requests</h3>
+    <div class="reqH">Incoming Requests</div>
     {% for user in results %}
     <div class="row">
 
@@ -40,7 +46,7 @@
     {% endfor %}
 </div>
 {% else %}
-<h3>Results</h3>
+<div class="reqH">Results</div>
 {% for user in results %}
 <div class="row">
     <div class="col-md-10">
@@ -55,7 +61,7 @@
     </div>
 </div>
 <hr>
-
+</div>
 {% endfor %}
 {% endif %}
 {% endblock %}

@@ -7,6 +7,7 @@
 body{
     background: #1c1c1c;
     background:rgb(22, 22, 22);
+    background: #b2e5ed;
     scrollbar-width: none;
     -ms-overflow-style: none;
     -webkit-user-select: none;
@@ -21,14 +22,17 @@ body::-webkit-scrollbar {
 }
 
 .reqBar{
-    height: 7.5vh;
+    /* height: 7.5vh; */
     width: 100vw;
-    position: absolute;
-    top: 0;
+    /* position: absolute; */
+    /* top: 0; */
     display: flex;
     justify-content: center;
     align-items: center;
+    overflow: hidden;
+    /* background: white; */
 }
+
 .topBar{
     background: black;
     border-radius: 8px;
@@ -150,6 +154,7 @@ body::-webkit-scrollbar {
 }
 .cardAvatar {
     font-size: 15vh;
+
     /* height: 100%; */
     color: white;
 }
@@ -537,6 +542,12 @@ form label {
     font-size: 3rem;
     font-weight: bold;
 }
+.reqH{
+    color: rgb(245, 167, 214);
+    font-size: 1.5rem;
+    padding: 20px 0 20px 10px;
+    font-weight: bold;
+}
 .enterUsername{
     font-size: 2rem ;
     height: calc(100vh - 13vh);
@@ -674,7 +685,7 @@ form label {
 #submit{
     /* width: 45vw; */
     /* position: absolute; */
-    margin-top: 30px;
+    /* margin-top: 30px; */
     font-size: 1.5rem;
     font-weight: bold;
     /* letter-spacing: 3px; */
@@ -701,4 +712,30 @@ form label {
     margin: 10px 0;
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
+}
+.searchSubmit{
+    background:rgb(190, 0, 82);
+    color: white;
+    font-size: 1.4rem;
+    border: none;
+    border-top-left-radius: 50px;
+    border-bottom-left-radius: 50px;
+    display: flex;
+    justify-content: start;
+    align-items:center;
+}
+
+.friendSearchBar{
+    background: white;
+    width: 100%;
+    border: none;
+    font-size: 1.4rem;
+    border-top-right-radius: 50px;
+    border-bottom-right-radius: 50px;
+}
+
+.reqPageBody{
+    width: 100vw;
+    position: absolute;
+    top: 10vh;
 }
