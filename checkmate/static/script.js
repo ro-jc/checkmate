@@ -66,7 +66,7 @@ function pswdDone() {
   document.getElementById("setMail").style.display = "none";
   document.getElementById("setTT").style.display = "none";
   document.getElementById("selectImgBtn").style.display = "block";
-  document.getElementById("file-ip-1-preview").style.background = "white";
+  // document.getElementById("file-ip-1-preview").style.background = "white";
 }
 
 function nameDone() {
