@@ -60,7 +60,7 @@ def signup():
         session["username"] = form.username.data
         return redirect(url_for("views.index"))
 
-    return render_template("signup.html", form=form)
+    return render_template("signup.html", form=form, style=url_for('static', filename="styleSignUp.css"), title="SignUp")
 
 
 @bp.route("/logout")
