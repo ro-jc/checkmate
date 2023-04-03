@@ -171,6 +171,10 @@ body::-webkit-scrollbar {
     align-items: start;
     padding: 5px 0;
 }
+.card-img{
+    border-radius: 50%;
+    width: 15vh;
+}
 
 .avatarBox {
     display: flex;

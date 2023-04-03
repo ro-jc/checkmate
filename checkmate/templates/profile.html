@@ -2,22 +2,24 @@
 
 {% block content %}
 <div class="container">
-
     <h1>{{ user.name }}</h1>
     <h2>@{{ user.username}}</h2>
-
 </div>
+    <hr>
 <div class="container">
+    {%  set days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'] %}
     {% for day in user.timetable %}
-    <table>
-        {% for period in day %}
-        <tr>
-            <td>{{ period.title }}</td>
-            <td>{{ user.start}}-{{ user.end }}</td>
-            <td>{{ user.venue }}</td>
-        </tr>
-        {% endfor %}
-    </table>
+        <h3>{{ days[loop.index - 1] }}</h3>
+        <table>
+            {% for period in day %}
+            <tr>
+                <td>{{ period.title }}</td>
+                <td>{{ period.start}} - {{ period.end }}</td>
+                <td>{{ period.venue }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+        <hr>
     {% endfor %}
 </div>
 {% endblock %}

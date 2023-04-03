@@ -1,4 +1,5 @@
 from flask_wtf import FlaskForm
+from flask_wtf.file import FileAllowed, FileField, FileRequired
 from wtforms import StringField, TextAreaField, PasswordField, SubmitField
 from wtforms.validators import DataRequired, ValidationError, Email, EqualTo
 
@@ -35,7 +36,7 @@ class SignUpForm(FlaskForm):
     )
     name = StringField("", validators=[DataRequired()])
     timetable = TextAreaField("", validators=[DataRequired()])
-    bio = StringField("Bio")
+    avatar = FileField("Avatar", validators=[FileRequired(), FileAllowed(['png', 'jpg', 'jpeg'], 'Images only!')])
     submit = SubmitField("REGISTER")
 
     def validate_username(self, username):

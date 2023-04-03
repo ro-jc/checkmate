@@ -1,8 +1,12 @@
 # Manually added
 secret.txt
+assets/avatars
 
 # Hosting
 checkmate.sock
+
+# pycharm
+.idea
 
 # flask
 venv/
@@ -21,7 +25,6 @@ build/
 *.egg-info/
 
 # Byte-compiled / optimized / DLL files
-__pycache__/
 *.py[cod]
 *$py.class
 
@@ -30,9 +33,7 @@ __pycache__/
 
 # Distribution / packaging
 .Python
-build/
 develop-eggs/
-dist/
 downloads/
 eggs/
 .eggs/
@@ -44,7 +45,6 @@ var/
 wheels/
 pip-wheel-metadata/
 share/python-wheels/
-*.egg-info/
 .installed.cfg
 *.egg
 MANIFEST
@@ -60,10 +60,8 @@ pip-log.txt
 pip-delete-this-directory.txt
 
 # Unit test / coverage reports
-htmlcov/
 .tox/
 .nox/
-.coverage
 .coverage.*
 .cache
 nosetests.xml
@@ -71,7 +69,6 @@ coverage.xml
 *.cover
 *.py,cover
 .hypothesis/
-.pytest_cache/
 
 # Translations
 *.mo
@@ -84,7 +81,6 @@ db.sqlite3
 db.sqlite3-journal
 
 # Flask stuff:
-instance/
 .webassets-cache
 
 # Scrapy stuff:
@@ -127,7 +123,6 @@ celerybeat.pid
 .env
 .venv
 env/
-venv/
 ENV/
 env.bak/
 venv.bak/
