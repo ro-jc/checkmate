@@ -32,30 +32,25 @@ def login():
         session["username"] = form.username.data
         return redirect(url_for("views.index"))
 
-    return render_template(
-        "login.html",
-        form=form,
-        style=url_for("static", filename="styleLogin.css"),
-        title="Login",
-    )
+    return render_template("login.html", form=form)
 
 
-@bp.route("/signup/validate", methods=["POST"])
+@bp.route('/signup/validate', methods=["POST"])
 def validate():
     db = get_db()
-    if "uname" in request.form:
-        if db.users.find_one({"username": request.form.get("uname")}):
-            return jsonify({"error": "Username already exists!"})
+    if 'uname' in request.form:
+        if db.users.find_one({'username': request.form.get("uname")}):
+            return jsonify({'error': 'Username already exists!'})
         else:
-            return jsonify({"error": None})
-    elif "mail" in request.form:
+            return jsonify({'error': None})
+    elif 'mail' in request.form:
         if db.users.find_one({"email": request.form.get("mail")}):
-            return jsonify({"error": "Email already exists!"})
+            return jsonify({'error': 'Email already exists!'})
         else:
             # TODO: validate valid email
-            return jsonify({"error": None})
+            return jsonify({'error': None})
     else:
-        return jsonify({"error": "Illegal request"})
+        return jsonify({'error': 'Illegal request'})
 
 
 @bp.route("/signup", methods=["POST", "GET"])
@@ -76,7 +71,7 @@ def signup():
         )
 
         assets_dir = os.path.join(
-            os.path.dirname(current_app.instance_path), "checkmate/assets"
+            os.path.dirname(current_app.instance_path), 'checkmate/assets'
         )
         avatar = form.avatar.data
         avatar.save(os.path.join(assets_dir, "avatars", form.username.data))
@@ -84,12 +79,7 @@ def signup():
         session["username"] = form.username.data
         return redirect(url_for("views.index"))
 
-    return render_template(
-        "signup.html",
-        form=form,
-        style=url_for("static", filename="styleSignUp.css"),
-        title="SignUp",
-    )
+    return render_template("signup.html", form=form, style=url_for('static', filename="styleSignUp.css"), title="SignUp")
 
 
 @bp.route("/logout")
