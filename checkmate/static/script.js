@@ -51,67 +51,13 @@ function scrollUp() {
   window.scrollBy(0, -vhpx);
 }
 
-function uNameDone() {
-  document.getElementById("setUser").style.display = "none";
-  document.getElementById("setPswd").style.display = "flex";
-  document.getElementById("setName").style.display = "none";
-  document.getElementById("setMail").style.display = "none";
-  document.getElementById("setTT").style.display = "none";
-}
-
-function pswdDone() {
-  document.getElementById("setUser").style.display = "none";
-  document.getElementById("setPswd").style.display = "none";
-  document.getElementById("setName").style.display = "flex";
-  document.getElementById("setMail").style.display = "none";
-  document.getElementById("setTT").style.display = "none";
-  document.getElementById("selectImgBtn").style.display = "block";
-  // document.getElementById("file-ip-1-preview").style.background = "white";
-}
-
-function nameDone() {
-  document.getElementById("setUser").style.display = "none";
-  document.getElementById("setPswd").style.display = "none";
-  document.getElementById("setName").style.display = "none";
-  document.getElementById("setMail").style.display = "flex";
-  document.getElementById("setTT").style.display = "none";
-}
-
-function mailDone() {
-  document.getElementById("setUser").style.display = "none";
-  document.getElementById("setPswd").style.display = "none";
-  document.getElementById("setName").style.display = "none";
-  document.getElementById("setMail").style.display = "none";
-  document.getElementById("setTT").style.display = "flex";
-}
-
-
-function pswdPrev(){
-  document.getElementById("setUser").style.display = "flex";
-  document.getElementById("setPswd").style.display = "none";
-  document.getElementById("setName").style.display = "none";
-  document.getElementById("setMail").style.display = "none";
-  document.getElementById("setTT").style.display = "none";
-}
-function NamePrev() {
-  document.getElementById("setUser").style.display = "none";
-  document.getElementById("setPswd").style.display = "flex";
-  document.getElementById("setName").style.display = "none";
-  document.getElementById("setMail").style.display = "none";
-  document.getElementById("setTT").style.display = "none";
-}
-function mailPrev() {
-  document.getElementById("setUser").style.display = "none";
-  document.getElementById("setPswd").style.display = "none";
-  document.getElementById("setName").style.display = "flex";
-  document.getElementById("setMail").style.display = "none";
-  document.getElementById("setTT").style.display = "none";
-}
-
-function TTPrev(){
-  document.getElementById("setUser").style.display = "none";
-  document.getElementById("setPswd").style.display = "none";
-  document.getElementById("setName").style.display = "none";
-  document.getElementById("setMail").style.display = "flex";
-  document.getElementById("setTT").style.display = "none";
+function setVisible(targetDiv) {
+  let divs = ["setUser", "setPswd", "setName", "setMail", "setTT"]
+  for (let i = 0; i < divs.length; i++) {
+    if (divs[i] == targetDiv) {
+      document.getElementById(divs[i]).style.display = 'flex';
+    } else {
+      document.getElementById(divs[i]).style.display = 'none';
+    }
+  }
 }
