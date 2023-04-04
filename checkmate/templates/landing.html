@@ -1,19 +1,40 @@
-{% extends "base.html" %}
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="mobile-web-app-capable" content="yes" />
+        <title>checkmate</title>
+        <link rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+            integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+            crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+        <link rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="{{ url_for('static',
+            filename='css/bootstrap.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static',
+            filename='styleOne.css') }}">
+    </head>
 
 
+    <body>
 
-{% block content %}
 
+        <div class="firstScreen">
+            <div class="logoImage"></div>
+            <div class="logoTitle">CHECKMATE</div>
+        </div>
 
-<div class="firstScreen">
-    <div class="logoImage"></div>
-    <div class="logoTitle">CHECKMATE</div>
-</div>
-
-<div class="lsBox">
-    <a class="loginBtn" href="/login">Login</a>
-    <a class="signupBtn" href="/signup">SignUp</a>
-</div>
-<!-- <div class="infoScreen"></div> -->
-
-{% endblock %}
+        <div class="lsBox">
+            <a class="loginBtn" href="/login">Login</a>
+            <a class="signupBtn" href="/signup">SignUp</a>
+        </div>
+        <!-- <div class="infoScreen"></div> -->
+        <script src="{{ url_for('static', filename='script.js') }}"></script>
+    </body>
+</html>
