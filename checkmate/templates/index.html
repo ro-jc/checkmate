@@ -24,11 +24,11 @@
             <div onclick="openNav()">
                 <i class="fa-solid fa-bars-staggered"></i>
             </div>
-            <a href="">
-                <div>
+            <div>
+                <a href="">
                     <i class="fa-solid fa-masks-theater"></i>
-                </div>
-            </a>
+                </a>
+            </div>
         </div>
 
         <div id="mySidenav" class="sidenav">
@@ -40,11 +40,11 @@
         <div id="friendsPage">
             <div class="ffImg">
                 <div class="emptyInfo">add friends to view their timetables</div>
-                <a href="">
-                    <div class="ffShortcut">
+                <div class="ffShortcut">
+                    <a href="">
                         <i class="fa-solid fa-masks-theater"></i>
-                    </div>
-                </a>
+                    </a>
+                </div>
                 <img src="{{ url_for('static',
                     filename='images/index/findFriends.svg') }}" class=""
                     alt="">
@@ -66,7 +66,7 @@
                 <i onclick="groupPageOnly()" id="groupBtn" class="fa-solid
                     bottomBarIcon fa-user-group"></i>
             </div>
-            <div">
+            <div>
                 <i onclick="friendPageOnly()" id="friendBtn"
                     class="fa-solid bottomBarIcon bottomBarIcon-active fa-user"></i>
             </div>
