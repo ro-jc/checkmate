@@ -2,9 +2,11 @@
 
 {% block content %}
     <div class="signupTopBar">
-        <div class="closeBtn">
-            <i class="fa-solid fa-xmark"></i>
-        </div>
+        <a class="closeBtnLink" href="/">
+            <div class="closeBtn">
+                <i class="fa-solid fa-xmark"></i>
+            </div>
+        </a>
         <div class="logoNameSec">
             CHECKMATE
         </div>
@@ -41,11 +43,11 @@
                 username already exists
             </div>
             <br>
-            <input class="loginPswd" form="main" type="password" id="pswd" placeholder="password" name="pswd">
+            <input id="loginPswd" form="main" type="password" placeholder="password" name="pswd">
             <br>
             <div class="buttons">
-                <input onclick="login('setUser')" class="uNameLogin" type="button" value="Login">
-                <input onclick="moveForward('setUser')" class="uNameSignUp" type="button" value="SignUp">
+                <input onclick="login()" class="uNameLogin" type="button" value="Login">
+                <input id="startSignUpBtn" onclick="moveForward('setUser')" class="uNameSignUp" type="button" value="SignUp">
             </div>
         </div>
         <img src="{{ url_for('static', filename='images/signup/username.svg') }}" class="uNameImg" alt="">

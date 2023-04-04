@@ -309,7 +309,7 @@ body{
     font-style: italic;
     font-size: 1.1rem;
 }
-.loginPswd{
+#loginPswd{
     display: none;
 }
 
@@ -337,7 +337,7 @@ body{
     opacity: 0.6;
 }
 
-#pswd {
+#pswd, #loginPswd {
     font-size: 1.4rem;
     border-radius: 50px;
     border: none;
@@ -352,6 +352,10 @@ body{
     font-size: 1.3rem;
     opacity: 0.6;
 }
+.closeBtnLink{
+    text-decoration: none;
+}
+
 
 #rePswd {
     font-size: 1.4rem;

@@ -96,3 +96,8 @@ function moveBack(myDiv) {
     }
   }
 }
+
+function login() {
+  document.getElementById('loginPswd').style.display = "block";
+  document.getElementById("startSignUpBtn").style.display = "none";
+}
