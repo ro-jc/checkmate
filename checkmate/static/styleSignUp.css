@@ -14,6 +14,9 @@
     padding: 0;
     box-sizing: border-box;
 }
+a{
+    text-decoration: none;
+}
 body{
     background: var(--light);
     font-family: 'comfortaa', 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
@@ -31,24 +34,14 @@ body{
     z-index: 100;
     margin: 5px;
 }
-.closeBtn{
-    height: 12%;
-    display: flex;
-    justify-content: end;
-    align-items: center;
-    font-size: 1.8rem;
-}
-.closeBtn i{
-    color: white;
-    padding: 0.7rem;
-    /* opacity: 0.4; */
-}
+
+
 .logoNameSec{
     display: flex;
-    height: 18%;
+    height: 30%;
     justify-content: center;
     align-items: center;
-    font-size: 1.5rem;
+    font-size: 2rem;
     font-weight: bolder;
     color: white;
     letter-spacing: 0.5rem;
