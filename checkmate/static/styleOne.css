@@ -1,7 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@600&display=swap');
+
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+}
+
+
+:root {
+    --light: #b2e5ed;
+    /* --light:#FEF8DD; */
+    --mid: #00abc5;
+    /* --mid :#F7D8BA; */
 }
 
 body{
@@ -16,6 +26,7 @@ body{
     /* IE 10 and IE 11 */
     user-select: none;
     /* Standard syntax */
+    font-family: 'comfortaa', 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 body::-webkit-scrollbar {
     display: none;
@@ -185,7 +196,7 @@ body::-webkit-scrollbar {
     /* background: #000; */
     position: relative;
     /* right: 5vw; */
-    /* background: rgb(190, 0, 82); */
+    /* background: var(--mid); */
 }
 
 .groupImageBox {
@@ -254,7 +265,7 @@ body::-webkit-scrollbar {
     color: white;
     display: flex;
     /* width: 100%; */
-    background: rgb(190, 0, 82);
+    background: var(--mid);
     padding: 0 20px 0 20px;
     /* padding: 0 10px 0 10px; */
     justify-content: center;
@@ -390,9 +401,9 @@ body::-webkit-scrollbar {
 .signupBtn, .loginBtn{
     text-decoration: none;
     font-size: 1.8rem;
-    border: 5px solid rgb(190, 0, 82);
-    padding: 0.2rem 0rem;
-    width: 36vw;
+    border: 5px solid var(--mid);
+    padding: 0.1rem 0.1rem;
+    width: 75vw;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -403,9 +414,8 @@ body::-webkit-scrollbar {
     font-weight: bolder;
 }
 .signupBtn{
-    background: rgb(190, 0, 82);
-    color: #000;
-    font-weight: bolder;
+    background: var(--mid);
+    color: white;
 }
 .firstScreen{
     height: calc(100vh - 7.5vh);
@@ -432,6 +442,8 @@ body::-webkit-scrollbar {
     top: 20vh;
 }
 .logoTitle{
+    color: #000;
+    font-weight: bolder;
     display: flex;
     justify-content: center;
     width: 100%;
@@ -465,7 +477,7 @@ body::-webkit-scrollbar {
 
 
 .loginClick{
-    background: rgb(190, 0, 82);
+    background: var(--mid);
     font-size: 2rem;
     bottom: none;
     border-top-right-radius: 50px;
@@ -665,7 +677,7 @@ form label {
 .registerBtn{
     margin: 20px 0 0 0;
     /* width: calc(80vw - 20px); */
-    background: rgb(190, 0, 82);
+    background: var(--mid);
     border: none;
     color: white;
     padding: 5px;
@@ -718,7 +730,7 @@ form label {
     border-bottom-right-radius: 0;
 }
 .searchSubmit{
-    background:rgb(190, 0, 82);
+    background:var(--mid);
     color: white;
     font-size: 1.4rem;
     border: none;
