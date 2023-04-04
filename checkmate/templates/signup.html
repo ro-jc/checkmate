@@ -23,11 +23,11 @@
                 </div>
             </div>
         </div>
-        <div class="infoTxt">
+        <!-- <div class="infoTxt">
             <div id="welcomeName">
                 Welcome {NAME}!
             </div>
-        </div>
+        </div> -->
     </div>
 
     <form id="credentials" action="">
@@ -37,7 +37,16 @@
             <br>
             <input type="text" id="uname" placeholder="nickname" name="uname">
             <br>
-            <input onclick="moveForward('setUser')" class="uNameSubmit" type="button" value="next">
+            <div class="errorMsg">
+                username already exists
+            </div>
+            <br>
+            <input class="loginPswd" form="main" type="password" id="pswd" placeholder="password" name="pswd">
+            <br>
+            <div class="buttons">
+                <input onclick="login('setUser')" class="uNameLogin" type="button" value="Login">
+                <input onclick="moveForward('setUser')" class="uNameSignUp" type="button" value="SignUp">
+            </div>
         </div>
         <img src="{{ url_for('static', filename='images/signup/username.svg') }}" class="uNameImg" alt="">
     </div>
@@ -77,6 +86,10 @@
             <label class="enterMailTxt" for="mail">enter E-mail ID:</label>
             <br>
             <input form="main" type="email" id="mail" placeholder="abc@gmail.com" name="mail">
+            <br>
+            <div class="errorMsg">
+                username already exists
+            </div>
             <br>
             <input onclick="moveForward('setMail')" class="mailSubmit" type="button" value="next">
 
