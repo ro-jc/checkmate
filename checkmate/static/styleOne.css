@@ -9,15 +9,14 @@
 
 :root {
     --light: #b2e5ed;
-    /* --light:#FEF8DD; */
+    --light: #ebdea4;
     --mid: #00abc5;
-    /* --mid :#F7D8BA; */
+    --mid: #e9b077;
+    --mid: rgb(141, 78, 34);
 }
 
 body{
-    background: #1c1c1c;
-    background:rgb(22, 22, 22);
-    background: #b2e5ed;
+    background: var(--light);
     scrollbar-width: none;
     -ms-overflow-style: none;
     -webkit-user-select: none;
@@ -395,7 +394,7 @@ body::-webkit-scrollbar {
     justify-content: space-around;
     position: fixed;
     width: 100vw;
-    bottom: 2vh;
+    bottom: 3vh;
     /* background: #000; */
 }
 .signupBtn, .loginBtn{
@@ -403,14 +402,14 @@ body::-webkit-scrollbar {
     font-size: 1.8rem;
     border: 5px solid var(--mid);
     padding: 0.1rem 0.1rem;
-    width: 75vw;
+    width: 40vw;
     display: flex;
     justify-content: center;
     align-items: center;
     border-radius: 50px;
 }
 .loginBtn{
-    color: #f1f1f1;
+    color: #000;
     font-weight: bolder;
 }
 .signupBtn{

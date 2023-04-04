@@ -3,9 +3,10 @@
 
 :root{
     --light: #b2e5ed;
-    /* --light:#FEF8DD; */
+    --light: #ebdea4;
     --mid: #00abc5;
-    /* --mid :#F7D8BA; */
+    --mid: #e9b077;
+    --mid: rgb(141, 78, 34);
 }
 
 *{
@@ -287,12 +288,13 @@ body{
     border: none;
 }
 .uNameSignUp {
-    padding: 5px 10px;
-    font-size: 1.3rem;
+    padding: 5px 15px;
+    font-size: 1.5rem;
     border-radius: 50px;
-    background: white;
-    color: var(--mid);
-    border: 4px solid var(--mid);
+    background: var(--mid);
+    color: white;
+    /* border: 4px solid var(--mid); */
+    border: none;
 }
 
 .uNameImg {
@@ -304,7 +306,7 @@ body{
 
 .errorMsg{
     display: none;
-    padding-bottom: 1.3rem;
+    /* padding-bottom: 1.3rem; */
     color:red;
     font-style: italic;
     font-size: 1.1rem;
@@ -328,9 +330,9 @@ body{
     display: none;
 }
 .signUpFormContainer{
-    height: 50%;
-    display: flex;
-    flex-direction: column;
+    /* height: 50%; */
+    /* display: flex; */
+    /* flex-direction: column; */
 }
 .enterPswdTxt {
     font-size: 1.3rem;

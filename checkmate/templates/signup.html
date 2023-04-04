@@ -46,8 +46,8 @@
             <input id="loginPswd" form="main" type="password" placeholder="password" name="pswd">
             <br>
             <div class="buttons">
-                <input onclick="login()" class="uNameLogin" type="button" value="Login">
-                <input id="startSignUpBtn" onclick="moveForward('setUser')" class="uNameSignUp" type="button" value="SignUp">
+                <!-- <input onclick="login()" class="uNameLogin" type="button" value="Login"> -->
+                <input id="startSignUpBtn" onclick="moveForward('setUser')" class="uNameSignUp" type="button" value="next">
             </div>
         </div>
         <img src="{{ url_for('static', filename='images/signup/username.svg') }}" class="uNameImg" alt="">
@@ -79,7 +79,7 @@
             <br>
             <input onclick="moveForward('setName')" class="nameSubmit" type="button" value="next">
 
-        </div>        <img src="{{ url_for('static', filename='images/signup/name.png') }}" class="nameImg" alt="">
+        </div>        <img src="{{ url_for('static', filename='images/signup/name.svg') }}" class="nameImg" alt="">
     </div>
 
     <div id="setMail">

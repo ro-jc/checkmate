@@ -17,7 +17,42 @@
 </head>
 <body>
     <div class="loginTopBar">
-        hdsffffffffffffff
+        <div class="logoNameSec">
+            CHECKMATE
+        </div>
     </div>
+
+    <form id="credentials" action="">
+        <div id="setUser">
+            <!-- <a class="closeBtnLink" href="/">
+                <div class="closeBtn">
+                    <i class="fa-solid fa-xmark"></i>
+                </div>
+            </a> -->
+            <div class="loginFormContainer">
+                <label class="enterUnameTxt" for="uname">enter username:</label>
+                <br>
+                <input type="text" id="uname" placeholder="nickname" name="uname">
+                <br>
+                <div class="errorMsg">
+                    <!-- username already exists -->
+                </div>
+                <br>
+                <label class="enterPswdTxt" for="pswd">enter password:</label>
+                <br>
+                <input id="loginPswd" form="main" type="password" placeholder="password" name="pswd">
+                <br>
+                <div class="errorMsg">
+                    <!-- password incorrect -->
+                </div>
+                <br>
+                <div class="buttons">
+                    <input onclick="login()" class="uNameLogin" type="button" value="Login">
+                </div>
+            </div>
+            <img src="{{ url_for('static', filename='images/signup/username.svg') }}" class="uNameImg" alt="">
+        </div>
+
+
 </body>
 </html>
