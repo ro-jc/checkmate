@@ -18,25 +18,29 @@ class LoginForm(FlaskForm):
         db = get_db()
         user = db.users.find_one({"username": username.data})
         if not user:
-            raise ValidationError("Please check your username")
+            raise ValidationError("username does not exist!")
 
     def validate_password(self, password):
         db = get_db()
         user = db.users.find_one({"username": self.username.data})
         if user and not check_password_hash(user["password_hash"], password.data):
-            raise ValidationError("Please check your password")
+            raise ValidationError("wrong password!")
 
 
 class SignUpForm(FlaskForm):
     username = StringField("", validators=[DataRequired()])
     email = StringField("", validators=[Email()])
     password = PasswordField("", validators=[DataRequired()])
-    password2 = PasswordField(
-        "", validators=[DataRequired(), EqualTo("password")]
-    )
+    password2 = PasswordField("", validators=[DataRequired(), EqualTo("password")])
     name = StringField("", validators=[DataRequired()])
     timetable = TextAreaField("", validators=[DataRequired()])
-    avatar = FileField("Avatar", validators=[FileRequired(), FileAllowed(['png', 'jpg', 'jpeg'], 'Images only!')])
+    avatar = FileField(
+        "Avatar",
+        validators=[
+            FileRequired(),
+            FileAllowed(["png", "jpg", "jpeg"], "Images only!"),
+        ],
+    )
     submit = SubmitField("REGISTER")
 
     def validate_username(self, username):
