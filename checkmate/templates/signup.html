@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 
 <html lang="en">
+
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -18,7 +19,7 @@
         <link rel="stylesheet" href="{{ url_for('static',
             filename='css/bootstrap.css') }}">
         <link rel="stylesheet" type="text/css" href="{{ url_for('static',
-            filename='styleOne.css') }}">
+            filename='styleSignUp.css') }}">
     </head>
 
     <body>
@@ -42,7 +43,8 @@
                                 select image
                             </label>
                             <input form="details" type="file" id="file-ip-1"
-                                accept="image/*" onchange="showPreview(event);">
+                                accept="image/*"
+                                onchange="showPreview(event);">
                         </div>
                     </div>
                 </div>
@@ -54,26 +56,33 @@
         </div> -->
         </div>
 
-    <form id="credentials" action="">
-    <div id="setUser">
-        <div class="signUpFormContainer">
-            <label class="enterUnameTxt" for="uname">enter username:</label>
-            <br>
-            <input type="text" id="uname" placeholder="nickname" name="uname">
-            <br>
-            <div class="errorMsg">
-                username already exists
+        <form id="credentials" action="">
+            <div id="setUser">
+                <div class="signUpFormContainer">
+                    <label class="enterUnameTxt" for="uname">enter username:</label>
+                    <br>
+                    <input type="text" id="uname" placeholder="nickname"
+                        name="uname">
+                    <br>
+                    <div class="errorMsg">
+                        username already exists
+                    </div>
+                    <br>
+                    <input id="loginPswd" form="main" type="password"
+                        placeholder="password" name="pswd">
+                    <br>
+                    <div class="buttons">
+                        <!-- <input onclick="login()" class="uNameLogin" type="button" value="Login"> -->
+                        <input id="startSignUpBtn"
+                            onclick="moveForward('setUser')" class="uNameSignUp"
+                            type="button"
+                            value="next">
+                    </div>
+                </div>
+                <img src="{{ url_for('static',
+                    filename='images/signup/username.svg') }}" class="uNameImg"
+                    alt="">
             </div>
-            <br>
-            <input id="loginPswd" form="main" type="password" placeholder="password" name="pswd">
-            <br>
-            <div class="buttons">
-                <!-- <input onclick="login()" class="uNameLogin" type="button" value="Login"> -->
-                <input id="startSignUpBtn" onclick="moveForward('setUser')" class="uNameSignUp" type="button" value="next">
-            </div>
-        </div>
-        <img src="{{ url_for('static', filename='images/signup/username.svg') }}" class="uNameImg" alt="">
-    </div>
 
             <div id="setPswd">
                 <i onclick="moveBack('setPswd')" id="pswdPrev" class=" prevEntry
@@ -104,14 +113,16 @@
                 <div class="signUpFormContainer">
                     <label class="enterNameTxt" for="fname">enter full name:</label>
                     <br>
-                    <input form="main" type="text" id="fname" placeholder="your
-                        name" name="fname">
+                    <input form="main" type="text" id="fname"
+                        placeholder="your name" name="fname">
                     <br>
                     <input onclick="moveForward('setName')" class="nameSubmit"
                         type="button" value="next">
 
-        </div>        <img src="{{ url_for('static', filename='images/signup/name.svg') }}" class="nameImg" alt="">
-    </div>
+                </div> <img src="{{ url_for('static',
+                    filename='images/signup/name.svg') }}" class="nameImg"
+                    alt="">
+            </div>
 
             <div id="setMail">
                 <i onclick="moveBack('setMail')" id="mailPrev" class=" prevEntry
@@ -141,8 +152,8 @@
                 <div class="signUpFormContainer">
                     <label class="enterTTTxt" for="TT">enter TimeTable code:</label>
                     <br>
-                    <input form="main" type="text" id="TT" placeholder="Theory
-                        to L94" name="TT">
+                    <input form="main" type="text" id="TT"
+                        placeholder="Theory to L94" name="TT">
                     <br>
                     <input class="TTSubmit" type="button" value="finish setup">
                 </div>
@@ -153,4 +164,5 @@
         </form>
         <script src="{{ url_for('static', filename='script.js') }}"></script>
     </body>
+
 </html>
