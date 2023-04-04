@@ -1,0 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@600&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --light: #b2e5ed;
+    /* --light:#FEF8DD; */
+    --mid: #00abc5;
+    /* --mid :#F7D8BA; */
+}
+
+body{
+    background: var(--light);
+    font-family: 'comfortaa', 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
