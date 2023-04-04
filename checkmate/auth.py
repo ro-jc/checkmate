@@ -10,6 +10,7 @@ from flask import (
     session,
     url_for,
     current_app,
+    jsonify,
 )
 from werkzeug.security import generate_password_hash
 
@@ -32,6 +33,24 @@ def login():
         return redirect(url_for("views.index"))
 
     return render_template("login.html", form=form)
+
+
+@bp.route('/signup/validate', methods=["POST"])
+def validate():
+    db = get_db()
+    if 'uname' in request.form:
+        if db.users.find_one({'username': request.form.get("uname")}):
+            return jsonify({'error': 'Username already exists!'})
+        else:
+            return jsonify({'error': None})
+    elif 'mail' in request.form:
+        if db.users.find_one({"email": request.form.get("mail")}):
+            return jsonify({'error': 'Email already exists!'})
+        else:
+            # TODO: validate valid email
+            return jsonify({'error': None})
+    else:
+        return jsonify({'error': 'Illegal request'})
 
 
 @bp.route("/signup", methods=["POST", "GET"])

@@ -19,7 +19,6 @@
                             select image
                         </label>
                         <input form="details" type="file" id="file-ip-1" accept="image/*" onchange="showPreview(event);">
-                
                     </div>
                 </div>
             </div>
@@ -33,17 +32,19 @@
 
     <form id="credentials" action="">
     <div id="setUser">
+        <div class="signUpFormContainer">
             <label class="enterUnameTxt" for="uname">enter username:</label>
             <br>
             <input type="text" id="uname" placeholder="nickname" name="uname">
             <br>
-            <input onclick="setVisible('setPswd')" class="uNameSubmit" type="button" value="next">
+            <input onclick="moveForward('setUser')" class="uNameSubmit" type="button" value="next">
+        </div>
         <img src="{{ url_for('static', filename='images/signup/username.svg') }}" class="uNameImg" alt="">
     </div>
 
     <div id="setPswd">
-        <i onclick="setVisible('setUser')" id="pswdPrev" class=" prevEntry fa-solid fa-angles-left"></i>
-        <div class="setPswdEntryContainer">
+        <i onclick="moveBack('setPswd')" id="pswdPrev" class=" prevEntry fa-solid fa-angles-left"></i>
+        <div class="signUpFormContainer">
             <label class="enterPswdTxt" for="pswd">enter password:</label>
             <br>
             <input form="main" type="password" id="pswd" placeholder="password" name="pswd">
@@ -52,7 +53,7 @@
             <br>
             <input form="main" type="password" id="rePswd" placeholder="re enter" name="rePswd">
             <br>
-            <input onclick="setVisible('setName')" class="pswdSubmit" type="button" value="signUp">
+            <input onclick="moveForward('setPswd')" class="pswdSubmit" type="button" value="signUp">
         </div>
         <img src="{{ url_for('static', filename='images/signup/password.svg') }}" class="pswdImg" alt="">
     </div>
@@ -60,32 +61,38 @@
 
     <form id="details" action="">
     <div id="setName">
-        <i onclick="setVisible('setPswd')" id="userPrev" class=" prevEntry fa-solid fa-angles-left"></i>
+        <div class="signUpFormContainer">
             <label class="enterNameTxt" for="fname">enter full name:</label>
             <br>
             <input form="main" type="text" id="fname" placeholder="your name" name="fname">
             <br>
-            <input onclick="setVisible('setMail')" class="nameSubmit" type="button" value="next">
-        <img src="{{ url_for('static', filename='images/signup/name.png') }}" class="nameImg" alt="">
+            <input onclick="moveForward('setName')" class="nameSubmit" type="button" value="next">
+
+        </div>        <img src="{{ url_for('static', filename='images/signup/name.png') }}" class="nameImg" alt="">
     </div>
 
     <div id="setMail">
-        <i onclick="setVisible('setName')" id="mailPrev" class=" prevEntry fa-solid fa-angles-left"></i>
+        <i onclick="moveBack('setMail')" id="mailPrev" class=" prevEntry fa-solid fa-angles-left"></i>
+        <div class="signUpFormContainer">
             <label class="enterMailTxt" for="mail">enter E-mail ID:</label>
             <br>
             <input form="main" type="email" id="mail" placeholder="abc@gmail.com" name="mail">
             <br>
-            <input onclick="setVisible('setTT')" class="mailSubmit" type="button" value="next">
+            <input onclick="moveForward('setMail')" class="mailSubmit" type="button" value="next">
+
+        </div>
         <img src="{{ url_for('static', filename='images/signup/mail.svg') }}" class="mailImg" alt="">
     </div>
 
     <div id="setTT">
-        <i onclick="setVisible('setMail')" id="TTPrev" class=" prevEntry fa-solid fa-angles-left"></i>
+        <i onclick="moveBack('setTT')" id="TTPrev" class=" prevEntry fa-solid fa-angles-left"></i>
+        <div class="signUpFormContainer">
             <label class="enterTTTxt" for="TT">enter TimeTable code:</label>
             <br>
             <input form="main" type="text" id="TT" placeholder="Theory to L94" name="TT">
             <br>
             <input class="TTSubmit" type="button" value="finish setup">
+        </div>
         <img src="{{ url_for('static', filename='images/signup/timetable.svg') }}" class="pswdImg" alt="">
     </div>
     </form>

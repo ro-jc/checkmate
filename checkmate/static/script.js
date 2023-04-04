@@ -51,13 +51,48 @@ function scrollUp() {
   window.scrollBy(0, -vhpx);
 }
 
-function setVisible(targetDiv) {
-  let divs = ["setUser", "setPswd", "setName", "setMail", "setTT"]
+const divs = ["setUser", "setPswd", "setName", "setMail", "setTT"];
+
+function setNextVisibility(myDiv) {
   for (let i = 0; i < divs.length; i++) {
-    if (divs[i] == targetDiv) {
-      document.getElementById(divs[i]).style.display = 'flex';
-    } else {
-      document.getElementById(divs[i]).style.display = 'none';
+    document.getElementById(divs[i]).style.display = 'none';
+    if (divs[i] == myDiv) {
+      document.getElementById(divs[i + 1]).style.display = 'flex';
+      break;
+    }
+  }
+}
+
+function moveForward(myDiv) {
+  if (['setUser', 'setMail'].includes(myDiv)) {
+    const id = myDiv == 'setUser' ? 'uname' : 'mail';
+    const data = document.getElementById(id).value;
+
+    let xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function () {
+      if (this.readyState == 4 && this.status == 200) {
+        const response = JSON.parse(xhttp.response);
+        if (response['error'] != null) {
+          document.getElementById(myDiv).innerHTML = response['error'];
+        } else {
+          setNextVisibility(myDiv);
+        }
+      }
+    }
+    xhttp.open('POST', '/signup/validate');
+    xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    xhttp.send(id + '=' + data);
+ } else {
+    setNextVisibility(myDiv)
+  }
+}
+
+function moveBack(myDiv) {
+  document.getElementById(myDiv).style.display = 'none';
+  for (let i = 0; i < divs.length; i++) {
+    if (divs[i] == myDiv) {
+      document.getElementById(divs[i-1]).style.display = 'flex';
+      break;
     }
   }
 }
