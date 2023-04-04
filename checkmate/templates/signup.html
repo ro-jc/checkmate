@@ -1,114 +1,165 @@
-{% extends 'base.html' %}
+<!DOCTYPE html>
 
-{% block content %}
-    <div class="signupTopBar">
-        <a class="closeBtnLink" href="/">
-            <div class="closeBtn">
-                <i class="fa-solid fa-xmark"></i>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="mobile-web-app-capable" content="yes" />
+        <title>checkmate</title>
+        <link rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+            integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+            crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+        <link rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="{{ url_for('static',
+            filename='css/bootstrap.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static',
+            filename='styleOne.css') }}">
+    </head>
+
+    <body>
+        <div class="signupTopBar">
+            <a class="closeBtnLink" href="/">
+                <div class="closeBtn">
+                    <i class="fa-solid fa-xmark"></i>
+                </div>
+            </a>
+            <div class="logoNameSec">
+                CHECKMATE
             </div>
-        </a>
-        <div class="logoNameSec">
-            CHECKMATE
-        </div>
-        <div class="picUpload">
-            <div class="uploadCont">
-                <div class="center">
-                    <div class="form-input">
-                        <div class="preview">
-                            <img class="barLogo" id="file-ip-1-preview">
+            <div class="picUpload">
+                <div class="uploadCont">
+                    <div class="center">
+                        <div class="form-input">
+                            <div class="preview">
+                                <img class="barLogo" id="file-ip-1-preview">
+                            </div>
+                            <label id="selectImgBtn" for="file-ip-1">
+                                select image
+                            </label>
+                            <input form="details" type="file" id="file-ip-1"
+                                accept="image/*" onchange="showPreview(event);">
                         </div>
-                        <label id="selectImgBtn" for="file-ip-1">
-                            select image
-                        </label>
-                        <input form="details" type="file" id="file-ip-1" accept="image/*" onchange="showPreview(event);">
                     </div>
                 </div>
             </div>
-        </div>
-        <!-- <div class="infoTxt">
+            <!-- <div class="infoTxt">
             <div id="welcomeName">
                 Welcome {NAME}!
             </div>
         </div> -->
-    </div>
+        </div>
 
-    <form id="credentials" action="">
-    <div id="setUser">
-        <div class="signUpFormContainer">
-            <label class="enterUnameTxt" for="uname">enter username:</label>
-            <br>
-            <input type="text" id="uname" placeholder="nickname" name="uname">
-            <br>
-            <div class="errorMsg">
-                username already exists
+        <form id="credentials" action="">
+            <div id="setUser">
+                <div class="signUpFormContainer">
+                    <label class="enterUnameTxt" for="uname">enter username:</label>
+                    <br>
+                    <input type="text" id="uname" placeholder="nickname"
+                        name="uname">
+                    <br>
+                    <div class="errorMsg">
+                        username already exists
+                    </div>
+                    <br>
+                    <input id="loginPswd" form="main" type="password"
+                        placeholder="password" name="pswd">
+                    <br>
+                    <div class="buttons">
+                        <input onclick="login()" class="uNameLogin"
+                            type="button" value="Login">
+                        <input id="startSignUpBtn"
+                            onclick="moveForward('setUser')" class="uNameSignUp"
+                            type="button" value="SignUp">
+                    </div>
+                </div>
+                <img src="{{ url_for('static',
+                    filename='images/signup/username.svg') }}" class="uNameImg"
+                    alt="">
             </div>
-            <br>
-            <input id="loginPswd" form="main" type="password" placeholder="password" name="pswd">
-            <br>
-            <div class="buttons">
-                <input onclick="login()" class="uNameLogin" type="button" value="Login">
-                <input id="startSignUpBtn" onclick="moveForward('setUser')" class="uNameSignUp" type="button" value="SignUp">
+
+            <div id="setPswd">
+                <i onclick="moveBack('setPswd')" id="pswdPrev" class=" prevEntry
+                    fa-solid fa-angles-left"></i>
+                <div class="signUpFormContainer">
+                    <label class="enterPswdTxt" for="pswd">enter password:</label>
+                    <br>
+                    <input form="main" type="password" id="pswd"
+                        placeholder="password" name="pswd">
+                    <br>
+                    <label class="reEnterPswdTxt" for="rePswd">re enter
+                        password:</label>
+                    <br>
+                    <input form="main" type="password" id="rePswd"
+                        placeholder="re enter" name="rePswd">
+                    <br>
+                    <input onclick="moveForward('setPswd')" class="pswdSubmit"
+                        type="button" value="signUp">
+                </div>
+                <img src="{{ url_for('static',
+                    filename='images/signup/password.svg') }}" class="pswdImg"
+                    alt="">
             </div>
-        </div>
-        <img src="{{ url_for('static', filename='images/signup/username.svg') }}" class="uNameImg" alt="">
-    </div>
+        </form>
 
-    <div id="setPswd">
-        <i onclick="moveBack('setPswd')" id="pswdPrev" class=" prevEntry fa-solid fa-angles-left"></i>
-        <div class="signUpFormContainer">
-            <label class="enterPswdTxt" for="pswd">enter password:</label>
-            <br>
-            <input form="main" type="password" id="pswd" placeholder="password" name="pswd">
-            <br>
-            <label class="reEnterPswdTxt" for="rePswd">re enter password:</label>
-            <br>
-            <input form="main" type="password" id="rePswd" placeholder="re enter" name="rePswd">
-            <br>
-            <input onclick="moveForward('setPswd')" class="pswdSubmit" type="button" value="signUp">
-        </div>
-        <img src="{{ url_for('static', filename='images/signup/password.svg') }}" class="pswdImg" alt="">
-    </div>
-    </form>
+        <form id="details" action="">
+            <div id="setName">
+                <div class="signUpFormContainer">
+                    <label class="enterNameTxt" for="fname">enter full name:</label>
+                    <br>
+                    <input form="main" type="text" id="fname" placeholder="your
+                        name" name="fname">
+                    <br>
+                    <input onclick="moveForward('setName')" class="nameSubmit"
+                        type="button" value="next">
 
-    <form id="details" action="">
-    <div id="setName">
-        <div class="signUpFormContainer">
-            <label class="enterNameTxt" for="fname">enter full name:</label>
-            <br>
-            <input form="main" type="text" id="fname" placeholder="your name" name="fname">
-            <br>
-            <input onclick="moveForward('setName')" class="nameSubmit" type="button" value="next">
-
-        </div>        <img src="{{ url_for('static', filename='images/signup/name.png') }}" class="nameImg" alt="">
-    </div>
-
-    <div id="setMail">
-        <i onclick="moveBack('setMail')" id="mailPrev" class=" prevEntry fa-solid fa-angles-left"></i>
-        <div class="signUpFormContainer">
-            <label class="enterMailTxt" for="mail">enter E-mail ID:</label>
-            <br>
-            <input form="main" type="email" id="mail" placeholder="abc@gmail.com" name="mail">
-            <br>
-            <div class="errorMsg">
-                username already exists
+                </div> <img src="{{ url_for('static',
+                    filename='images/signup/name.png') }}" class="nameImg"
+                    alt="">
             </div>
-            <br>
-            <input onclick="moveForward('setMail')" class="mailSubmit" type="button" value="next">
 
-        </div>
-        <img src="{{ url_for('static', filename='images/signup/mail.svg') }}" class="mailImg" alt="">
-    </div>
+            <div id="setMail">
+                <i onclick="moveBack('setMail')" id="mailPrev" class=" prevEntry
+                    fa-solid fa-angles-left"></i>
+                <div class="signUpFormContainer">
+                    <label class="enterMailTxt" for="mail">enter E-mail ID:</label>
+                    <br>
+                    <input form="main" type="email" id="mail"
+                        placeholder="abc@gmail.com" name="mail">
+                    <br>
+                    <div class="errorMsg">
+                        username already exists
+                    </div>
+                    <br>
+                    <input onclick="moveForward('setMail')" class="mailSubmit"
+                        type="button" value="next">
 
-    <div id="setTT">
-        <i onclick="moveBack('setTT')" id="TTPrev" class=" prevEntry fa-solid fa-angles-left"></i>
-        <div class="signUpFormContainer">
-            <label class="enterTTTxt" for="TT">enter TimeTable code:</label>
-            <br>
-            <input form="main" type="text" id="TT" placeholder="Theory to L94" name="TT">
-            <br>
-            <input class="TTSubmit" type="button" value="finish setup">
-        </div>
-        <img src="{{ url_for('static', filename='images/signup/timetable.svg') }}" class="pswdImg" alt="">
-    </div>
-    </form>
-{% endblock %}
+                </div>
+                <img src="{{ url_for('static',
+                    filename='images/signup/mail.svg') }}" class="mailImg"
+                    alt="">
+            </div>
+
+            <div id="setTT">
+                <i onclick="moveBack('setTT')" id="TTPrev" class=" prevEntry
+                    fa-solid fa-angles-left"></i>
+                <div class="signUpFormContainer">
+                    <label class="enterTTTxt" for="TT">enter TimeTable code:</label>
+                    <br>
+                    <input form="main" type="text" id="TT" placeholder="Theory
+                        to L94" name="TT">
+                    <br>
+                    <input class="TTSubmit" type="button" value="finish setup">
+                </div>
+                <img src="{{ url_for('static',
+                    filename='images/signup/timetable.svg') }}" class="pswdImg"
+                    alt="">
+            </div>
+        </form>
+        <script src="{{ url_for('static', filename='script.js') }}"></script>
+    </body>
+</html>
