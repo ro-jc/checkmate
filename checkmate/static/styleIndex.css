@@ -44,6 +44,11 @@ a {
     color: white;
     padding: 0 15px;
 }
+.topBar div a i{
+    font-size: 2rem;
+    color: white;
+    padding: 0 15px;
+}
 .bottomBar {
     background: var(--mid);
     height: 8vh;
