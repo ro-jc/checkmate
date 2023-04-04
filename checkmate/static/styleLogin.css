@@ -20,6 +20,10 @@ body {
     font-family: 'comfortaa', 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
+a {
+    text-decoration: none;
+}
+
 .loginTopBar {
     background: var(--mid);
     height: 11vh;
