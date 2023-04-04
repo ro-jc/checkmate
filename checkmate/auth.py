@@ -35,8 +35,6 @@ def login():
     return render_template(
         "login.html",
         form=form,
-        title="Login",
-        style=url_for("static", filename="styleLogin.css"),
     )
 
 
@@ -78,8 +76,7 @@ def signup():
         assets_dir = os.path.join(
             os.path.dirname(current_app.instance_path), "checkmate/assets"
         )
-        avatar = form.avatar.data
-        avatar.save(os.path.join(assets_dir, "avatars", form.username.data))
+        form.avatar.data.save(os.path.join(assets_dir, "avatars", form.username.data))
 
         session["username"] = form.username.data
         return redirect(url_for("views.index"))
@@ -87,8 +84,6 @@ def signup():
     return render_template(
         "signup.html",
         form=form,
-        style=url_for("static", filename="styleSignUp.css"),
-        title="Sign Up",
     )
 
 

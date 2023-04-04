@@ -10,9 +10,9 @@ from scripts.timetable import create_timetable
 
 
 class LoginForm(FlaskForm):
-    username = StringField("Username", validators=[DataRequired()])
-    password = PasswordField("Password", validators=[DataRequired()])
-    submit = SubmitField("LOGIN")
+    username = StringField(validators=[DataRequired()])
+    password = PasswordField(validators=[DataRequired()])
+    submit = SubmitField()
 
     def validate_username(self, username):
         db = get_db()
@@ -28,38 +28,25 @@ class LoginForm(FlaskForm):
 
 
 class SignUpForm(FlaskForm):
-    username = StringField("", validators=[DataRequired()])
-    email = StringField("", validators=[Email()])
-    password = PasswordField("", validators=[DataRequired()])
-    password2 = PasswordField("", validators=[DataRequired(), EqualTo("password")])
-    name = StringField("", validators=[DataRequired()])
-    timetable = TextAreaField("", validators=[DataRequired()])
+    username = StringField(validators=[DataRequired()])
+    password = PasswordField(validators=[DataRequired()])
+    re_password = PasswordField(validators=[DataRequired(), EqualTo("password")])
+    name = StringField(validators=[DataRequired()])
+    email = StringField(validators=[Email(), DataRequired()])
+    timetable = TextAreaField(validators=[DataRequired()])
     avatar = FileField(
-        "Avatar",
         validators=[
             FileRequired(),
-            FileAllowed(["png", "jpg", "jpeg"], "Images only!"),
+            FileAllowed(["png", "jpg", "jpeg"], "images only!"),
         ],
     )
-    submit = SubmitField("REGISTER")
-
-    def validate_username(self, username):
-        db = get_db()
-        user = db.users.find_one({"username": username.data})
-        if user:
-            raise ValidationError("Please use a different username")
-
-    def validate_email(self, email):
-        db = get_db()
-        user = db.users.find_one({"email": email.data})
-        if user:
-            raise ValidationError("Email already exists")
+    submit = SubmitField("submit")
 
     def validate_timetable(self, timetable):
         try:
             create_timetable(timetable.data)
         except Exception:
-            raise ValidationError("Please re-check your timetable format")
+            raise ValidationError("re-check your timetable format!")
 
 
 class UserSearch(FlaskForm):

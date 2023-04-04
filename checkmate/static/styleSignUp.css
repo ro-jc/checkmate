@@ -74,11 +74,6 @@ body{
     letter-spacing: 5px;
 }
 
-.buttons{
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-}
 
 .prevEntry{
     position: absolute;
@@ -127,7 +122,7 @@ body{
 }
 
 #selectImgBtn{
-    display: none;
+    display: block;
 }
 #file-ip-1-preview{
     background: #ffffff;
@@ -298,15 +293,12 @@ body{
 }
 
 .errorMsg{
-    display: none;
     /* padding-bottom: 1.3rem; */
     color:red;
     font-style: italic;
     font-size: 1.1rem;
 }
-#loginPswd{
-    display: none;
-}
+
 
 
 #setPswd {
@@ -322,17 +314,12 @@ body{
     padding-top: 10%;
     display: none;
 }
-.signUpFormContainer{
-    /* height: 50%; */
-    /* display: flex; */
-    /* flex-direction: column; */
-}
 .enterPswdTxt {
     font-size: 1.3rem;
     opacity: 0.6;
 }
 
-#pswd, #loginPswd {
+#pswd {
     font-size: 1.4rem;
     border-radius: 50px;
     border: none;

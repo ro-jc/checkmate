@@ -23,58 +23,51 @@
     </head>
 
     <body>
-        <div class="signupTopBar">
-            <a href="/">
-                <div class="logoNameSec">
-                    CHECKMATE
-                </div>
-            </a>
-            <div class="picUpload">
-                <div class="uploadCont">
-                    <div class="center">
-                        <div class="form-input">
-                            <div class="preview">
-                                <img class="barLogo" id="file-ip-1-preview">
+        <form action="/signup" method="post" enctype="multipart/form-data">
+            {{ form.hidden_tag() }}
+            <div class="signupTopBar">
+                <a href="/">
+                    <div class="logoNameSec">
+                        CHECKMATE
+                    </div>
+                </a>
+                <div class="picUpload">
+                    <div class="uploadCont">
+                        <div class="center">
+                            <div class="form-input">
+                                <div class="preview">
+                                    <img class="barLogo" id="file-ip-1-preview">
+                                </div>
+                                <label id="selectImgBtn" for="file-ip-1">
+                                    select image
+                                </label>
+                                {{ form.avatar(id = 'file-ip-1',
+                                onchange='showPreview(event)') }}
                             </div>
-                            <label id="selectImgBtn" for="file-ip-1">
-                                select image
-                            </label>
-                            <input form="details" type="file" id="file-ip-1"
-                                accept="image/*"
-                                onchange="showPreview(event);">
+                            <div class="errorMsg">
+                                {% for error in form.avatar.errors %}
+                                {{ error }}
+                                {% endfor %}
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <!-- <div class="infoTxt">
-            <div id="welcomeName">
-                Welcome {NAME}!
-            </div>
-        </div> -->
-        </div>
 
-        <form id="credentials" action="">
+
             <div id="setUser">
                 <div class="signUpFormContainer">
                     <label class="enterUnameTxt" for="uname">enter username:</label>
                     <br>
-                    <input type="text" id="uname" placeholder="nickname"
-                        name="uname">
+                    {{ form.username(id='uname', placeholder='nickname') }}
                     <br>
-                    <div class="errorMsg">
-                        username already exists
+                    <div class="errorMsg" id="unameError">
                     </div>
                     <br>
-                    <input id="loginPswd" form="main" type="password"
-                        placeholder="password" name="pswd">
-                    <br>
-                    <div class="buttons">
-                        <!-- <input onclick="login()" class="uNameLogin" type="button" value="Login"> -->
-                        <input id="startSignUpBtn"
-                            onclick="moveForward('setUser')" class="uNameSignUp"
-                            type="button"
-                            value="next">
-                    </div>
+                    <input id="startSignUpBtn"
+                        onclick="moveForward('setUser')" class="uNameSignUp"
+                        type="button"
+                        value="next">
                 </div>
                 <img src="{{ url_for('static',
                     filename='images/signup/username.svg') }}" class="uNameImg"
@@ -87,15 +80,17 @@
                 <div class="signUpFormContainer">
                     <label class="enterPswdTxt" for="pswd">enter password:</label>
                     <br>
-                    <input form="main" type="password" id="pswd"
-                        placeholder="password" name="pswd">
+                    {{ form.password(id='pswd', placeholder='password') }}
                     <br>
                     <label class="reEnterPswdTxt" for="rePswd">re enter
                         password:</label>
                     <br>
-                    <input form="main" type="password" id="rePswd"
-                        placeholder="re enter" name="rePswd">
+                    {{ form.re_password(id='rePswd',
+                    placeholder='re-enter password')
+                    }}
                     <br>
+                    <div class="errorMsg" id="pswdError">
+                    </div>
                     <input onclick="moveForward('setPswd')" class="pswdSubmit"
                         type="button" value="signUp">
                 </div>
@@ -103,20 +98,19 @@
                     filename='images/signup/password.svg') }}" class="pswdImg"
                     alt="">
             </div>
-        </form>
 
-        <form id="details" action="">
             <div id="setName">
+                <i onclick="moveBack('setName')" id="namePrev" class=" prevEntry
+                    fa-solid fa-angles-left"></i>
                 <div class="signUpFormContainer">
                     <label class="enterNameTxt" for="fname">enter full name:</label>
                     <br>
-                    <input form="main" type="text" id="fname"
-                        placeholder="your name" name="fname">
+                    {{ form.name(id='fname', placeholder='your name') }}
                     <br>
                     <input onclick="moveForward('setName')" class="nameSubmit"
                         type="button" value="next">
-
-                </div> <img src="{{ url_for('static',
+                </div>
+                <img src="{{ url_for('static',
                     filename='images/signup/name.svg') }}" class="nameImg"
                     alt="">
             </div>
@@ -127,11 +121,12 @@
                 <div class="signUpFormContainer">
                     <label class="enterMailTxt" for="mail">enter E-mail ID:</label>
                     <br>
-                    <input form="main" type="email" id="mail"
-                        placeholder="abc@gmail.com" name="mail">
+                    {{ form.email(id='mail', placeholder='abc@xyz.com') }}
                     <br>
-                    <div class="errorMsg">
-                        username already exists
+                    <div class="errorMsg" id="mailError">
+                        {% for error in form.email.errors %}
+                        {{ error }}
+                        {% endfor %}
                     </div>
                     <br>
                     <input onclick="moveForward('setMail')" class="mailSubmit"
@@ -149,10 +144,15 @@
                 <div class="signUpFormContainer">
                     <label class="enterTTTxt" for="TT">enter TimeTable code:</label>
                     <br>
-                    <input form="main" type="text" id="TT"
-                        placeholder="Theory to L94" name="TT">
+                    {{ form.timetable(id='TT', placeholder='Theory to L94') }}
                     <br>
-                    <input class="TTSubmit" type="button" value="finish setup">
+                    <div class="errorMsg">
+                        {% for error in form.timetable.errors %}
+                        {{ error }}
+                        {% endfor %}
+                    </div>
+                    <br>
+                    {{ form.submit(class='TTSubmit') }}
                 </div>
                 <img src="{{ url_for('static',
                     filename='images/signup/timetable.svg') }}" class="pswdImg"

@@ -54,7 +54,8 @@ function scrollUp() {
 const divs = ["setUser", "setPswd", "setName", "setMail", "setTT"];
 
 function setNextVisibility(myDiv) {
-  for (let i = 0; i < divs.length; i++) {
+  let i = 0;
+  for (; i < divs.length; i++) {
     document.getElementById(divs[i]).style.display = 'none';
     if (divs[i] == myDiv) {
       document.getElementById(divs[i + 1]).style.display = 'flex';
@@ -73,7 +74,7 @@ function moveForward(myDiv) {
       if (this.readyState == 4 && this.status == 200) {
         const response = JSON.parse(xhttp.response);
         if (response['error'] != null) {
-          document.getElementById(myDiv).innerHTML = response['error'];
+          document.getElementById(id + 'Error').innerHTML = response['error'];
         } else {
           setNextVisibility(myDiv);
         }
@@ -82,6 +83,14 @@ function moveForward(myDiv) {
     xhttp.open('POST', '/signup/validate');
     xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     xhttp.send(id + '=' + data);
+ } else if (myDiv == 'setPswd') {
+    const pswd = document.getElementById('pswd').value;
+    const rePswd = document.getElementById('rePswd').value;
+    if (pswd != rePswd) {
+      document.getElementById('pswdError').innerHTML = "passwords don't match!";
+    } else {
+      setNextVisibility(myDiv);
+    }
  } else {
     setNextVisibility(myDiv)
   }
@@ -95,9 +104,4 @@ function moveBack(myDiv) {
       break;
     }
   }
-}
-
-function login() {
-  document.getElementById('loginPswd').style.display = "block";
-  document.getElementById("startSignUpBtn").style.display = "none";
 }
