@@ -336,7 +336,7 @@ body::-webkit-scrollbar {
     z-index: 5000 !important;
     top: 0;
     right: 0;
-    background-color: #111;
+    background-color: var(--mid);
     overflow-x: hidden;
     padding-top: 8vh;
     transition: 0.3s;

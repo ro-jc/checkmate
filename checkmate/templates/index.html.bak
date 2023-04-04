@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="mobile-web-app-capable" content="yes" />
+        <title>checkmate</title>
+        <link rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+            integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+            crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+        <link rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="{{ url_for('static',
+            filename='css/bootstrap.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static',
+            filename='styleOne.css') }}">
+    </head>
+
+    <body>
+        <div id="mySidenav" class="sidenav">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+            <a href="#">Profile</a>
+            <a href="#">theme</a>
+            <a href="#">Demo Mode</a>
+            <a href="/logout">Logout</a>
+        </div>
+        <div class="container-fluid topBar fixed-top">
+            <div class="row">
+                <div class="col-3 reqTab">
+                    <a href="{{ url_for('views.requests') }}" title="requests">
+                        <i class="fa-solid topBarIcon fa-plus-minus"></i>
+                    </a>
+                </div>
+                <div class="col-6 searchTab">
+                    <!-- <form class="searchBox" action="">
+        <input class="searchTxt" type="text" placeholder="find..." name="search">
+        <button class="searchBtn" title="search" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+    </form> -->
+                </div>
+                <!-- <div class="col-2 blankTab"></div> -->
+                <div class="col-3 accTab">
+                    <div title="profile">
+                        <i onclick="openNav()" class="fa-solid topBarIcon
+                            fa-circle-user"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container-fluid bottomBar fixed-bottom">
+            <div class="row">
+                <div class="col-6">
+                    <i onclick="groupPageOnly()" id="groupBtn" class="fa-solid
+                        bottomBarIcon fa-user-group"></i>
+                </div>
+                <div class="col-6">
+                    <i onclick="friendPageOnly()" id="friendBtn"
+                        class="fa-solid bottomBarIcon bottomBarIcon-active
+                        fa-user"></i>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="slideView">
+            <!-- <h2 id="groupPage">
+
+         <div class="card groupCard container m-auto px-3 mt-2">
+            <div class="row no-gutters">
+                <div class="col-3 groupImageBox">
+
+                    <div class="groupImage">
+                        <i class="fa-solid fa-users cardImage"></i>
+                    </div>
+                </div>
+                <div class="col-9 cardInfo">
+                    <div class="cardBody">
+                        <div class="groupNameBox">
+                            <div class="groupName">
+                                Thengakola
+                            </div>
+                            <div class="memberCount mt-1">
+                                12 members
+                            </div>
+                        </div>
+                        <div class="groupNotif mt-2">
+                            3 in foodys now !
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card groupCard container m-auto px-3 mt-2" aria-hidden="true">
+            <div class="row no-gutters">
+                <div class="col-3 groupImageBox">
+
+                    <div class="groupImage">
+                        <i class="fa-solid fa-users cardImage"></i>
+                    </div>
+                </div>
+                <div class="col-9 cardInfo">
+                    <div class="cardBody placeholder-glow">
+                        <div class="groupNameBox placeholder-glow">
+                            <div class="groupName placeholder">
+                                Thengakola
+                            </div>
+                            <div class="memberCount mt-1 placeholder">
+                                12 members
+                            </div>
+                        </div>
+                        <div class="groupNotif plceholder-glow mt-2">
+                            <div class="groupNotifText placeholder">
+                                3 in foodys now !
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card groupCard container m-auto px-3 mt-2" aria-hidden="true">
+            <div class="row no-gutters">
+                <div class="col-3 groupImageBox">
+
+                    <div class="groupImage">
+                        <i class="fa-solid fa-users cardImage"></i>
+                    </div>
+                </div>
+                <div class="col-9 cardInfo">
+                    <div class="cardBody placeholder-glow">
+                        <div class="groupNameBox placeholder-glow">
+                            <div class="groupName placeholder">
+                                Thengakola
+                            </div>
+                            <div class="memberCount mt-1 placeholder">
+                                12 members
+                            </div>
+                        </div>
+                        <div class="groupNotif plceholder-glow mt-2">
+                            <div class="groupNotifText placeholder">
+                                3 in foodys now!
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> -->
+        </div>
+
+        <div id="friendPage">
+            {% for user in starred %}
+            <div class="card personCard container m-auto">
+                <div class="row no-gutters">
+                    <div class="col-3 avatarBox">
+                        <div class="avatarImageBox">
+                            {# <img src="{{
+                                '/assets/avatars/{}'.format(user.username) }}"
+                                class="card-img" alt="{{ user.username }}">#}
+                            <i class="bi bi-person-circle cardAvatar"></i>
+                        </div>
+                    </div>
+                    <div class="col-9 cardInfo">
+                        <div class="cardBody">
+                            {% if 'period' in user %}
+                            <div class="ccPname">
+                                {{ user['name'].split()[0] }}
+                            </div>
+                            <div class="ccSub">
+                                {{ user['period']['title'] }}
+                            </div>
+                            <div class="ccTimeLoc">
+                                <div class="ccTime">
+                                    {{ user['period']['start'] }}-{{
+                                    user['period']['end'] }}
+                                </div>
+                                <div class="ccLoc">
+                                    {{ user['period']['venue'] }}
+                                </div>
+                            </div>
+
+                            <div class="nextClassBox">
+                                <div class="nextClassText">next: {{
+                                    user['next_period_time'] }}</div>
+                            </div>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+            <hr>
+            {% for user in friends %}
+            <div class="card personCard container m-auto px-3 mt-2">
+                <div class="row no-gutters">
+                    <div class="col-8 cardInfo">
+                        <div class="cardBody">
+                            {% if 'period' in user %}
+                            <div class="ccPname">
+                                {{ user['name'].split()[0] }}
+                            </div>
+                            <div class="ccSub">
+                                {{ user['period']['title'] }}
+                            </div>
+                            <div class="ccTimeLoc">
+                                <div class="ccTime">
+                                    {{ user['period']['start'] }}-{{
+                                    user['period']['end'] }}
+                                </div>
+                                <div class="ccLoc">
+                                    {{ user['period']['venue'] }}
+                                </div>
+                            </div>
+
+                            <div class="nextClassBox">
+                                <div class="nextClassText">next: {{
+                                    user['next_period_time'] }}</div>
+                            </div>
+                            {% endif %}
+                        </div>
+                    </div>
+                    <div class="col-4 avatarBox">
+                        <div class="avatarImageBox">
+                            <img
+                                src="{{
+                                '/assets/avatars/{}'.format(user.username) }}"
+                                class="card-img" alt="{{ user.username }}">
+                            {# <i class="bi bi-person-circle cardAvatar"></i>#}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+
+
+
+
+            <div class="emptyBottom"></div>
+        </div>
+        <script src="{{ url_for('static', filename='script.js') }}"></script>
+    </body>
+</html>
