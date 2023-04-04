@@ -1,58 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="mobile-web-app-capable" content="yes" />
-    <title>Login - checkmate</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
-        integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styleLogin.css') }}">
-</head>
-<body>
-    <div class="loginTopBar">
-        <div class="logoNameSec">
-            CHECKMATE
-        </div>
-    </div>
-
-    <form id="credentials" action="">
-        <div id="setUser">
-            <!-- <a class="closeBtnLink" href="/">
-                <div class="closeBtn">
-                    <i class="fa-solid fa-xmark"></i>
-                </div>
-            </a> -->
-            <div class="loginFormContainer">
-                <label class="enterUnameTxt" for="uname">enter username:</label>
-                <br>
-                <input type="text" id="uname" placeholder="nickname" name="uname">
-                <br>
-                <div class="errorMsg">
-                    <!-- username already exists -->
-                </div>
-                <br>
-                <label class="enterPswdTxt" for="pswd">enter password:</label>
-                <br>
-                <input id="loginPswd" form="main" type="password" placeholder="password" name="pswd">
-                <br>
-                <div class="errorMsg">
-                    <!-- password incorrect -->
-                </div>
-                <br>
-                <div class="buttons">
-                    <input onclick="login()" class="uNameLogin" type="button" value="Login">
-                </div>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="mobile-web-app-capable" content="yes" />
+        <title>Login - checkmate</title>
+        <link rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+            integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+            crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+        <link rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="{{ url_for('static',
+            filename='css/bootstrap.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static',
+            filename='styleLogin.css') }}">
+    </head>
+    <body>
+        <div class="loginTopBar">
+            <div class="logoNameSec">
+                CHECKMATE
             </div>
-            <img src="{{ url_for('static', filename='images/signup/username.svg') }}" class="uNameImg" alt="">
         </div>
 
-
-</body>
-</html>
+        <form action="/login" method="post">
+            {{ form.hidden_tag() }}
+            <div id="setUser">
+                <div class="loginFormContainer">
+                    <label class="enterUnameTxt" for="uname">enter username:</label>
+                    <br>
+                    {{ form.username(id='uname', placeholder='nickname') }}
+                    <br>
+                    <div class="errorMsg">
+                        {% for error in form.username.errors %}
+                        {{ error }}
+                        {% endfor %}
+                    </div>
+                    <br>
+                    <label class="enterPswdTxt" for="pswd">enter password:</label>
+                    <br>
+                    {{ form.password(id='loginPswd', placeholder='password') }}
+                    <br>
+                    <div class="errorMsg">
+                        {% for error in form.password.errors %}
+                        {{ error }}
+                        {% endfor %}
+                    </div>
+                    <br>
+                    <button class="uNameLogin" name="submit" type="submit">Login</button>
+                </div>
+                <img src="{{ url_for('static',
+                    filename='images/signup/username.svg') }}" class="uNameImg"
+                    alt="">
+            </div>
+        </body>
+    </html>

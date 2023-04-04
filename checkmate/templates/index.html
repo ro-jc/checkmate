@@ -159,9 +159,9 @@
                 <div class="row no-gutters">
                     <div class="col-3 avatarBox">
                         <div class="avatarImageBox">
-                            {# <img src="{{ url_for('static',
-                                filename='avatars/{}.jpg'.format(user.username))
-                                }}" class="card-img" alt="...">#}
+                            {# <img src="{{
+                                '/assets/avatars/{}'.format(user.username) }}"
+                                class="card-img" alt="{{ user.username }}">#}
                             <i class="bi bi-person-circle cardAvatar"></i>
                         </div>
                     </div>
@@ -226,8 +226,9 @@
                     </div>
                     <div class="col-4 avatarBox">
                         <div class="avatarImageBox">
-                            <img src="{{ url_for('assets',
-                                filename='avatars/{}'.format(user.username)) }}"
+                            <img
+                                src="{{
+                                '/assets/avatars/{}'.format(user.username) }}"
                                 class="card-img" alt="{{ user.username }}">
                             {# <i class="bi bi-person-circle cardAvatar"></i>#}
                         </div>
