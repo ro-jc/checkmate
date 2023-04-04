@@ -1,42 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="mobile-web-app-capable" content="yes" />
-    {% if title %}
-    <title>{{ title }} - checkmate</title>
-    {% else %}
-    <title>checkmate</title>
-    {% endif %}
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
-        integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.css') }}">
-    {% if style %}
-    <link rel="stylesheet" type="text/css" href="{{ style }}">
-    {% else %}
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styleOne.css') }}">
-    {% endif %}
-</head>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="mobile-web-app-capable" content="yes" />
+        {% if title %}
+        <title>{{ title }} - checkmate</title>
+        {% else %}
+        <title>checkmate</title>
+        {% endif %}
+        <link rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+            integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+            crossorigin="anonymous" referrerpolicy="no-referrer" />
+        {% if style %}
+        <link rel="stylesheet" type="text/css" href="{{ style }}">
+        {% else %}
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static',
+            filename='styleOne.css') }}">
+        {% endif %}
+    </head>
 
-<body>
-    {% if session['username'] %}
-    <div id="mySidenav" class="sidenav">
-        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-        <a href="#">Profile</a>
-        <a href="#">theme</a>
-        <a href="#">Demo Mode</a>
-        <a href="/logout">Logout</a>
-    </div>
-    {% endif %}
-    <div class="empty"></div>
-    <div id="empty"></div>
-    {% block content %}{% endblock %}
-    <script src="{{ url_for('static', filename='script.js') }}"></script>
-</body>
+    <body>
+        {% if session['username'] %}
+        <div id="mySidenav" class="sidenav">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+            <a href="#">Profile</a>
+            <a href="#">theme</a>
+            <a href="#">Demo Mode</a>
+            <a href="/logout">Logout</a>
+        </div>
+        {% endif %}
+        <div class="empty"></div>
+        <div id="empty"></div>
+        {% block content %}{% endblock %}
+        <script src="{{ url_for('static', filename='script.js') }}"></script>
+    </body>
 </html>
