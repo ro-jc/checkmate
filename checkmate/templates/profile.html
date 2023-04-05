@@ -12,37 +12,52 @@
             integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
             crossorigin="anonymous" referrerpolicy="no-referrer" />
         <link rel="stylesheet" type="text/css" href="{{ url_for('static',
-            filename='styleOne.css') }}">
+            filename='styleProfile.css') }}">
     </head>
 
     <body>
+        <div class="emptyTop"></div>
+        <div class="topBar">
+            <div onclick="openNav()">
+                <i class="fa-solid fa-bars-staggered"></i>
+            </div>
+            <div>
+                <a href="">
+                    <i class="fa-solid fa-masks-theater"></i>
+                </a>
+            </div>
+        </div>
+
         <div id="mySidenav" class="sidenav">
             <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-            <a href="#">Profile</a>
-            <a href="#">theme</a>
-            <a href="#">Demo Mode</a>
-            <a href="/logout">Logout</a>
+            <div class="profilePicBox">
+                <img src="" alt="">
+            </div>
+            <a class="sidenavOptions" href="/profiles/{{ session.username }}">Profile</a>
+            <a class="sidenavOptions" href="/logout">Logout</a>
         </div>
-        <div class="container">
+
+        <div class="extContainer">
+        <div class="intContainer">
             <h1>{{ user.name }}</h1>
             <h2>@{{ user.username}}</h2>
         </div>
-        <hr>
-        <div class="container">
+        <div class="intContainer">
             {% set days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday',
             'Friday', 'Saturday', 'Sunday'] %}
             {% for day in user.timetable %}
-            <h3>{{ days[loop.index - 1] }}</h3>
-            <table>
-                {% for period in day %}
-                <tr>
-                    <td>{{ period.title }}</td>
-                    <td>{{ period.start}} - {{ period.end }}</td>
-                    <td>{{ period.venue }}</td>
-                </tr>
-                {% endfor %}
-            </table>
-            <hr>
+            <div class="daysTT">
+                <h3 class="dayName">{{ days[loop.index - 1] }}</h3>
+                <table>
+                    {% for period in day %}
+                    <tr>
+                        <td class="ttSubName">{{ period.title }}</td>
+                        <td class="ttSubTime">{{ period.start}} - {{ period.end }}</td>
+                        <td class="ttSubVenue">{{ period.venue }}</td>
+                    </tr>
+                    {% endfor %}
+                </table>
+            </div>
             {% endfor %}
         </div>
         <script src="{{ url_for('static', filename='script.js') }}"></script>

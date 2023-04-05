@@ -70,6 +70,7 @@ def signup():
                 "password_hash": generate_password_hash(form.password.data),
                 "name": form.name.data.title(),
                 "timetable": create_timetable(form.timetable.data),
+                "friends": [],
             }
         )
 
