@@ -1,5 +1,5 @@
 import os
-from flask import Flask, redirect, url_for
+from flask import Flask, redirect, url_for, make_response, send_from_directory
 from werkzeug.middleware.proxy_fix import ProxyFix
 
 
@@ -11,10 +11,7 @@ def create_app(test_config=None):
     except FileNotFoundError:
         SECRET_KEY = "lfskfhslkfh slkajfh"
 
-    app.config.from_mapping(
-        SECRET_KEY=SECRET_KEY,
-        MAX_CONTENT_LENGTH=1*1024*1024
-    )
+    app.config.from_mapping(SECRET_KEY=SECRET_KEY, MAX_CONTENT_LENGTH=1 * 1024 * 1024)
     app.wsgi_app = ProxyFix(app.wsgi_app, x_for=1, x_proto=1, x_host=1, x_prefix=1)
 
     if test_config is None:
@@ -25,6 +22,12 @@ def create_app(test_config=None):
         os.makedirs(app.instance_path)
     except OSError:
         pass
+
+    @app.route("/sw.js")
+    def service_worker():
+        response = make_response(send_from_directory("static", "sw.js"))
+        response.headers["Content-Type"] = "application/javascript"
+        return response
 
     from checkmate import db
 
