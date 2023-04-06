@@ -1,5 +1,5 @@
 import os
-from flask import Flask, redirect, url_for, make_response, send_from_directory
+from flask import Flask
 from werkzeug.middleware.proxy_fix import ProxyFix
 
 
@@ -25,9 +25,7 @@ def create_app(test_config=None):
 
     @app.route("/sw.js")
     def service_worker():
-        response = make_response(send_from_directory("static", "sw.js"))
-        response.headers["Content-Type"] = "application/javascript"
-        return response
+        return app.send_static_file("sw.js")
 
     from checkmate import db
 
