@@ -9,10 +9,16 @@
 
 :root {
     --light: #b2e5ed;
-    --light: #ebdea4;
     --mid: #00abc5;
-    --mid: #e9b077;
     --mid: rgb(141, 78, 34);
+    --mid: #8e2426;
+    --light: #ff7a01;
+    /* --mid: #0d635b; */
+    /* --light: #fd88e6; */
+    /* --mid: #425ca8; */
+    /* --light: #f0f22f; */
+    /* --mid: #064c2b; */
+    /* --light: #fec901; */
 }
 
 body{
@@ -403,10 +409,15 @@ body::-webkit-scrollbar {
     border: 5px solid var(--mid);
     padding: 0.1rem 0.1rem;
     width: 40vw;
+    height: 8vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    border-radius: 50px;
+    border-top-left-radius: 2rem;
+    border-top-right-radius: 2rem;
+    border-bottom-right-radius: 0.8rem;
+    border-bottom-left-radius: 0.8rem;
+    box-shadow: 10px 10px #000;
 }
 .loginBtn{
     color: #000;

@@ -3,10 +3,16 @@
 
 :root {
     --light: #b2e5ed;
-    --light: #ebdea4;
     --mid: #00abc5;
-    --mid: #e9b077;
     --mid: rgb(141, 78, 34);
+    --mid: #8e2426;
+    --light: #ff7a01;
+    /* --mid: #0d635b; */
+    /* --light: #fd88e6; */
+    /* --mid: #425ca8; */
+    /* --light: #f0f22f; */
+    /* --mid: #064c2b; */
+    /* --light: #fec901; */
 }
 
 * {
@@ -31,7 +37,7 @@ a {
     z-index: 5000 !important;
     top: 5px;
     left: 0;
-    background-color: rgba(141, 78, 34, 1);
+    background-color: var(--mid);
     overflow-x: hidden;
     /* padding-top: 10vh; */
     transition: 0.3s;
@@ -115,6 +121,7 @@ a {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    
 }
 
 .topBar div {
@@ -173,8 +180,8 @@ td{
     width: 100%;
     border-top-left-radius: 1rem;
     border-top-right-radius: 1rem;
-    border-bottom-right-radius: 0.4rem;
-    border-bottom-left-radius: 0.4rem;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
 }
 table{
     border: 2px solid var(--mid);
@@ -182,4 +189,8 @@ table{
     border-top-left-radius: 0;
     border-top-right-radius: 0;
     border-top: none;
+    box-shadow: 10px 10px #000;
+}
+table tr td{
+    padding: 2.5px;
 }
