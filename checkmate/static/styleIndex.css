@@ -1,12 +1,21 @@
 @import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@600&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Alkatra:wght@500&display=swap');
 
+@media screen and (min-width: 768px){
+    body{
+        /* display: none; */
+        /* background: #000;; */
+        opacity: 0.1;
+    }
+}
+
 :root {
     --light: #b2e5ed;
     --mid: #00abc5;
-    --mid: rgb(141, 78, 34);
     --mid: #8e2426;
     --light: #ff7a01;
+    --light: white;
+    --mid: black;
     /* --mid: #0d635b; */
     /* --light: #fd88e6; */
     /* --mid: #425ca8; */
@@ -85,13 +94,13 @@ a {
 
 
 .sidenav {
-    height: calc(100vh - 5px);
+    height: calc(100vh - 10px);
     width: 0;
     position: fixed;
     z-index: 5000 !important;
     top: 5px;
     left: 0;
-    background-color: rgba(141, 78, 34, 1);
+    background-color: var(--mid);
     overflow-x: hidden;
     /* padding-top: 10vh; */
     transition: 0.3s;
@@ -163,6 +172,7 @@ a {
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
 
 }
 #groupsPage{
@@ -179,6 +189,7 @@ a {
 
 .ffImg{
     width: 75vw;
+    display: none;
     /* opacity: 0.6; */
 }
 .ffImg div{
@@ -222,4 +233,80 @@ a {
     font-size: 3rem;
     padding: 2rem 0;
     /* opacity: 1; */
+}
+
+.card2{
+    height: 15vh;
+    width: 93vw;
+    /* background: #000; */
+    border-radius: 8px;
+    border: 3px solid #000;
+    margin: 5px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.picBox{
+    width: 23vw;
+    height: 23vw;
+    /* background: #000; */
+    border: 3px solid #000;
+    border-radius: 50%;
+}
+.infoBox{
+    width: 70%;
+    height: 90%;
+    /* background: #000; */
+    border: 3px solid #000;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+}
+
+.subName2{
+    width: 100%;
+    /* background: #000; */
+    border-bottom: 3px solid #000;
+    border-bottom-left-radius: 6px;
+    border-bottom-right-radius: 6px;
+    border-top: none;
+    height: 33.333%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.nextSub2{
+    width: 100%;
+    border-top: 3px solid #000;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+    border-bottom: none;
+    height: 33.333%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.subTimeLoc2{
+    height: 33.333%;
+    display: flex;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.subLoc, .subTimeUpto{
+    height: 100%;
+}
+.subTimeUpto{
+    border-right: 1.5px solid #000;
+    width: 55%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.subLoc{
+    border-left: 1.5px solid #000;
+    width: 45%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
