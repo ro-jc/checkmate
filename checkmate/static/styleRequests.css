@@ -1,0 +1,151 @@
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Alkatra:wght@500&display=swap');
+
+@media screen and (min-width: 768px) {
+    body {
+        opacity: 0.1;
+    }
+}
+
+:root {
+    --light: white;
+    --mid: black;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: var(--light);
+    font-family: 'comfortaa', 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+a {
+    text-decoration: none;
+}
+
+.topBar {
+    background: var(--mid);
+    height: 8vh;
+    width: calc(100vw - 10px);
+    border-radius: 0.8rem 0.8rem 2rem 2rem;
+    position: fixed;
+    z-index: 100;
+    margin: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.topBar div {
+    font-size: 2rem;
+    color: white;
+    padding: 0 15px;
+}
+
+.topBar div a i {
+    font-size: 2rem;
+    color: white;
+    padding: 0 15px;
+}
+
+.searchBarField {
+    width: 35vw;
+    height: 30px;
+    border-radius: 20px;
+}
+
+.sidenav {
+    height: calc(100vh - 10px);
+    width: 0;
+    position: fixed;
+    z-index: 5000 !important;
+    top: 5px;
+    left: 0;
+    background-color: var(--mid);
+    overflow-x: hidden;
+    /* padding-top: 10vh; */
+    transition: 0.3s;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+}
+
+.sidenavOptions {
+    padding: 8px;
+    text-decoration: none;
+    font-size: 2.3rem;
+    color: white;
+    display: block;
+    transition: 0.3s;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.sidenavOptions:hover {
+    color: #f1f1f1;
+}
+
+.profilePicBox {
+    height: 6rem;
+    width: 6rem;
+    margin: 8vh 0 4vh 0;
+    border-radius: 50%;
+    background: white;
+    border: none;
+}
+
+.closebtn {
+    color: white;
+    position: absolute;
+    top: 0;
+    left: 25px;
+    font-size: 3.5rem;
+    /* margin-left: 50px; */
+    z-index: 500 !important;
+}
+
+
+#main {
+    transition: margin-left .5s;
+    padding: 20px;
+}
+
+@media screen and (max-height: 450px) {
+    .sidenav {
+        padding-top: 15px;
+    }
+
+    .sidenavOptions {
+        font-size: 18px;
+    }
+}
+
+.reqPageBody {
+    position: absolute;
+    top: calc(8vh + 10px);
+    width: 100%;
+}
+
+.title {
+    text-align: center;
+}
+
+.userCard {
+    border: 3px solid #000000;
+    border-radius: 8px;
+}
+
+.picBox {
+    border: 2px solid #000000;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

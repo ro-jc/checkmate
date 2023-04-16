@@ -11,79 +11,84 @@
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
           integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
           crossorigin="anonymous" referrerpolicy="no-referrer"/>
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static',
-            filename='styleOne.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styleRequests.css') }}">
 </head>
 
 <body>
 
-<div class="logoBar">CHECKMATE</div>
+<div class="topBar">
+    <div onclick="openNav()">
+        <i class="fa-solid fa-bars-staggered"></i>
+    </div>
+    <div class="searchBar">
+        <form method="post">
+            {{ form.hidden_tag() }}
+            {{ form.name(size=50, class="searchBarField") }}
+            <button type="submit" class="" name="submit">
+                <i class="fa-solid ssBtn fa-magnifying-glass"></i>
+            </button>
+        </form>
+    </div>
+    <div>
+        <a href="{{ url_for('views.requests') }}">
+            <i class="fa-solid fa-house"></i>
+        </a>
+    </div>
+</div>
+
+<div id="mySidenav" class="sidenav">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <div class="profilePicBox">
+        <img src="" alt="">
+    </div>
+    <a class="sidenavOptions" href="/profiles/{{ session.username }}">Profile</a>
+    <a class="sidenavOptions" href="/logout">Logout</a>
+</div>
 
 <div class="reqPageBody">
-    <div class="reqBar">
-        <div class="row">
-            <a href="/">
-                <div class="homeBtn col-1">
-                    <i class="fa-solid fa-house"></i>
+    {% if show_requests %}
+        <h2 class="title">Incoming Requests</h2>
+        {% for user in results %}
+            <div class="userCard" id="{{ user.username }}">
+                <div class="picBox">
+                    <img src="/assets/avatars/{{ user.username }}" alt="{{ user.username }}">
                 </div>
-            </a>
-            <form method="post">
-                {{ form.hidden_tag() }}
-                <div class="form-group row">
-                    <!-- <a class="col-12" href="">
-            <div class="homeBtn col-1">
-                <i class="fa-solid fa-house"></i>
-            </div>
-        </a> -->
-                    <div class=" col-10">{{ form.name(size=50,class="friendSearchBar") }}</div>
-                    <button type="submit" class="col-2 searchSubmit"
-                            name="submit">
-                        <i class="fa-solid ssBtn fa-magnifying-glass"></i>
+                <div class="col-md-10">
+                    {{ user.name }}<br>
+                    @{{ user.username }}
+                </div>
+                <div class="col-md-2">
+                    <button class="incomingRequestButton"
+                            onclick="requestReturn('{{ user.username }}', 'accept')">
+                        Accept
+                    </button>
+                    <button class="incomingRequestButton"
+                            onclick="requestReturn('{{ user.username }}', 'decline')">
+                        Decline
                     </button>
                 </div>
-            </form>
-        </div>
-    </div>
-
-    <div>
-        {% if show_requests %}
-            <div class="reqH">Incoming Requests</div>
-            {% for user in results %}
-                <div class="row" id="{{ user.username }}">
-                    <div class="picBox">
-                    </div>
-                    <div class="col-md-10">
-                        {{ user['name'] }}<br>
-                        @{{ user['username'] }}
-                    </div>
-                    <div class="col-md-2">
-                        <button class="incomingRequestButton" onclick="requestReturn('{{ user.username }}', 'accept')">
-                            Accept
-                        </button>
-                        <button class="incomingRequestButton" onclick="requestReturn('{{ user.username }}', 'decline')">
-                            Decline
-                        </button>
-                    </div>
-                </div>
-                <hr>
-            {% endfor %}
             </div>
-        {% else %}
-            <div class="reqH">Results</div>
-            {% for user in results %}
-                <div class="row">
-                    <div class="col-md-10">
-                        {{ user['name'] }}<br>
-                        @{{ user['username'] }}
-                    </div>
-                    <div class="col-md-2">
-                        <button class="sendRequestButton" onclick="requestSend('{{ user.username }}')">Request</button>
-                    </div>
+            <hr>
+        {% endfor %}
+    {% else %}
+        <h2 class="title">Results</h2>
+        {% for user in results %}
+            <div class="userCard">
+                <div class="picBox">
+                    <img src="/assets/avatars/{{ user.username }}" alt="{{ user.username }}">
                 </div>
-                <hr>
+                <div class="col-md-10">
+                    {{ user.name }}<br>
+                    @{{ user.username }}
                 </div>
-            {% endfor %}
-        {% endif %}
+                <div class="col-md-2">
+                    <button class="sendRequestButton" onclick="requestSend('{{ user.username }}')">Request</button>
+                </div>
+            </div>
+            <hr>
+            </div>
+        {% endfor %}
+    {% endif %}
 <script src="{{ url_for('static', filename='script.js') }}"></script>
 </body>
 </html>
