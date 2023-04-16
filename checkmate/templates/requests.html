@@ -1,99 +1,98 @@
 <!DOCTYPE html>
 
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="apple-mobile-web-app-capable" content="yes"/>
-        <meta name="mobile-web-app-capable" content="yes"/>
-        <title>checkmate</title>
-        <link rel="stylesheet"
-            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
-            integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
-            crossorigin="anonymous" referrerpolicy="no-referrer"/>
-        <link rel="stylesheet" type="text/css" href="{{ url_for('static',
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="mobile-web-app-capable" content="yes"/>
+    <title>checkmate</title>
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+          integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+          crossorigin="anonymous" referrerpolicy="no-referrer"/>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',
             filename='styleRequests.css') }}">
-    </head>
+</head>
 
-    <body>
+<body>
 
-        <div class="topBar">
-            <div class="menuBtn" onclick="openNav()">
-                <i class="fa-solid fa-bars-staggered"></i>
-            </div>
-            <div class="searchBar">
-                <form method="post">
-                    {{ form.hidden_tag() }}
-                    {{ form.name(size=50, class="searchBarField", placeholder="search...") }}
-                    <button type="submit" class="searchSubmitBtn" name="submit">
-                        <i class="fa-solid ssBtn fa-magnifying-glass"></i>
-                    </button>
-                </form>
-            </div>
-            <div>
-                <a href="{{ url_for('views.requests') }}">
-                    <i class="fa-solid fa-house"></i>
-                </a>
-            </div>
-        </div>
+<div class="topBar">
+    <div class="menuBtn" onclick="openNav()">
+        <i class="fa-solid fa-bars-staggered"></i>
+    </div>
+    <div class="searchBar">
+        <form method="post">
+            {{ form.hidden_tag() }}
+            {{ form.name(size=50, class="searchBarField", placeholder="search...") }}
+            <button type="submit" class="searchSubmitBtn" name="submit">
+                <i class="fa-solid ssBtn fa-magnifying-glass"></i>
+            </button>
+        </form>
+    </div>
+    <div>
+        <a href="{{ url_for('views.index') }}">
+            <i class="fa-solid fa-house"></i>
+        </a>
+    </div>
+</div>
 
-        <div id="mySidenav" class="sidenav">
-            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-            <div class="profilePicBox">
-                <img src="" alt="">
-            </div>
-            <a class="sidenavOptions" href="/profiles/{{ session.username }}">Profile</a>
-            <a class="sidenavOptions" href="/logout">Logout</a>
-        </div>
+<div id="mySidenav" class="sidenav">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <div class="profilePicBox">
+        <img src="" alt="">
+    </div>
+    <a class="sidenavOptions" href="/profiles/{{ session.username }}">Profile</a>
+    <a class="sidenavOptions" href="/logout">Logout</a>
+</div>
 
-        <div class="reqPageBody">
-            {% if show_requests %}
-            <h2 class="title">Incoming Requests</h2>
-            {% for user in results %}
+{% if show_requests %}
+    <div class="title">Incoming Requests</div>
+    <div class="contentSection">
+        {% for user in results %}
             <div class="userCard" id="{{ user.username }}">
                 <div class="picBox">
-                    <img src="/assets/avatars/{{ user.username }}" alt="{{
-                        user.username }}">
+                    <img class="cardAvatar" src="/assets/avatars/{{ user.username }}" alt="{{ user.username }}">
                 </div>
-                <div class="col-md-10">
+                <div class="idSection">
+                    <div id="username"></div>
                     {{ user.name }}<br>
                     @{{ user.username }}
                 </div>
-                <div class="col-md-2">
-                    <button class="incomingRequestButton"
-                        onclick="requestReturn('{{ user.username }}',
-                        'accept')">
-                        Accept
-                    </button>
-                    <button class="incomingRequestButton"
-                        onclick="requestReturn('{{ user.username }}',
-                        'decline')">
-                        Decline
-                    </button>
+                <div class="buttonSection">
+                    <div class="col-md-2">
+                        <button class="incomingRequestButton"
+                                onclick="requestReturn('{{ user.username }}', 'accept')">
+                            Accept
+                        </button>
+                        <button class="incomingRequestButton"
+                                onclick="requestReturn('{{ user.username }}', 'decline')">
+                            Decline
+                        </button>
+                    </div>
                 </div>
             </div>
-            <hr>
-            {% endfor %}
-            {% else %}
-            <h2 class="title">Results</h2>
-            {% for user in results %}
+        {% endfor %}
+    </div>
+{% else %}
+    <div class="title">Results</div>
+    <div class="contentSection">
+        {% for user in results %}
             <div class="userCard">
                 <div class="picBox">
-                    <img src="/assets/avatars/{{ user.username }}" alt="{{
-                        user.username }}">
+                    <img class="cardAvatar" src="/assets/avatars/{{ user.username }}" alt="{{ user.username }}">
                 </div>
-                <div class="col-md-10">
+                <div class="nameSection">
                     {{ user.name }}<br>
                     @{{ user.username }}
                 </div>
-                <div class="col-md-2">
-                    <button class="sendRequestButton" onclick="requestSend('{{user.username }}')">Request</button>
+                <div class="buttonSection">
+                    <button class="sendRequestButton" onclick="requestSend('{{ user.username }}')">Request</button>
                 </div>
             </div>
-            <hr>
-        </div>
         {% endfor %}
-        {% endif %}
-        <script src="{{ url_for('static', filename='script.js') }}"></script>
-    </body>
+    </div>
+{% endif %}
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
 </html>
