@@ -1,93 +1,89 @@
 <!DOCTYPE html>
 
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="apple-mobile-web-app-capable" content="yes" />
-        <meta name="mobile-web-app-capable" content="yes" />
-        <title>checkmate</title>
-        <link rel="stylesheet"
-            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
-            integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
-            crossorigin="anonymous" referrerpolicy="no-referrer" />
-        <link rel="stylesheet" type="text/css" href="{{ url_for('static',
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="mobile-web-app-capable" content="yes"/>
+    <title>checkmate</title>
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+          integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+          crossorigin="anonymous" referrerpolicy="no-referrer"/>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',
             filename='styleOne.css') }}">
-    </head>
+</head>
 
-    <body>
+<body>
 
-        <div class="logoBar">CHECKMATE</div>
+<div class="logoBar">CHECKMATE</div>
 
-        <div class="reqPageBody">
-            <div class="reqBar">
-                <div class="row">
-                    <a href="/">
-                        <div class="homeBtn col-1">
-                            <i class="fa-solid fa-house"></i>
-                        </div>
-                    </a>
-                    <form method="post">
-                        {{ form.hidden_tag() }}
-                        <div class="form-group row">
-                            <!-- <a class="col-12" href="">
-                    <div class="homeBtn col-1">
-                        <i class="fa-solid fa-house"></i>
-                    </div>
-                </a> -->
-                            <div class=" col-10">{{
-                                form.name(size=50,class="friendSearchBar") }}</div>
-                            <button type="submit" class="col-2 searchSubmit"
-                                name="submit">
-                                <i class="fa-solid ssBtn fa-magnifying-glass"></i>
-                            </button>
-                        </div>
-                    </form>
+<div class="reqPageBody">
+    <div class="reqBar">
+        <div class="row">
+            <a href="/">
+                <div class="homeBtn col-1">
+                    <i class="fa-solid fa-house"></i>
                 </div>
+            </a>
+            <form method="post">
+                {{ form.hidden_tag() }}
+                <div class="form-group row">
+                    <!-- <a class="col-12" href="">
+            <div class="homeBtn col-1">
+                <i class="fa-solid fa-house"></i>
             </div>
+        </a> -->
+                    <div class=" col-10">{{ form.name(size=50,class="friendSearchBar") }}</div>
+                    <button type="submit" class="col-2 searchSubmit"
+                            name="submit">
+                        <i class="fa-solid ssBtn fa-magnifying-glass"></i>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
 
-            <div>
-                {% if show_requests %}
-                <div class="reqH">Incoming Requests</div>
-                {% for user in results %}
-                <div class="row">
-
+    <div>
+        {% if show_requests %}
+            <div class="reqH">Incoming Requests</div>
+            {% for user in results %}
+                <div class="row" id="{{ user.username }}">
+                    <div class="picBox">
+                    </div>
                     <div class="col-md-10">
                         {{ user['name'] }}<br>
                         @{{ user['username'] }}
                     </div>
                     <div class="col-md-2">
-                        <form method="post">
-                            <button type="submit" class="btn btn-success"
-                                name="accept_username" value="{{ user.username
-                                }}">Accept
-                                Request</button>
-                        </form>
+                        <button class="incomingRequestButton" onclick="requestReturn('{{ user.username }}', 'accept')">
+                            Accept
+                        </button>
+                        <button class="incomingRequestButton" onclick="requestReturn('{{ user.username }}', 'decline')">
+                            Decline
+                        </button>
                     </div>
                 </div>
                 <hr>
-                {% endfor %}
+            {% endfor %}
             </div>
-            {% else %}
+        {% else %}
             <div class="reqH">Results</div>
             {% for user in results %}
-            <div class="row">
-                <div class="col-md-10">
-                    {{ user['name'] }}<br>
-                    @{{ user['username'] }}
+                <div class="row">
+                    <div class="col-md-10">
+                        {{ user['name'] }}<br>
+                        @{{ user['username'] }}
+                    </div>
+                    <div class="col-md-2">
+                        <button class="sendRequestButton" onclick="requestSend('{{ user.username }}')">Request</button>
+                    </div>
                 </div>
-                <div class="col-md-2">
-                    <form method="post">
-                        <button type="submit" class="btn btn-success"
-                            name="request_username" value="{{ user.username }}">Send
-                            Request</button>
-                    </form>
+                <hr>
                 </div>
-            </div>
-            <hr>
-        </div>
-        {% endfor %}
+            {% endfor %}
         {% endif %}
-        <script src="{{ url_for('static', filename='script.js') }}"></script>
-    </body>
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
 </html>
