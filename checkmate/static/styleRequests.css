@@ -1,0 +1,33 @@
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Alkatra:wght@500&display=swap');
+
+:root {
+    --light: #b2e5ed;
+    --mid: #00abc5;
+    --mid: rgb(141, 78, 34);
+    --mid: #8e2426;
+    --light: #ff7a01;
+    --light: white;
+    --mid: black;
+    /* --mid: #0d635b; */
+    /* --light: #fd88e6; */
+    /* --mid: #425ca8; */
+    /* --light: #f0f22f; */
+    /* --mid: #064c2b; */
+    /* --light: #fec901; */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: var(--light);
+    font-family: 'comfortaa', 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+a {
+    text-decoration: none;
+}
