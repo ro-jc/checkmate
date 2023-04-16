@@ -2,13 +2,10 @@ from flask import (
     Blueprint,
     current_app,
     send_from_directory,
-    flash,
-    g,
-    redirect,
     render_template,
     request,
     session,
-    url_for,
+    jsonify,
 )
 
 from checkmate.db import get_db
@@ -107,30 +104,53 @@ def requests():
         for user in results
     ]
 
-    if accept_name := request.form.get("accept_username"):
-        db = get_db()
-        db.users.find_one_and_update(
-            {"username": session["username"]},
-            {"$pull": {"incoming_requests": accept_name}},
-        )
-        db.users.find_one_and_update(
-            {"username": session["username"]}, {"$addToSet": {"friends": accept_name}}
-        )
-        db.users.find_one_and_update(
-            {"username": accept_name}, {"$addToSet": {"friends": session["username"]}}
-        )
-
-    if req_name := request.form.get("request_username"):
-        if not req_name == session["username"]:
-            db = get_db()
-            db.users.find_one_and_update(
-                {"username": req_name},
-                {"$addToSet": {"incoming_requests": session["username"]}},
-            )
-
     return render_template(
         "requests.html", form=form, results=results, show_requests=True
     )
+
+
+@bp.route("requests/send/<username>")
+def request_send(username):
+    db = get_db()
+    db.users.find_one_and_update(
+        {"username": session["username"]},
+        {"$addToSet": {"outgoing_requests": username}},
+    )
+    db.users.find_one_and_update(
+        {"username": username},
+        {"$addToSet": {"incoming_requests": session["username"]}},
+    )
+
+    return jsonify({})
+
+
+@bp.route("requests/return", methods=["POST"])
+def request_return():
+    db = get_db()
+    username = request.form["username"]
+
+    if request.form["action"] == "accept":
+        db.users.find_one_and_update(
+            {"username": session["username"]},
+            {
+                "$pull": {"incoming_requests": username},
+                "$addToSet": {"friends": username},
+            },
+        )
+        db.users.find_one_and_update(
+            {"username": username},
+            {
+                "$pull": {"outgoing_requests": session["username"]},
+                "$addToSet": {"friends": session["username"]},
+            },
+        )
+    else:
+        db.users.find_one_and_update(
+            {"username": session["username"]},
+            {"$pull": {"outgoing_requests": username}},
+        )
+
+    return jsonify({})
 
 
 @bp.route("/profiles/<username>")
