@@ -173,4 +173,4 @@ def avatar(username):
     if username in listdir(current_app.root_path + "/assets/avatars"):
         return send_from_directory("assets/avatars", username)
     else:
-        return send_from_directory("assets/avatars", "user.png")
+        return send_from_directory("static/images", "user.png")

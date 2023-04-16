@@ -74,13 +74,22 @@ a {
     color: #f1f1f1;
 }
 
-.profilePicBox{
+.profilePicBox {
     height: 6rem;
     width: 6rem;
     margin: 8vh 0 4vh 0;
     border-radius: 50%;
     background: white;
     border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.navAvatar {
+    width: 5.5rem;
+    height: 5.5rem;
+    border-radius: 50%;
 }
 
 .closebtn {
@@ -109,7 +118,7 @@ a {
     }
 }
 
-.emptyTop{
+.emptyTop {
     height: 8vh;
     width: 100vw;
     background: var(--light);
@@ -117,6 +126,7 @@ a {
     top: 0;
     z-index: 100;
 }
+
 .topBar {
     background: var(--mid);
     height: 8vh;
@@ -131,7 +141,7 @@ a {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    
+
 }
 
 .topBar div {
@@ -146,20 +156,22 @@ a {
     padding: 0 15px;
 }
 
-.extContainer{
+.extContainer {
     position: absolute;
     top: calc(8vh + 10px);
     width: 100vw;
     font-size: 0.8rem;
 }
-.intContainer{
+
+.intContainer {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     padding-bottom: 20px;
 }
-.daysTT{
+
+.daysTT {
     width: 92vw;
     padding-bottom: 20px;
     display: flex;
@@ -167,22 +179,27 @@ a {
     justify-content: center;
     align-items: center;
 }
-.ttSubName{
+
+.ttSubName {
     width: 42vw;
 }
-.ttSubTime{
+
+.ttSubTime {
     width: 28vw;
 }
-.ttSubVenue{
+
+.ttSubVenue {
     width: 20vw;
 }
-td{
+
+td {
     padding: 0.5px 3px;
     /* border-bottom: 1px solid var(--mid);
     border-right: 1px solid var(--mid);
     border-left: 1px solid var(--mid); */
 }
-.dayName{
+
+.dayName {
     background: var(--mid);
     color: white;
     padding: 5px 0;
@@ -193,7 +210,8 @@ td{
     border-bottom-right-radius: 0;
     border-bottom-left-radius: 0;
 }
-table{
+
+table {
     border: 2px solid var(--mid);
     border-radius: 0.4rem;
     border-top-left-radius: 0;
@@ -201,6 +219,7 @@ table{
     border-top: none;
     box-shadow: 10px 10px #000;
 }
-table tr td{
+
+table tr td {
     padding: 2.5px;
 }

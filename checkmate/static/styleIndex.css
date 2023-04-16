@@ -138,6 +138,15 @@ a {
     border-radius: 50%;
     background: white;
     border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.navAvatar {
+    width: 5.5rem;
+    height: 5.5rem;
+    border-radius: 50%;
 }
 
 .closebtn {
