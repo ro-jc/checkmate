@@ -1,5 +1,7 @@
 from flask import (
     Blueprint,
+    current_app,
+    send_from_directory,
     flash,
     g,
     redirect,
@@ -13,6 +15,7 @@ from checkmate.db import get_db
 from checkmate.forms import UserSearch
 from checkmate.functions import get_user_status
 import datetime
+from os import listdir
 
 bp = Blueprint("views", __name__, url_prefix="/")
 
@@ -143,3 +146,11 @@ def profile(username):
     is_friend = session["username"] in user["friends"]
 
     return render_template("profile.html", user=user, show_full=is_friend)
+
+
+@bp.route("/assets/avatars/<username>")
+def avatar(username):
+    if username in listdir(current_app.root_path + "/assets/avatars"):
+        return send_from_directory("assets/avatars", username)
+    else:
+        return send_from_directory("assets/avatars", "user.png")

@@ -22,8 +22,10 @@ def get_user_status(user):
         user["period"] = period
 
         if i <= len(timetable) - 2:
-            user["next_period_time"] = timetable[i + 1]["start"].strftime("%H:%M")
-
+            user["next_period"] = {
+                "time": timetable[i + 1]["start"].strftime("%H:%M"),
+                "venue": timetable[i + 1]["venue"],
+            }
     user["free"] = free
     del user["timetable"]
 
