@@ -451,15 +451,15 @@ a {
 }
 
 .ttSubName {
-    width: 42vw;
+    width: 42%;
 }
 
 .ttSubTime {
-    width: 28vw;
+    width: 28%;
 }
 
 .ttSubVenue {
-    width: 20vw;
+    width: 20%;
 }
 
 td {
@@ -493,7 +493,4 @@ table {
 
 table tr td {
     padding: 11px;
-}
-.inTTEmpty{
-    /* height: 3vh; */
 }
