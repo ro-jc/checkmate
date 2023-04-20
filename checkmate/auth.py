@@ -13,6 +13,7 @@ from flask import (
     jsonify,
 )
 from werkzeug.security import generate_password_hash
+from email_validator import validate_email
 
 from checkmate.forms import LoginForm, SignUpForm
 from checkmate.db import get_db
@@ -45,15 +46,20 @@ def validate():
         if db.users.find_one({"username": request.form.get("uname")}):
             return jsonify({"error": "username already exists!"})
         else:
-            return jsonify({"error": None})
+            return jsonify({"error": ""})
     elif "mail" in request.form:
-        if db.users.find_one({"email": request.form.get("mail")}):
+        mail = request.form.get("mail")
+        try:
+            validate_email(mail, check_deliverability=False)
+        except:
+            return jsonify({"error": "invalid email"})
+
+        if db.users.find_one({"email": mail}):
             return jsonify({"error": "email already exists!"})
-        else:
-            # TODO: validate valid email
-            return jsonify({"error": None})
-    else:
-        return jsonify({"error": "Illegal request"})
+
+        return jsonify({"error": ""})
+
+    return jsonify({"error": "Illegal request"})
 
 
 @bp.route("/signup", methods=["POST", "GET"])
