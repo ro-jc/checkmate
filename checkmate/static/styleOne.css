@@ -422,19 +422,23 @@ body::-webkit-scrollbar {
     display: flex;
     justify-content: center;
     align-items: center;
-    border-top-left-radius: 2rem;
-    border-top-right-radius: 2rem;
-    border-bottom-right-radius: 0.8rem;
-    border-bottom-left-radius: 0.8rem;
     box-shadow: 10px 10px #000;
 }
 .loginBtn{
     color: #000;
     font-weight: bolder;
+    border-top-left-radius: 2rem;
+    border-top-right-radius: 2rem;
+    border-bottom-right-radius: 0.6rem;
+    border-bottom-left-radius: 0.6rem;
 }
 .signupBtn{
-    background: var(--mid);
-    color: white;
+    background: var(--light);
+    color: #000;
+    border-top-left-radius: 0.6rem;
+    border-top-right-radius: 0.6rem;
+    border-bottom-right-radius: 2rem;
+    border-bottom-left-radius: 2rem;
 }
 .firstScreen{
     height: calc(100vh - 7.5vh);

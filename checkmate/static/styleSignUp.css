@@ -140,9 +140,16 @@ body{
 
 #selectImgBtn{
     display: block;
+    background: #000;
+    margin-top: 12px;
+    color: white;
+    border-radius: 50%;
+    font-size: 1.2rem;
+    box-shadow: white 0px 3px 8px;
 }
 #file-ip-1-preview{
     background: #ffffff;
+    border: 3px solid white;
 }
 
 
@@ -180,11 +187,13 @@ body{
 .nameSubmit{
     padding: 5px 10px;
     font-size: 1.3rem;
-    border-radius: 50px;
-    background: var(--mid);
-    color: white;
-    border: none;
+    color: #000;
+    border: 4px solid #000;
     box-shadow: 10px 10px #000;
+    border-bottom-left-radius: 2rem;
+    border-bottom-right-radius: 2rem;
+    border-top-right-radius: 0.8rem;
+    border-top-left-radius: 0.8rem;
 }
 .nameImg{
     position: absolute;
@@ -230,11 +239,13 @@ body{
 .mailSubmit {
     padding: 5px 10px;
     font-size: 1.3rem;
-    border-radius: 50px;
-    background: var(--mid);
-    color: white;
-    border: none;
-    box-shadow: 10px 10px #000; 
+    color: #000;
+    border: 4px solid #000;
+    box-shadow: 10px 10px #000;
+    border-bottom-left-radius: 2rem;
+    border-bottom-right-radius: 2rem;
+    border-top-right-radius: 0.8rem;
+    border-top-left-radius: 0.8rem;
 }
 
 .mailImg {
@@ -283,8 +294,8 @@ body{
     padding: 5px 10px;
     font-size: 1.3rem;
     border-radius: 50px;
-    background: var(--mid);
-    color: white;
+    background: var(--light);
+    color: #000;
     border: none;
 }
 .uNameLogin{
@@ -299,11 +310,13 @@ body{
     padding: 5px 15px;
     font-size: 1.5rem;
     border-radius: 50px;
-    background: var(--mid);
-    color: white;
-    /* border: 4px solid var(--mid); */
-    border: none;
-    box-shadow: 10px 10px #000;
+    color: #000;
+    border: 4px solid #000;
+    box-shadow: 4px 10px #000;
+    border-bottom-left-radius: 2rem;
+    border-bottom-right-radius: 2rem;
+    border-top-right-radius: 0.8rem;
+    border-top-left-radius: 0.8rem;
 }
 
 .uNameImg {
@@ -330,7 +343,7 @@ body{
     display: flex;
     align-items: center;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: start;
     text-align: center;
     padding-top: 10%;
     display: none;
@@ -375,11 +388,13 @@ body{
 .pswdSubmit {
     padding: 5px 10px;
     font-size: 1.3rem;
-    border-radius: 50px;
-    background: var(--mid);
-    color: white;
-    border: none;
-    box-shadow: 10px 10px #000;
+    color: #000;
+    border: 4px solid #000;
+    box-shadow: 4px 10px #000;
+    border-bottom-left-radius: 2rem;
+    border-bottom-right-radius: 2rem;
+    border-top-right-radius: 0.8rem;
+    border-top-left-radius: 0.8rem;
 }
 
 .pswdImg {
@@ -427,11 +442,13 @@ body{
 .TTSubmit {
     padding: 5px 10px;
     font-size: 1.3rem;
-    border-radius: 50px;
-    background: var(--mid);
-    color: white;
-    border: none;
+    color: #000;
+    border: 4px solid #000;
     box-shadow: 10px 10px #000;
+    border-bottom-left-radius: 2rem;
+    border-bottom-right-radius: 2rem;
+    border-top-right-radius: 0.8rem;
+    border-top-left-radius: 0.8rem;
 }
 
 .TTImg {

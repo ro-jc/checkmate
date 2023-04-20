@@ -4,17 +4,16 @@
 :root {
     --light: #b2e5ed;
     --mid: #00abc5;
-    --mid: rgb(141, 78, 34);
     --mid: #8e2426;
     --light: #ff7a01;
-    /* --light: white; */
-    /* --mid: black; */
+    --light: white;
+    --mid: black;
     --mid: #0d635b;
     --light: #fd88e6;
-    --mid: #425ca8;
-    --light: #f0f22f;
-    --mid: #064c2b;
-    --light: #fec901;
+    /* --mid: #425ca8; */
+    /* --light: #f0f22f; */
+    /* --mid: #064c2b; */
+    /* --light: #fec901; */
 }
 
 @media screen and (min-width: 768px) {
@@ -38,6 +37,14 @@ a {
     text-decoration: none;
 }
 
+.emptyTop{
+    background: var(--light);
+    height: 10vh;
+    width: 100vw;
+    position: fixed;
+    z-index: 99;
+    top: 0;
+}
 .topBar {
     background: var(--mid);
     height: 8vh;
@@ -134,6 +141,13 @@ a {
     border: none;
 }
 
+.navAvatar {
+    width: 6rem;
+    height: 6rem;
+    border-radius: 50%;
+    border: 2px solid white;
+}
+
 .closebtn {
     color: white;
     position: absolute;
@@ -177,12 +191,13 @@ a {
     padding: 5px 0;
     margin: 15px 5px 0 5px;
     border-radius: 1.8rem 1.8rem 0.6rem 0.6rem;
+    border: 5px solid white;
 }
 
 .contentSection {
     position: absolute;
-    top: calc(8vh + 10px + 5px + 10px);
-    height: 100%;
+    top: calc(8vh + 10px + 5px + 10px + 6vh);
+    /* height: 100%; */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -190,29 +205,51 @@ a {
 }
 
 .userCard {
-    height: 15vh;
-    width: 93vw;
+    height: 10vh;
+    width: calc(100vw - 10px);
     margin: 5px;
-    border: 8px solid #000000;
+    background: var(--mid);
+    /* border: 3px solid var(--mid); */
     border-radius: 8px;
     /*background: #000;*/
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
     display: flex;
+    padding: 0 15px;
 }
 
 .picBox {
-    width: 23vw;
-    height: 23vh;
-    border: 2px solid #000000;
-    border-radius: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
 }
-
+.nameSection{
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* max-width: 65%; */
+}
+.nameSection div{
+    padding: 2.5px;
+    margin: 0 10px;
+}
+.rUname{
+    opacity: 0.4;
+}
 .cardAvatar {
-    width: 20vw;
-    height: 20vh;
+    height: 7vh;
+    width: 7vh;
+    background: #000;
+    border: 2px solid white;
     border-radius: 50%;
+}
+.sendRequestButton{
+    background: var(--light);
+    border: none;
+    padding: 10px 6px 10px 12px;
+    border-radius: 1.8rem 0.5rem 0.5rem 1.8rem;
+    font-size: 1.3rem;
+    /* color: black; */
 }
