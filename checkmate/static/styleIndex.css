@@ -425,7 +425,7 @@ a {
     filter: blur(0px);
     -webkit-filter: blur(0px);
     animation-name: blurring;
-    animation-duration: 0.1s;
+    animation-duration: 1s;
     animation-fill-mode: forwards;
 }
 
@@ -436,8 +436,8 @@ a {
     }
 
     to {
-        filter: blur(4px);
-        -webkit-filter: blur(4px);
+        filter: blur(8px);
+        -webkit-filter: blur(8px);
     }
 }
 
