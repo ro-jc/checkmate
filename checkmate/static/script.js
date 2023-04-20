@@ -132,41 +132,37 @@ function requestReturn(username, action) {
   xhttp.send("username=" + username + "&action=" + action);
 }
 
-$(document).on("pagecreate", function () {
-  $("#foo").on("click", function () {
-    var closeBtn = $(
-      '<a href="#" data-rel="back" class="ui-btn-right ui-btn ui-btn-b ui-corner-all ui-btn-icon-notext ui-icon-delete ui-shadow">Close</a>'
-    );
-    var content =
-      "<p>Lorem ipsum dolor sit amet, consectetur adipiscing. Morbi convallis sem et dui sollicitudin tincidunt.</p>";
-    var popup = $("<div/>", {
-      "data-role": "popup",
-    })
-      .css({
-        width: $(window).width() / 2.5 + "px",
-        padding: 5 + "px",
-      })
-      .append(closeBtn)
-      .append(content);
-    $.mobile.pageContainer.append(popup);
-    $("[data-role=popup]")
-      .popup({
-        dismissible: false,
-        history: false,
-        theme: "b",
-        positionTo: "window",
-        overlayTheme: "b",
-        transition: "pop",
-        beforeposition: function () {
-          $.mobile.pageContainer
-            .pagecontainer("getActivePage")
-            .addClass("blur-filter");
-        },
-        afterclose: function () {
-          $(this).remove();
-          $(".blur-filter").removeClass("blur-filter");
-        },
-      })
-      .popup("open");
-  });
-});
+// Get the modal
+var modal = document.getElementById('myModal');
+// Get the main container and the body
+var body = document.getElementsByTagName('body');
+var container = document.getElementById('myContainer');
+// Get the open button
+var btnOpen = document.getElementById("cardExpand");
+// Get the close button
+var btnClose = document.getElementById("closeModal");
+// Open the modal
+btnOpen.onclick = function() {
+    modal.className = "Modal";
+    setTimeout(function() {
+      container.className = "MainContainer is-blurred";
+      modal.className = "Modal";
+    }, 100);
+    container.parentElement.className = "ModalOpen";
+}
+// Close the modal
+btnClose.onclick = function() {
+    modal.className = "Modal is-hidden is-visuallyHidden";
+    body.className = "";
+    container.className = "MainContainer";
+    container.parentElement.className = "";
+}
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.className = "Modal is-hidden";
+        body.className = "";
+        container.className = "MainContainer";
+        container.parentElement.className = "";
+    }
+}

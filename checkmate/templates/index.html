@@ -18,10 +18,9 @@
             filename='styleIndex.css') }}">
         <link rel="manifest"
             href="{{ url_for('static', filename='manifest.json') }}">
-        <link rel="stylesheet" type="text/css"
-            href="https://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.css">
     </head>
     <body>
+        <div id="myContainer">
         <div class="topBar">
             <div onclick="openNav()">
                 <i class="fa-solid fa-bars-staggered"></i>
@@ -45,7 +44,7 @@
             <a class="sidenavOptions sideLogOut" href="/logout">Logout</a>
         </div>
 
-        <div data-role="page" id="friendsPage">
+        <div id="friendsPage">
             <div class="ffImg">
                 <div class="emptyInfo">add friends to view their timetables</div>
                 <div class="ffShortcut">
@@ -58,7 +57,7 @@
                     alt="">
             </div>
             {% for friend in friends %}
-            <div role="main" id="foo" class="card2">
+            <div id="cardExpand" class="card2">
                 <div class="picBox">
                     <img class="cardAvatar" src="{{ url_for('views.avatar',
                         username=friend.username) }}"
@@ -80,7 +79,7 @@
                         <div class="subLoc">
                             {% if friend.period %}
                             {{ friend.period.venue }}
-                            <i class="fa-solid fa-location-dot locIcon"></i>
+                            <i class="fa-solid fa-location-dot"></i>
                             {% endif %}
                         </div>
                     </div>
@@ -119,11 +118,52 @@
                     class="fa-solid bottomBarIcon bottomBarIcon-active fa-user"></i>
             </div>
         </div>
+        </div>
+
+        <div id="myModal" class="Modal is-hidden is-visuallyHidden">
+            <div class="Modal-content">
+                <span id="closeModal" class="Close">
+                    <i class="fa-solid fa-xmark"></i>
+            </span>
+            <div class="inTTEmpty"></div>
+            <div class="profilePicBox">
+                <img class="navAvatar" src="{{ url_for('views.avatar',
+                    username=session.username) }}"
+                    alt="{{ session.username }}">
+            </div>
+            <div class="popName">
+                Naveen George Joseph
+            </div>
+            <div class="curDayTT">
+                <h3 class="dayName">Monday</h3>
+                <table>
+                        <tr>
+                            <td class="ttSubName">chemistry lab</td>
+                            <td class="ttSubTime">14:00 - 15:40</td>
+                            <td class="ttSubVenue">PRP124</td>
+                        </tr>
+                        <tr>
+                            <td class="ttSubName">english</td>
+                            <td class="ttSubTime">13:00 - 12:00</td>
+                            <td class="ttSubVenue">MGB207</td>
+                        </tr>
+                        <tr>
+                            <td class="ttSubName">beee</td>
+                            <td class="ttSubTime">34:00 - 05:60</td>
+                            <td class="ttSubVenue">PRP124</td>
+                        </tr>
+                        <tr>
+                            <td class="ttSubName">mechanics</td>
+                            <td class="ttSubTime">04:00 - 75:80</td>
+                            <td class="ttSubVenue">SJT724</td>
+                        </tr>
+                </table>
+            </div>
+            </div>
+        </div>
+        
+        
 
         <script src="{{ url_for('static', filename='script.js') }}"></script>
-        <script
-            src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-        <script type='text/javascript'
-            src="https://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.js"></script>
     </body>
 </html>
