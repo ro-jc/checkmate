@@ -39,7 +39,7 @@ a {
 
 .emptyTop {
     background: var(--light);
-    height: 18.5vh;
+    height: 16.5vh;
     width: 100vw;
     position: fixed;
     z-index: 99;
@@ -190,16 +190,14 @@ a {
     color: white;
     font-size: 1.5rem;
     padding: 5px 0;
-    margin: 15px 5px 0 5px;
+    margin: 10px 5px 0 5px;
     border-radius: 1.8rem 1.8rem 0.6rem 0.6rem;
-    border: 5px solid white;
     z-index: 100;
 }
 
 .contentSection {
     position: absolute;
-    top: calc(8vh + 10px + 5px + 10px + 9vh);
-    height: 100vh;
+    top: 16.5vh;
     width: 100vw;
     display: flex;
     flex-direction: column;
@@ -248,7 +246,7 @@ a {
 .cardAvatar {
     height: 7vh;
     width: 7vh;
-    background: #000;
+    background: white;
     border: 2px solid white;
     border-radius: 50%;
 }

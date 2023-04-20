@@ -85,7 +85,7 @@
     <div class="title">Results</div>
     <div class="contentSection">
     {% for user in results %}
-        <div class="userCard">
+        <div class="userCard" id="{{ user.username }}">
             <div class="picBox">
                 <img class="cardAvatar" src="/assets/avatars/{{ user.username }}" alt="{{ user.username }}">
             </div>
@@ -98,11 +98,18 @@
                 </div>
             </div>
             <div class="buttonSection">
-                <button class="sendRequestButton"
-                        onclick="requestSend('{{ user.username }}')">
-                    <i class="fa-solid fa-user-plus"></i>
-                    <!-- <i class="fa-solid fa-stopwatch"></i> -->
-                </button>
+                {% if user.friend %}
+                    <i class="fa-solid fa-heart" style="color:white"></i>
+                {% else %}
+                    <button class="sendRequestButton"
+                            onclick="requestSend(this, '{{ user.username }}')">
+                        {% if user.sent_req %}
+                            <i class="fa-solid fa-stopwatch"></i>
+                        {% else %}
+                            <i class="fa-solid fa-user-plus"></i>
+                        {% endif %}
+                    </button>
+                {% endif %}
             </div>
         </div>
     {% endfor %}
