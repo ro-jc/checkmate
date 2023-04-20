@@ -60,33 +60,42 @@ function setNextVisibility(myDiv) {
 
 function moveForward(myDiv) {
     if (['setUser', 'setMail'].includes(myDiv)) {
-        const id = myDiv == 'setUser' ? 'uname' : 'mail';
+        const id = (myDiv == 'setUser') ? 'uname' : 'mail';
         const data = document.getElementById(id).value;
 
-        let xhttp = new XMLHttpRequest();
-        xhttp.onreadystatechange = function () {
-            if (this.readyState == 4 && this.status == 200) {
-                const response = JSON.parse(xhttp.response);
-                if (response['error'] != null) {
+        if (!data) {
+            document.getElementById(id + 'Error').innerHTML = 'field cannot be empty'
+        } else {
+            let xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+                    const response = JSON.parse(xhttp.response);
                     document.getElementById(id + 'Error').innerHTML = response['error'];
-                } else {
                     setNextVisibility(myDiv);
                 }
             }
+            xhttp.open('POST', '/signup/validate');
+            xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+            xhttp.send(id + '=' + data);
         }
-        xhttp.open('POST', '/signup/validate');
-        xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-        xhttp.send(id + '=' + data);
     } else if (myDiv == 'setPswd') {
         const pswd = document.getElementById('pswd').value;
         const rePswd = document.getElementById('rePswd').value;
         if (pswd != rePswd) {
             document.getElementById('pswdError').innerHTML = "passwords don't match!";
+        } else if (!pswd) {
+            document.getElementById('pswdError').innerHTML = "fields cannot be empty";
         } else {
+            document.getElementById('pswdError').innerHTML = "";
             setNextVisibility(myDiv);
         }
     } else {
-        setNextVisibility(myDiv)
+        if (!document.getElementById('fname').value) {
+            document.getElementById('fnameError').innerHTML = "field cannot be empty";
+        } else {
+            document.getElementById('fnameError').innerHTML = "";
+            setNextVisibility(myDiv)
+        }
     }
 }
 
