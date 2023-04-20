@@ -37,14 +37,15 @@ a {
     text-decoration: none;
 }
 
-.emptyTop{
+.emptyTop {
     background: var(--light);
-    height: 10vh;
+    height: 18.5vh;
     width: 100vw;
     position: fixed;
     z-index: 99;
     top: 0;
 }
+
 .topBar {
     background: var(--mid);
     height: 8vh;
@@ -181,8 +182,8 @@ a {
 }
 
 .title {
-    position: absolute;
-    top: calc(8vh + 10px);
+    position: fixed;
+    top: calc(8vh + 9px);
     width: calc(100vw - 10px);
     text-align: center;
     background: var(--mid);
@@ -192,12 +193,14 @@ a {
     margin: 15px 5px 0 5px;
     border-radius: 1.8rem 1.8rem 0.6rem 0.6rem;
     border: 5px solid white;
+    z-index: 100;
 }
 
 .contentSection {
     position: absolute;
-    top: calc(8vh + 10px + 5px + 10px + 6vh);
-    /* height: 100vh; */
+    top: calc(8vh + 10px + 5px + 10px + 9vh);
+    height: 100vh;
+    width: 100vw;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -223,7 +226,8 @@ a {
     justify-content: center;
     align-items: center;
 }
-.nameSection{
+
+.nameSection {
     color: white;
     display: flex;
     flex-direction: column;
@@ -231,13 +235,16 @@ a {
     align-items: center;
     /* max-width: 65%; */
 }
-.nameSection div{
+
+.nameSection div {
     padding: 2.5px;
     margin: 0 10px;
 }
-.rUname{
+
+.rUname {
     opacity: 0.4;
 }
+
 .cardAvatar {
     height: 7vh;
     width: 7vh;
@@ -245,7 +252,8 @@ a {
     border: 2px solid white;
     border-radius: 50%;
 }
-.sendRequestButton{
+
+.sendRequestButton {
     background: var(--light);
     border: none;
     padding: 10px 6px 10px 12px;
