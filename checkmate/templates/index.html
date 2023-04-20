@@ -18,6 +18,8 @@
             filename='styleIndex.css') }}">
         <link rel="manifest"
             href="{{ url_for('static', filename='manifest.json') }}">
+        <link rel="stylesheet" type="text/css"
+            href="https://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.css">
     </head>
     <body>
         <div class="topBar">
@@ -39,11 +41,11 @@
                     alt="{{ session.username }}">
             </div>
             <a class="sidenavOptions" href="/profiles/{{ session.username }}">Profile</a>
-            <a class="sidenavOptions" href="">Themes</a>
+            <a class="sidenavOptions" href="{{ url_for('views.themes') }}">Themes</a>
             <a class="sidenavOptions sideLogOut" href="/logout">Logout</a>
         </div>
 
-        <div id="friendsPage">
+        <div data-role="page" id="friendsPage">
             <div class="ffImg">
                 <div class="emptyInfo">add friends to view their timetables</div>
                 <div class="ffShortcut">
@@ -56,7 +58,7 @@
                     alt="">
             </div>
             {% for friend in friends %}
-            <div class="card2">
+            <div role="main" id="foo" class="card2">
                 <div class="picBox">
                     <img class="cardAvatar" src="{{ url_for('views.avatar',
                         username=friend.username) }}"
@@ -71,12 +73,14 @@
                     <div class="subTimeLoc2">
                         <div class="subTimeUpto">
                             {% if friend.period %}
+                            <i class="fa-solid fa-clock timeIcon"></i>
                             {{ friend.period.start }}-{{ friend.period.end }}
                             {% endif %}
                         </div>
                         <div class="subLoc">
                             {% if friend.period %}
                             {{ friend.period.venue }}
+                            <i class="fa-solid fa-location-dot locIcon"></i>
                             {% endif %}
                         </div>
                     </div>
@@ -117,5 +121,9 @@
         </div>
 
         <script src="{{ url_for('static', filename='script.js') }}"></script>
+        <script
+            src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+        <script type='text/javascript'
+            src="https://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.js"></script>
     </body>
 </html>

@@ -14,14 +14,14 @@
     --mid: #00abc5;
     --mid: #8e2426;
     --light: #ff7a01;
-    --light: white;
-    --mid: black;
+    /* --light: white; */
+    /* --mid: black; */
     /* --mid: #0d635b; */
     /* --light: #fd88e6; */
     /* --mid: #425ca8; */
     /* --light: #f0f22f; */
-    /* --mid: #064c2b; */
-    /* --light: #fec901; */
+    --mid: #064c2b;
+    --light: #fec901;
 }
 
 * {
@@ -254,9 +254,9 @@ a {
 .card2 {
     height: 15vh;
     width: 93vw;
-    /* background: #000; */
-    border-radius: 8px;
-    border: 3px solid #000;
+    background: var(--mid);
+    border-radius: 14px;
+    /* border: 3px solid #000; */
     margin: 5px;
     display: flex;
     justify-content: space-around;
@@ -267,7 +267,7 @@ a {
     width: 23vw;
     height: 23vw;
     /* background: #000; */
-    border: 3px solid #000;
+    /* border: 5px solid #000; */
     border-radius: 50%;
     display: flex;
     justify-content: center;
@@ -277,6 +277,8 @@ a {
 .cardAvatar {
     width: 20vw;
     height: 20vw;
+    background: var(--light);
+    /* border: 3px solid white; */
     border-radius: 50%;
 }
 
@@ -284,35 +286,50 @@ a {
     width: 70%;
     height: 90%;
     /* background: #000; */
-    border: 3px solid #000;
+    /* border: 3px solid #000; */
     border-radius: 8px;
     display: flex;
     flex-direction: column;
+    color: white;
 }
 
 .subName2 {
-    width: 100%;
+    width: 99.3%;
     /* background: #000; */
-    border-bottom: 3px solid #000;
-    border-bottom-left-radius: 6px;
-    border-bottom-right-radius: 6px;
+    /* border-bottom: 3px solid #000; */
+    border-bottom-left-radius: 10px;
+    border-top-right-radius: 10px;
     border-top: none;
     height: 33.333%;
     display: flex;
     justify-content: center;
     align-items: center;
+    background: var(--light);
+    color: black;
 }
 
 .nextSub2 {
-    width: 100%;
-    border-top: 3px solid #000;
-    border-top-left-radius: 6px;
-    border-top-right-radius: 6px;
+    width: 99.3%;
+    /* border-top: 3px solid #000; */
+    border-top-left-radius: 10px;
+    border-bottom-right-radius: 10px;
     border-bottom: none;
     height: 33.333%;
     display: flex;
     justify-content: center;
     align-items: center;
+    background: var(--light);
+    color: black;
+}
+.locIcon{
+
+}
+.timeIcon{
+    margin-right: 5px;
+
+}
+.locIcon{
+    margin-left: 5px;
 }
 
 .subTimeLoc2 {
@@ -328,7 +345,6 @@ a {
 }
 
 .subTimeUpto {
-    border-right: 1.5px solid #000;
     width: 55%;
     display: flex;
     justify-content: center;
@@ -336,9 +352,16 @@ a {
 }
 
 .subLoc {
-    border-left: 1.5px solid #000;
     width: 45%;
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.blur-filter {
+    -webkit-filter: blur(2px);
+    -moz-filter: blur(2px);
+    -o-filter: blur(2px);
+    -ms-filter: blur(2px);
+    filter: blur(2px);
 }

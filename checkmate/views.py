@@ -174,3 +174,8 @@ def avatar(username):
         return send_from_directory("assets/avatars", username)
     else:
         return send_from_directory("static/images", "user.png")
+
+
+@bp.route("/themes")
+def themes():
+    return render_template("themes.html")
