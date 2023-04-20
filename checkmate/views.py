@@ -76,6 +76,10 @@ def requests():
                         "_id": 0,
                         "name": "$name",
                         "username": "$username",
+                        "friend": {"$in": [session["username"], "$friends"]},
+                        "sent_req": {
+                            "$in": [session["username"], "$incoming_requests"]
+                        },
                     }
                 },
                 {
@@ -90,7 +94,7 @@ def requests():
                 {"$limit": 20},
             ]
         )
-        results = [user for user in results]
+        results = [user for user in results if user["username"] != session["username"]]
 
         return render_template(
             "requests.html", form=form, results=results, show_requests=False
@@ -111,6 +115,9 @@ def requests():
 
 @bp.route("requests/send/<username>")
 def request_send(username):
+    if username == session["username"]:
+        return jsonify({"error": "cannot send request to self"})
+
     db = get_db()
     db.users.find_one_and_update(
         {"username": session["username"]},
@@ -121,7 +128,7 @@ def request_send(username):
         {"$addToSet": {"incoming_requests": session["username"]}},
     )
 
-    return jsonify({})
+    return jsonify({"error": ""})
 
 
 @bp.route("requests/return", methods=["POST"])
@@ -150,7 +157,7 @@ def request_return():
             {"$pull": {"outgoing_requests": username}},
         )
 
-    return jsonify({})
+    return jsonify({"error": ""})
 
 
 @bp.route("/profiles/<username>")

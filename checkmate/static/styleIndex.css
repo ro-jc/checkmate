@@ -282,8 +282,8 @@ a {
 .cardAvatar {
     width: 20vw;
     height: 20vw;
-    background: var(--light);
-    /* border: 3px solid white; */
+    background: white;
+    border: 2px solid white;
     border-radius: 50%;
 }
 
@@ -330,7 +330,8 @@ a {
     margin-right: 5px;
 
 }
-.locIcon{
+
+.locIcon {
     margin-left: 5px;
 }
 
