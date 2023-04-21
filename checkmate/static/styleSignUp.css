@@ -2,11 +2,11 @@
 @import url("https://fonts.googleapis.com/css2?family=Alkatra:wght@500&display=swap");
 
 :root {
-  --light: #b2e5ed;
+  /* --light: #b2e5ed;
   --mid: #00abc5;
   --mid: rgb(141, 78, 34);
   --mid: #8e2426;
-  --light: #ff7a01;
+  --light: #ff7a01; */
   --light: white;
   --mid: black;
   /* --mid: #0d635b; */
