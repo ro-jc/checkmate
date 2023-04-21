@@ -254,8 +254,11 @@ a {
 .sendRequestButton {
     background: var(--light);
     border: none;
-    padding: 10px 6px 10px 12px;
+    padding: 10px 6px 10px 10px;
     border-radius: 1.8rem 0.5rem 0.5rem 1.8rem;
     font-size: 1.3rem;
     /* color: black; */
+}
+.fa-user-plus,.fa-spinner{
+    padding:0 8px;
 }

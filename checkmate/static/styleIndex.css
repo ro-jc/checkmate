@@ -144,7 +144,7 @@ a {
 }
 .popName{
     margin: 2vh 0;
-    color: white;
+    color: black;
     font-size: 1.2rem;
 }
 
@@ -332,7 +332,7 @@ a {
 }
 
 .locIcon {
-    margin-left: 5px;
+    margin-left: 15px;
 }
 
 .subTimeLoc2 {
@@ -378,7 +378,8 @@ a {
 }
 
 .Modal-content {
-    background-color: rgba(0, 0, 0, 0.8);
+    background-color: rgb(255, 255, 255);
+    background: var(--light);
     margin: auto;
     padding: 17px;
     border-radius: 8px;
@@ -425,7 +426,7 @@ a {
     filter: blur(0px);
     -webkit-filter: blur(0px);
     animation-name: blurring;
-    animation-duration: 1s;
+    animation-duration: 0.3s;
     animation-fill-mode: forwards;
 }
 
@@ -436,8 +437,8 @@ a {
     }
 
     to {
-        filter: blur(8px);
-        -webkit-filter: blur(8px);
+        filter: blur(6px);
+        -webkit-filter: blur(6px);
     }
 }
 
@@ -451,7 +452,7 @@ a {
 }
 
 .ttSubName {
-    width: 42%;
+    width: 40%;
 }
 
 .ttSubTime {

@@ -149,7 +149,7 @@ btnOpen.onclick = function() {
     setTimeout(function() {
       container.className = "MainContainer is-blurred";
       modal.className = "Modal";
-    }, 100);
+    }, 1);
     container.parentElement.className = "ModalOpen";
 }
 // Close the modal
