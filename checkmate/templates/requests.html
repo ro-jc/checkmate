@@ -60,75 +60,86 @@
       <a class="sidenavOptions" href="/profiles/{{ session.username }}"
         >Profile</a
       >
-      <a class="sidenavOptions" href="{{ url_for('views.themes') }}"
-          >Themes</a
-        >
+      <a class="sidenavOptions" href="{{ url_for('views.themes') }}">Themes</a>
       <a class="sidenavOptions" href="/logout">Logout</a>
     </div>
 
-{% if show_requests %}
+    {% if show_requests %}
     <div class="title">Incoming Requests</div>
     <div class="contentSection">
-    {% for user in results %}
-        <div class="userCard" id="{{ user.username }}">
-            <div class="picBox">
-                <img class="cardAvatar" src="/assets/avatars/{{ user.username }}" alt="{{ user.username }}">
-            </div>
-            <div class="idSection">
-                <div id="username"></div>
-                {{ user.name }}<br>
-                @{{ user.username }}
-            </div>
-            <div class="buttonSection">
-                <div class="col-md-2">
-                    <button class="incomingRequestButton"
-                            onclick="requestReturn('{{ user.username }}',
-                                    'accept')">
-                        Accept
-                    </button>
-                    <button class="incomingRequestButton"
-                            onclick="requestReturn('{{ user.username }}',
-                                    'decline')">
-                        Decline
-                    </button>
-                </div>
-            </div>
+      {% for user in results %}
+      <div class="userCard" id="{{ user.username }}">
+        <div class="picBox">
+          <img
+            class="cardAvatar"
+            src="/assets/avatars/{{ user.username }}"
+            alt="{{ user.username }}"
+          />
         </div>
-    {% endfor %}
-{% else %}
-    <div class="title">Results</div>
-    <div class="contentSection">
-    {% for user in results %}
-        <div class="userCard" id="{{ user.username }}">
-            <div class="picBox">
-                <img class="cardAvatar" src="/assets/avatars/{{ user.username }}" alt="{{ user.username }}">
-            </div>
-            <div class="nameSection">
-                <div class="rName">
-                    {{ user.name }}
-                </div>
-                <div class="rUname">
-                    @{{ user.username }}
-                </div>
-            </div>
-            <div class="buttonSection">
-                {% if user.friend %}
-                    <i class="fa-solid fa-heart" style="color:white"></i>
-                {% elif user.sent_req %}
-                    <button class="sendRequestButton"
-                            onclick="requestCancel(this, '{{ user.username }}')">
-                        <i class="fa-solid fa-stopwatch"></i>
-                    </button>
-                {% else %}
-                    <button class="sendRequestButton"
-                            onclick="requestSend(this, '{{ user.username }}')">
-                        <i class="fa-solid fa-user-plus"></i>
-                    </button>
-                {% endif %}
-            </div>
+        <div class="idSection">
+          <div id="username"></div>
+          {{ user.name }}<br />
+          @{{ user.username }}
         </div>
-    {% endfor %}
-{% endif %}
-<script src="{{ url_for('static', filename='script.js') }}"></script>
-</body>
+        <div class="buttonSection">
+          <div class="col-md-2">
+            <button
+              class="incomingRequestButton"
+              onclick="requestReturn('{{ user.username }}',
+                                    'accept')"
+            >
+              Accept
+            </button>
+            <button
+              class="incomingRequestButton"
+              onclick="requestReturn('{{ user.username }}',
+                                    'decline')"
+            >
+              Decline
+            </button>
+          </div>
+        </div>
+      </div>
+      {% endfor %} {% else %}
+      <div class="title">Results</div>
+      <div class="contentSection">
+        {% for user in results %}
+        <div class="userCard" id="{{ user.username }}">
+          <div class="picBox">
+            <img
+              class="cardAvatar"
+              src="/assets/avatars/{{ user.username }}"
+              alt="{{ user.username }}"
+            />
+          </div>
+          <div class="nameSection">
+            <div class="rName">{{ user.name }}</div>
+            <div class="rUname">@{{ user.username }}</div>
+          </div>
+          <div class="buttonSection">
+            {% if user.friend %}
+            <i class="fa-solid fa-heart" style="color: white"></i>
+            {% elif user.sent_req %}
+            <button
+              class="sendRequestButton"
+              onclick="requestCancel(this, '{{ user.username }}')"
+            >
+              <i class="fa-solid fa-stopwatch"></i>
+            </button>
+            {% else %}
+            <button
+              class="sendRequestButton"
+              onclick="requestSend(this, '{{ user.username }}')"
+            >
+              <i class="fa-solid fa-user-plus"></i>
+            </button>
+            {% endif %}
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+      {% endif %}
+    </div>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+  </body>
 </html>
