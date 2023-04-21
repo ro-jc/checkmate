@@ -131,6 +131,24 @@ def request_send(username):
     return jsonify({"error": ""})
 
 
+@bp.route("requests/cancel/<username>")
+def request_cancel(username):
+    if username == session["username"]:
+        return jsonify({"error": "cannot cancel request to self"})
+
+    db = get_db()
+    db.users.find_one_and_update(
+        {"username": session["username"]},
+        {"$pull": {"outgoing_requests": username}},
+    )
+    db.users.find_one_and_update(
+        {"username": username},
+        {"$pull": {"incoming_requests": session["username"]}},
+    )
+
+    return jsonify({"error": ""})
+
+
 @bp.route("requests/return", methods=["POST"])
 def request_return():
     db = get_db()
