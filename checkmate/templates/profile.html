@@ -1,76 +1,91 @@
 <!DOCTYPE html>
 
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="apple-mobile-web-app-capable" content="yes"/>
-        <meta name="mobile-web-app-capable" content="yes"/>
-        <title>checkmate</title>
-        <link rel="stylesheet"
-            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
-            integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
-            crossorigin="anonymous" referrerpolicy="no-referrer"/>
-        <link rel="stylesheet" type="text/css" href="{{ url_for('static',
-            filename='styleProfile.css') }}">
-    </head>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <title>checkmate</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+      integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{ url_for('static',
+            filename='styleProfile.css') }}"
+    />
+  </head>
 
-    <body>
-        <div class="emptyTop"></div>
-        <div class="topBar">
-            <div onclick="openNav()">
-                <i class="fa-solid fa-bars-staggered"></i>
-            </div>
-            <div>
-                <a href="/">
-                    <i class="fa-solid fa-home"></i>
-                </a>
-            </div>
-        </div>
+  <body>
+    <div class="emptyTop"></div>
+    <div class="topBar">
+      <div onclick="openNav()">
+        <i class="fa-solid fa-bars-staggered"></i>
+      </div>
+      <div>
+        <a href="/">
+          <i class="fa-solid fa-home"></i>
+        </a>
+      </div>
+    </div>
 
-        <div id="mySidenav" class="sidenav">
-            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-            <div class="profilePicBox">
-                <img class="navAvatar" src="{{ url_for('views.avatar',
+    <div id="mySidenav" class="sidenav">
+      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"
+        >&times;</a
+      >
+      <div class="profilePicBox">
+        <img
+          class="navAvatar"
+          src="{{ url_for('views.avatar',
                     username=session.username) }}"
-                    alt="{{ session.username }}">
-            </div>
-            <a class="sidenavOptions" href="/profiles/{{ session.username }}">Profile</a>
-            <a class="sidenavOptions" href="{{ url_for('views.themes') }}">Themes</a>
-            <a class="sidenavOptions" href="/logout">Logout</a>
-        </div>
-        <div class="profInfo">
-            <div class="nameUname">
-                <h1>{{ user.name }}</h1>
-                <h2>@{{ user.username }}</h2>
-            </div>
-            <div class="personalDP">
-                <img class="DP" src="{{ url_for('views.avatar',
+          alt="{{ session.username }}"
+        />
+      </div>
+      <a class="sidenavOptions" href="/profiles/{{ session.username }}"
+        >Profile</a
+      >
+      <a class="sidenavOptions" href="{{ url_for('views.themes') }}">Themes</a>
+      <a class="sidenavOptions" href="/logout">Logout</a>
+    </div>
+    <div class="profInfo">
+      <div class="nameUname">
+        <h1>{{ user.name }}</h1>
+        <h2>@{{ user.username }}</h2>
+      </div>
+      <div class="personalDP">
+        <img
+          class="DP"
+          src="{{ url_for('views.avatar',
                     username=session.username) }}"
-                    alt="{{ session.username }}">
-            </div>
+          alt="{{ session.username }}"
+        />
+      </div>
+    </div>
+    <div class="extContainer">
+      <div class="intContainer">
+        {% set days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday',
+        'Saturday', 'Sunday'] %} {% for day in user.timetable %}
+        <div class="daysTT">
+          <h3 class="dayName">{{ days[loop.index - 1] }}</h3>
+          <table>
+            {% for period in day %}
+            <tr>
+              <td class="ttSubName">{{ period.title }}</td>
+              <td class="ttSubTime">{{ period.start }} - {{ period.end }}</td>
+              <td class="ttSubVenue">{{ period.venue }}</td>
+            </tr>
+            {% endfor %}
+          </table>
         </div>
-        <div class="extContainer">
-
-            <div class="intContainer">
-                {% set days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday',
-                'Friday', 'Saturday', 'Sunday'] %}
-                {% for day in user.timetable %}
-                <div class="daysTT">
-                    <h3 class="dayName">{{ days[loop.index - 1] }}</h3>
-                    <table>
-                        {% for period in day %}
-                        <tr>
-                            <td class="ttSubName">{{ period.title }}</td>
-                            <td class="ttSubTime">{{ period.start }} - {{
-                                period.end }}</td>
-                            <td class="ttSubVenue">{{ period.venue }}</td>
-                        </tr>
-                        {% endfor %}
-                    </table>
-                </div>
-                {% endfor %}
-            </div>
-            <script src="{{ url_for('static', filename='script.js') }}"></script>
-        </body>
-    </html>
+        {% endfor %}
+      </div>
+    </div>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+  </body>
+</html>

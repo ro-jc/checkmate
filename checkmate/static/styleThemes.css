@@ -1,147 +1,245 @@
-@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@600&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Alkatra:wght@500&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Comfortaa:wght@600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Alkatra:wght@500&display=swap");
 
 :root {
-    --light: #b2e5ed;
-    --mid: #00abc5;
-    --mid: #8e2426;
-    --light: #ff7a01;
-    /* --light: white; */
-    /* --mid: black; */
-    /* --mid: #0d635b; */
-    /* --light: #fd88e6; */
-    /* --mid: #425ca8; */
-    /* --light: #f0f22f; */
-    /* --mid: #064c2b; */
-    /* --light: #fec901; */
+  --light: #b2e5ed;
+  --mid: #00abc5;
+  --mid: #8e2426;
+  --light: #ff7a01;
+  --light: white;
+  --mid: black;
+  /* --mid: #0d635b; */
+  /* --light: #fd88e6; */
+  /* --mid: #425ca8; */
+  /* --light: #f0f22f; */
+  /* --mid: #064c2b; */
+  /* --light: #fec901; */
 }
 
 @media screen and (min-width: 768px) {
-    body {
-        opacity: 0.1;
-    }
+  body {
+    opacity: 0.1;
+  }
 }
 
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-    background: var(--light);
-    font-family: 'comfortaa', 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  background: grey;
+  font-family: "comfortaa", "Lucida Sans", "Lucida Sans Regular",
+    "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
 }
 
 a {
-    text-decoration: none;
+  text-decoration: none;
 }
 
 .emptyTop {
-    background: var(--light);
-    height: 16.5vh;
-    width: 100vw;
-    position: fixed;
-    z-index: 99;
-    top: 0;
+  /* background: white; */
+  height: 16.5vh;
+  width: 100vw;
+  position: fixed;
+  z-index: 99;
+  top: 0;
 }
 
 .topBar {
-    background: var(--mid);
-    height: 8vh;
-    width: calc(100vw - 10px);
-    border-radius: 0.8rem 0.8rem 2rem 2rem;
-    position: fixed;
-    z-index: 100;
-    margin: 5px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  background: var(--mid);
+  height: 8vh;
+  width: calc(100vw - 10px);
+  border-radius: 0.8rem 0.8rem 2rem 2rem;
+  position: fixed;
+  z-index: 100;
+  margin: 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .topBar div {
-    font-size: 2rem;
-    color: white;
-    padding: 0 15px;
+  font-size: 2rem;
+  color: white;
+  padding: 0 15px;
 }
 
 .topBar div a i {
-    font-size: 2rem;
-    color: white;
-    padding: 0 15px;
+  font-size: 2rem;
+  color: white;
+  padding: 0 15px;
 }
 
 .sidenav {
-    height: calc(100vh - 10px);
-    width: 0;
-    position: fixed;
-    z-index: 5000 !important;
-    top: 5px;
-    left: 0;
-    background-color: var(--mid);
-    overflow-x: hidden;
-    /* padding-top: 10vh; */
-    transition: 0.3s;
-    display: flex;
-    flex-direction: column;
-    justify-content: start;
-    align-items: center;
+  height: calc(100vh - 10px);
+  width: 0;
+  position: fixed;
+  z-index: 5000 !important;
+  top: 5px;
+  left: 0;
+  background-color: black;
+  overflow-x: hidden;
+  /* padding-top: 10vh; */
+  transition: 0.3s;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
 }
 
 .sidenavOptions {
-    padding: 8px;
-    text-decoration: none;
-    font-size: 2.3rem;
-    color: white;
-    display: block;
-    transition: 0.3s;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  padding: 8px;
+  text-decoration: none;
+  font-size: 2.3rem;
+  color: white;
+  display: block;
+  transition: 0.3s;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .sidenavOptions:hover {
-    color: #f1f1f1;
+  color: #f1f1f1;
 }
 
 .profilePicBox {
-    height: 6rem;
-    width: 6rem;
-    margin: 8vh 0 4vh 0;
-    border-radius: 50%;
-    background: white;
-    border: none;
+  height: 6rem;
+  width: 6rem;
+  margin: 8vh 0 4vh 0;
+  border-radius: 50%;
+  background: white;
+  border: none;
 }
 
 .navAvatar {
-    width: 6rem;
-    height: 6rem;
-    border-radius: 50%;
-    border: 2px solid white;
+  width: 6rem;
+  height: 6rem;
+  border-radius: 50%;
+  border: 2px solid white;
 }
 
 .closebtn {
-    color: white;
-    position: absolute;
-    top: 0;
-    left: 25px;
-    font-size: 3.5rem;
-    /* margin-left: 50px; */
-    z-index: 500 !important;
+  color: white;
+  position: absolute;
+  top: 0;
+  left: 25px;
+  font-size: 3.5rem;
+  /* margin-left: 50px; */
+  z-index: 500 !important;
 }
 
 #main {
-    transition: margin-left .5s;
-    padding: 20px;
+  transition: margin-left 0.5s;
+  padding: 20px;
 }
 
 @media screen and (max-height: 450px) {
-    .sidenav {
-        padding-top: 15px;
-    }
+  .sidenav {
+    padding-top: 15px;
+  }
 
-    .sidenavOptions {
-        font-size: 18px;
-    }
+  .sidenavOptions {
+    font-size: 18px;
+  }
+}
+
+.title {
+  position: fixed;
+  top: calc(8vh + 9px);
+  width: calc(100vw - 10px);
+  text-align: center;
+  background: black;
+  color: white;
+  font-size: 1.5rem;
+  padding: 5px 0;
+  margin: 10px 5px 0 5px;
+  border-radius: 1.8rem 1.8rem 0.6rem 0.6rem;
+  z-index: 100;
+}
+
+.themesBox {
+  display: grid;
+  grid-template-columns: 35vw 35vw;
+  width: 100vw;
+  /* margin: auto; */
+  justify-content: space-around;
+  /* height: 50vh; */
+  /* background: #000; */
+  position: absolute;
+  top: 17.5vh;
+}
+.themesBox div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 35vw;
+  width: 35vw;
+  /* background: linear-gradient(-45deg, #8e2426, #8e2426 49%, white 49%, white 51%, #ff7a01 51%); */
+  border-radius: 50%;
+  margin-bottom: 1.5rem;
+}
+.blackWhite {
+  background: linear-gradient(
+    -45deg,
+    black,
+    black 49%,
+    white 49%,
+    white 51%,
+    white 51%
+  );
+}
+.brownOrange {
+  background: linear-gradient(
+    -45deg,
+    #8e2426,
+    #8e2426 49%,
+    white 49%,
+    white 51%,
+    #ff7a01 51%
+  );
+  border: 8px solid greenyellow;
+}
+.blueWhite {
+  background: linear-gradient(
+    -45deg,
+    #00abc5,
+    #00abc5 49%,
+    white 49%,
+    white 51%,
+    #b2e5ed 51%
+  );
+}
+.greenPink {
+  background: linear-gradient(
+    -45deg,
+    #0d635b,
+    #0d635b 49%,
+    white 49%,
+    white 51%,
+    #fd88e6 51%
+  );
+}
+.blueYellow {
+  background: linear-gradient(
+    -45deg,
+    #425ca8,
+    #425ca8 49%,
+    white 49%,
+    white 51%,
+    #f0f22f 51%
+  );
+}
+.greenYellow {
+  background: linear-gradient(
+    -45deg,
+    #064c2b,
+    #064c2b 49%,
+    white 49%,
+    white 51%,
+    #fec901 51%
+  );
 }

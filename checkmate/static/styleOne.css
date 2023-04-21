@@ -1,780 +1,770 @@
-@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@600&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Comfortaa:wght@600&display=swap");
 
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 @media screen and (min-width: 768px) {
-    body {
-        /* display: none; */
-        /* background: #000;; */
-        opacity: 0.1;
-    }
+  body {
+    /* display: none; */
+    /* background: #000;; */
+    opacity: 0.1;
+  }
 }
 
 :root {
-    --light: #b2e5ed;
-    --mid: #00abc5;
-    --mid: rgb(141, 78, 34);
-    --mid: #8e2426;
-    --light: #ff7a01;
-    --light: white;
-    --mid: black;
-    /* --mid: #0d635b; */
-    /* --light: #fd88e6; */
-    /* --mid: #425ca8; */
-    /* --light: #f0f22f; */
-    /* --mid: #064c2b; */
-    /* --light: #fec901; */
+  --light: #b2e5ed;
+  --mid: #00abc5;
+  --mid: rgb(141, 78, 34);
+  --mid: #8e2426;
+  --light: #ff7a01;
+  --light: white;
+  --mid: black;
+  /* --mid: #0d635b; */
+  /* --light: #fd88e6; */
+  /* --mid: #425ca8; */
+  /* --light: #f0f22f; */
+  /* --mid: #064c2b; */
+  /* --light: #fec901; */
 }
 
-body{
-    background: var(--light);
-    scrollbar-width: none;
-    -ms-overflow-style: none;
-    -webkit-user-select: none;
-    /* Safari */
-    -ms-user-select: none;
-    /* IE 10 and IE 11 */
-    user-select: none;
-    /* Standard syntax */
-    font-family: 'comfortaa', 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+body {
+  background: var(--light);
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  -webkit-user-select: none;
+  /* Safari */
+  -ms-user-select: none;
+  /* IE 10 and IE 11 */
+  user-select: none;
+  /* Standard syntax */
+  font-family: "comfortaa", "Lucida Sans", "Lucida Sans Regular",
+    "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
 }
 body::-webkit-scrollbar {
-    display: none;
+  display: none;
 }
 
-.reqBar{
-    /* height: 7.5vh; */
-    width: 100vw;
-    /* position: absolute; */
-    /* top: 0; */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
-    /* background: white; */
+.reqBar {
+  /* height: 7.5vh; */
+  width: 100vw;
+  /* position: absolute; */
+  /* top: 0; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  /* background: white; */
 }
 
-.topBar{
-    background: black;
-    border-radius: 8px;
-    border-top-left-radius: 0;
-    border-top-right-radius: 0;
-    box-shadow: 0px 4px 15px 0px rgb(31, 31, 31);
-    width: 100vw;
-    /* position: fixed; */
-    /* top: 0; */
-    /* left: 0; */
+.topBar {
+  background: black;
+  border-radius: 8px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  box-shadow: 0px 4px 15px 0px rgb(31, 31, 31);
+  width: 100vw;
+  /* position: fixed; */
+  /* top: 0; */
+  /* left: 0; */
 }
-.topBar div div{
-    display: flex;
-    justify-content:center;
-    align-items: center;
+.topBar div div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-.topBar .row{
-    height: 9vh;
-    display: flex;
-    align-items: center;
+.topBar .row {
+  height: 9vh;
+  display: flex;
+  align-items: center;
 }
 .searchBtn {
-    position: relative;
-    right: 0;
-    /* top: 0; */
-    cursor: pointer;
+  position: relative;
+  right: 0;
+  /* top: 0; */
+  cursor: pointer;
+}
+.topBarIcon {
+  font-size: 2.4rem;
+  color: white;
+}
+.searchBtn,
+.searchTxt {
+  background: none;
+  border: none;
+}
+.searchBtn {
+  font-size: 1.3rem;
+}
+.searchTxt {
+  width: 100%;
+}
+.searchBox {
+  height: 2.2rem;
+  width: 100%;
+  border: 2.5px solid white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 1.2rem;
+  padding: 3px 10px;
+}
 
-}
-.topBarIcon{
-    font-size: 2.4rem;
-    color: white;
-}
-.searchBtn, .searchTxt{
-    background: none;
-    border: none;
-}
-.searchBtn{
-    font-size: 1.3rem;
-}
-.searchTxt{
-    width: 100%;
-}
-.searchBox{
-    height: 2.2rem;
-    width: 100%;
-    border: 2.5px solid white;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-radius: 1.2rem;
-    padding:3px 10px;
-}
-
-.bottomBar{
-    border-radius: 8px;
-    background: black;
-    border-bottom-left-radius: 0;
-    border-bottom-right-radius: 0;
-    box-shadow: 0px -4px 15px 0px rgb(31,31,31);
-    width: 100vw;
-    position: fixed;
-    /* top: calc(100vh - 8vh); */
-    left: 0;
-
+.bottomBar {
+  border-radius: 8px;
+  background: black;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  box-shadow: 0px -4px 15px 0px rgb(31, 31, 31);
+  width: 100vw;
+  position: fixed;
+  /* top: calc(100vh - 8vh); */
+  left: 0;
 }
 .bottomBar .row {
-    height: 8vh;
-    display: flex;
-    align-items: center;
+  height: 8vh;
+  display: flex;
+  align-items: center;
 }
-.bottomBarIcon{
-    color: white;
-    font-size: 2rem;
-    opacity: 0.3;
+.bottomBarIcon {
+  color: white;
+  font-size: 2rem;
+  opacity: 0.3;
 }
 .bottomBarIcon-active {
-    font-size: 2.7rem;
-    opacity: 1;
+  font-size: 2.7rem;
+  opacity: 1;
 }
-.bottomBar .row div{
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.bottomBar .row div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.empty{
-    height: 7.5vh;
+.empty {
+  height: 7.5vh;
 }
 .emptyBottom {
-    height: 10vh;
+  height: 10vh;
 }
 
-.slideView{
-    display: flex;
-    width: 100vw;
-    /* margin-bottom: 10vh; */
+.slideView {
+  display: flex;
+  width: 100vw;
+  /* margin-bottom: 10vh; */
 }
 
-#groupPage{
-    display: none;
-    /* background: #000; */
-    width: 100vw;
-    height: calc(100vh - 16vh);
-    margin-top: 3vh;
+#groupPage {
+  display: none;
+  /* background: #000; */
+  width: 100vw;
+  height: calc(100vh - 16vh);
+  margin-top: 3vh;
 }
-#friendPage{
-    /* background: #a41f1f; */
-    /* background: #000; */
-    width: 100vw;
-    height: calc(100vh - 16vh);
-    /* display: none; */
+#friendPage {
+  /* background: #a41f1f; */
+  /* background: #000; */
+  width: 100vw;
+  height: calc(100vh - 16vh);
+  /* display: none; */
 }
 
-
-
-
-.card{
-    margin: 0;
+.card {
+  margin: 0;
 }
 .cardAvatar {
-    font-size: 15vh;
+  font-size: 15vh;
 
-    /* height: 100%; */
-    color: white;
+  /* height: 100%; */
+  color: white;
 }
 
 .cardImage {
-    font-size: 4rem;
-    color: #e8d6cf55;
+  font-size: 4rem;
+  color: #e8d6cf55;
 }
-.cardBody{
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: start;
-    padding: 5px 0;
+.cardBody {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: start;
+  padding: 5px 0;
 }
-.card-img{
-    border-radius: 50%;
-    width: 15vh;
+.card-img {
+  border-radius: 50%;
+  width: 15vh;
 }
 
 .avatarBox {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 18.5vh;
-    /* background: #000; */
-    position: relative;
-    /* right: 5vw; */
-    /* background: var(--mid); */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 18.5vh;
+  /* background: #000; */
+  position: relative;
+  /* right: 5vw; */
+  /* background: var(--mid); */
 }
 
 .groupImageBox {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .avatarNameBox {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
 }
-.avatarImageBox{
-    position: absolute;
-    right: 1.5vh;
+.avatarImageBox {
+  position: absolute;
+  right: 1.5vh;
 }
 .personCard {
-    background: #2b2b2b;
-    /* border: 0.5px solid white; */
-    width: 90vw;
-    height: 18.5vh;
-    border-radius: 15px;
-    border-top-right-radius: 25vh;/* border-bottom-right-radius: 50%; */
-    border-bottom-right-radius: 25.5vh;    /* border-bottom-right-radius: 50%; */
-    position: relative;
+  background: #2b2b2b;
+  /* border: 0.5px solid white; */
+  width: 90vw;
+  height: 18.5vh;
+  border-radius: 15px;
+  border-top-right-radius: 25vh; /* border-bottom-right-radius: 50%; */
+  border-bottom-right-radius: 25.5vh; /* border-bottom-right-radius: 50%; */
+  position: relative;
 }
 .groupCard {
-    background: #2b2b2b;
-    /* border: 0.5px solid white; */
-    width: 90vw;
-    height: 13vh;
+  background: #2b2b2b;
+  /* border: 0.5px solid white; */
+  width: 90vw;
+  height: 13vh;
 }
-
 
 .curentClassBox {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
-.cardInfo{
-    /* position: absolute; */
-    /* left: -5vw; */
+.cardInfo {
+  /* position: absolute; */
+  /* left: -5vw; */
 }
 .ccSub,
 .ccLoc,
 .ccTime {
-    color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    letter-spacing: 1.2px;
-    border-radius: 8px;
-    font-size: 1.1rem;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  letter-spacing: 1.2px;
+  border-radius: 8px;
+  font-size: 1.1rem;
 }
 
 .ccTimeLoc {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 }
-.ccPname{
-    color: white;
-    display: flex;
-    /* width: 100%; */
-    background: var(--mid);
-    padding: 0 20px 0 20px;
-    /* padding: 0 10px 0 10px; */
-    justify-content: center;
-    align-items: center;
-    letter-spacing: 1.2px;
-    border-radius: 50px;
-    font-size: 1.2rem;
-    font-weight: bold;
+.ccPname {
+  color: white;
+  display: flex;
+  /* width: 100%; */
+  background: var(--mid);
+  padding: 0 20px 0 20px;
+  /* padding: 0 10px 0 10px; */
+  justify-content: center;
+  align-items: center;
+  letter-spacing: 1.2px;
+  border-radius: 50px;
+  font-size: 1.2rem;
+  font-weight: bold;
 }
 .nextClassBox {
-    color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    letter-spacing: 1.2px;
-    border-radius: 8px;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  letter-spacing: 1.2px;
+  border-radius: 8px;
 }
 
 .nextClassText {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    letter-spacing: 1.2px;
-    border-radius: 8px;
-    width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  letter-spacing: 1.2px;
+  border-radius: 8px;
+  width: 100%;
 }
 
-
 .groupName {
-    color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 1.8rem;
-    border-radius: 15px;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.8rem;
+  border-radius: 15px;
 }
 
 .memberCount {
-    color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 8px;
-    font-size: 0.8rem;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+  font-size: 0.8rem;
 }
 
 .groupNotif {
-    background: white;
-    border-radius: 12px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 1rem;
+  background: white;
+  border-radius: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1rem;
 }
 
 .groupNotifText {
-    border-radius: 12px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 1rem;
-    width: 100%;
+  border-radius: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1rem;
+  width: 100%;
 }
 
 .sidenav {
-    height: 100vh;
-    width: 0;
-    position: fixed;
-    z-index: 5000 !important;
-    top: 0;
-    right: 0;
-    background-color: var(--mid);
-    overflow-x: hidden;
-    padding-top: 8vh;
-    transition: 0.3s;
-    display: flex;
-    flex-direction: column;
-    /* justify-content: start; */
-    align-items: center;
+  height: 100vh;
+  width: 0;
+  position: fixed;
+  z-index: 5000 !important;
+  top: 0;
+  right: 0;
+  background-color: var(--mid);
+  overflow-x: hidden;
+  padding-top: 8vh;
+  transition: 0.3s;
+  display: flex;
+  flex-direction: column;
+  /* justify-content: start; */
+  align-items: center;
 }
 
 .sidenav a {
-    padding: 8px;
-    text-decoration: none;
-    font-size: 2.3rem;
-    color: #818181;
-    display: block;
-    transition: 0.3s;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  padding: 8px;
+  text-decoration: none;
+  font-size: 2.3rem;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .sidenav a:hover {
-    color: #f1f1f1;
+  color: #f1f1f1;
 }
 
 .sidenav .closebtn {
-    justify-content: right;
-    /* align-items: start; */
-    position: absolute;
-    top: 0;
-    right: 25px;
-    font-size: 36px;
-    margin-left: 50px;
-    z-index: 500 !important;
+  justify-content: right;
+  /* align-items: start; */
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+  z-index: 500 !important;
 }
 
 #main {
-    transition: margin-left .5s;
-    padding: 20px;
+  transition: margin-left 0.5s;
+  padding: 20px;
 }
 
 @media screen and (max-height: 450px) {
-    .sidenav {
-        padding-top: 15px;
-    }
+  .sidenav {
+    padding-top: 15px;
+  }
 
-    .sidenav a {
-        font-size: 18px;
-    }
+  .sidenav a {
+    font-size: 18px;
+  }
 }
 
-.lsBox{
-    display: flex;
-    justify-content: space-around;
-    position: fixed;
-    width: 100vw;
-    bottom: 3vh;
-    /* background: #000; */
+.lsBox {
+  display: flex;
+  justify-content: space-around;
+  position: fixed;
+  width: 100vw;
+  bottom: 3vh;
+  /* background: #000; */
 }
-.signupBtn, .loginBtn{
-    text-decoration: none;
-    font-size: 1.8rem;
-    border: 5px solid var(--mid);
-    padding: 0.1rem 0.1rem;
-    width: 40vw;
-    height: 8vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    box-shadow: 10px 10px #000;
+.signupBtn,
+.loginBtn {
+  text-decoration: none;
+  font-size: 1.8rem;
+  border: 5px solid var(--mid);
+  padding: 0.1rem 0.1rem;
+  width: 40vw;
+  height: 8vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 10px 10px #000;
 }
-.loginBtn{
-    color: #000;
-    font-weight: bolder;
-    border-top-left-radius: 2rem;
-    border-top-right-radius: 2rem;
-    border-bottom-right-radius: 0.6rem;
-    border-bottom-left-radius: 0.6rem;
+.loginBtn {
+  color: #000;
+  font-weight: bolder;
+  border-top-left-radius: 2rem;
+  border-top-right-radius: 2rem;
+  border-bottom-right-radius: 0.6rem;
+  border-bottom-left-radius: 0.6rem;
 }
-.signupBtn{
-    background: var(--light);
-    color: #000;
-    border-top-left-radius: 0.6rem;
-    border-top-right-radius: 0.6rem;
-    border-bottom-right-radius: 2rem;
-    border-bottom-left-radius: 2rem;
+.signupBtn {
+  background: var(--light);
+  color: #000;
+  border-top-left-radius: 0.6rem;
+  border-top-right-radius: 0.6rem;
+  border-bottom-right-radius: 2rem;
+  border-bottom-left-radius: 2rem;
 }
-.firstScreen{
-    height: calc(100vh - 7.5vh);
-    width: 100vw;
-    display: flex;
-    justify-content: center;
-    /* align-items: center; */
-    font-size: 1.4rem;
-    letter-spacing: 15px;
-    color: rgb(198, 198, 198);
-    /* background: white; */
+.firstScreen {
+  height: calc(100vh - 7.5vh);
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  /* align-items: center; */
+  font-size: 1.4rem;
+  letter-spacing: 15px;
+  color: rgb(198, 198, 198);
+  /* background: white; */
 }
 .infoScreen {
-    height: 100vh;
-    width: 100vw;
-    background: black;
+  height: 100vh;
+  width: 100vw;
+  background: black;
 }
 
-.logoImage{
-    background: rgba(255, 255, 255, 0.155);
-    width: 60vw;
-    height: 26vh;
-    position: absolute;
-    top: 20vh;
+.logoImage {
+  background: rgba(255, 255, 255, 0.155);
+  width: 60vw;
+  height: 26vh;
+  position: absolute;
+  top: 20vh;
 }
-.logoTitle{
-    color: #000;
-    font-weight: bolder;
-    display: flex;
-    justify-content: center;
-    width: 100%;
-    align-items: center;
-    position: absolute;
-    top: 50vh;
-}
-
-
-.formContainer{
-    position: absolute;
-    height: 100vh;
-    width: 100vw;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    top: 0;
-}
-.loginForm{
-    width: 100vw;
-    height: 40vh;
-    /* padding: 1rem; */
-    /* background: rgb(66, 66, 66); */
-    /* display: flex; */
-    /* flex-direction: column; */
-    /* justify-content: center; */
-    /* align-items: center; */
-    position: absolute;
-
+.logoTitle {
+  color: #000;
+  font-weight: bolder;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  align-items: center;
+  position: absolute;
+  top: 50vh;
 }
 
-
-.loginClick{
-    background: var(--mid);
-    font-size: 2rem;
-    bottom: none;
-    border-top-right-radius: 50px;
-    border-bottom-right-radius: 50px;
-    position: absolute;
-    left: 0;
-    border: none;
-    color: white;
-    padding: 5px 30px;
-    font-size: 1.5rem;
-    font-weight: bold;
-    width: 50vw;
+.formContainer {
+  position: absolute;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 0;
+}
+.loginForm {
+  width: 100vw;
+  height: 40vh;
+  /* padding: 1rem; */
+  /* background: rgb(66, 66, 66); */
+  /* display: flex; */
+  /* flex-direction: column; */
+  /* justify-content: center; */
+  /* align-items: center; */
+  position: absolute;
 }
 
-.logoBar{
-    position: absolute;
-    top: 0;
-    width: 100vw;
-    height: 10vh;
-    display: flex;
-    justify-content: center;
-    /* background: rgb(48, 48, 48); */
-    align-items: center;
-    color: white;
-    font-size: 1.5rem;
-    letter-spacing: 10px;
+.loginClick {
+  background: var(--mid);
+  font-size: 2rem;
+  bottom: none;
+  border-top-right-radius: 50px;
+  border-bottom-right-radius: 50px;
+  position: absolute;
+  left: 0;
+  border: none;
+  color: white;
+  padding: 5px 30px;
+  font-size: 1.5rem;
+  font-weight: bold;
+  width: 50vw;
+}
+
+.logoBar {
+  position: absolute;
+  top: 0;
+  width: 100vw;
+  height: 10vh;
+  display: flex;
+  justify-content: center;
+  /* background: rgb(48, 48, 48); */
+  align-items: center;
+  color: white;
+  font-size: 1.5rem;
+  letter-spacing: 10px;
 }
 .loginLogoBar {
-    position: fixed;
-    background: #000;
-    top: 0;
-    width: calc(100vw - 26px);
-    border-radius: 10px;
-    height: 10vh;
-    margin: 13px;
-    display: flex;
-    justify-content: center;
-    /* background: rgb(48, 48, 48); */
-    align-items: center;
-    color: white;
-    font-size: 1.5rem;
-    letter-spacing: 10px;
-    z-index: 99999;
+  position: fixed;
+  background: #000;
+  top: 0;
+  width: calc(100vw - 26px);
+  border-radius: 10px;
+  height: 10vh;
+  margin: 13px;
+  display: flex;
+  justify-content: center;
+  /* background: rgb(48, 48, 48); */
+  align-items: center;
+  color: white;
+  font-size: 1.5rem;
+  letter-spacing: 10px;
+  z-index: 99999;
 }
-.homeBtn{
-    color: white;
-    font-size: 1.4rem;
+.homeBtn {
+  color: white;
+  font-size: 1.4rem;
 }
-
 
 form label {
-    background: #000;
+  background: #000;
 }
 .registerForm input {
-    text-align: center;
-    width: 90vw;
+  text-align: center;
+  width: 90vw;
 }
 .registerForm textarea {
-    width: 80vw;
-    height: 15vh;
-    border-radius: 25px;
-    border: none;
+  width: 80vw;
+  height: 15vh;
+  border-radius: 25px;
+  border: none;
 }
 
+.entryForm {
+  width: 80vw;
+  position: absolute;
+  top: 20vh;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  /* align-items: center; */
+}
+.enterInfo {
+  color: rgb(245, 167, 214);
+  padding: 1rem;
+  font-size: 3rem;
+  font-weight: bold;
+}
+.reqH {
+  color: rgb(245, 167, 214);
+  font-size: 1.5rem;
+  padding: 20px 0 20px 10px;
+  font-weight: bold;
+}
+.enterUsername {
+  font-size: 2rem;
+  height: calc(100vh - 13vh);
+  /* background: red; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
+}
 
-.entryForm{
-    width: 80vw;
-    position: absolute;
-    top: 20vh;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    /* align-items: center; */
+.enterMail {
+  font-size: 2rem;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
 }
-.enterInfo{
-    color: rgb(245, 167, 214);
-    padding: 1rem;
-    font-size: 3rem;
-    font-weight: bold;
+.enterPassword {
+  font-size: 2rem;
+  height: 100vh;
+  /* background: red; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
 }
-.reqH{
-    color: rgb(245, 167, 214);
-    font-size: 1.5rem;
-    padding: 20px 0 20px 10px;
-    font-weight: bold;
+.enterRePassword {
+  font-size: 2rem;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
 }
-.enterUsername{
-    font-size: 2rem ;
-    height: calc(100vh - 13vh);
-    /* background: red; */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    position: relative;
+.enterName {
+  font-size: 2rem;
+  height: 100vh;
+  /* background: red; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  flex-direction: column;
 }
-
-.enterMail{
-    font-size: 2rem;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    position: relative;
+.enterTT {
+  font-size: 2rem;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
+  /* background: blue; */
 }
-.enterPassword{
-    font-size: 2rem;
-    height: 100vh;
-    /* background: red; */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    position: relative;
-}
-.enterRePassword{
-    font-size: 2rem;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    position: relative;
-}
-.enterName{
-    font-size: 2rem;
-    height: 100vh;
-    /* background: red; */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    flex-direction: column;
-}
-.enterTT{
-    font-size: 2rem;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    position: relative;
-    /* background: blue; */
-}
-.enterSubmit{
-    /* font-size: 1.5rem;
+.enterSubmit {
+  /* font-size: 1.5rem;
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
     position: relative; */
-    width: 100%;
-    display: flex;
-    justify-content: start;
-    align-items: center;
-    /* font-size: 1rem; */
-    /* font-weight: bold; */
+  width: 100%;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  /* font-size: 1rem; */
+  /* font-weight: bold; */
 }
 
-
-.swipeDown{
-    font-size: 4rem;
-    position: absolute;
-    bottom: 10vh;
-    animation: mover 0.5s infinite alternate;
-    color: white;
+.swipeDown {
+  font-size: 4rem;
+  position: absolute;
+  bottom: 10vh;
+  animation: mover 0.5s infinite alternate;
+  color: white;
 }
 .goPrevious {
-    font-size: 1.5rem;
-    position: absolute;
-    top: 13.5vh;
-    right: 2rem;
-    color: darkgrey;
+  font-size: 1.5rem;
+  position: absolute;
+  top: 13.5vh;
+  right: 2rem;
+  color: darkgrey;
 }
 
 @-webkit-keyframes mover {
-    0% {
-        transform: translateY(0);
-    }
+  0% {
+    transform: translateY(0);
+  }
 
-    100% {
-        transform: translateY(-15px);
-    }
+  100% {
+    transform: translateY(-15px);
+  }
 }
 
 @keyframes mover {
-    0% {
-        transform: translateY(0);
-    }
+  0% {
+    transform: translateY(0);
+  }
 
-    100% {
-        transform: translateY(-15px);
-    }
-}
-
-.registerBtn{
-    margin: 20px 0 0 0;
-    /* width: calc(80vw - 20px); */
-    background: var(--mid);
-    border: none;
-    color: white;
-    padding: 5px;
-    border-radius: 50px;
-}
-.inputBox{
-    border-radius: 50px;
-    border-top-right-radius: 0;
-    border-bottom-right-radius: 0;
-    border: none;
-    background: #ffffff;
-}
-.topExt{
-    position: fixed;
-    top: 0;
-    width: 100vw;
-    height: 13vh;
-    background: rgb(22, 22, 22);
-    z-index: 9999999;
-}
-#submit{
-    /* width: 45vw; */
-    /* position: absolute; */
-    /* margin-top: 30px; */
-    font-size: 1.5rem;
-    font-weight: bold;
-    /* letter-spacing: 3px; */
-    /* right: 0; */
-}
-.loginForm div{
-    /* position: absolute; */
-    /* right: 0; */
-    display: flex;
-    width: 100vw;
-    justify-content: end;
-    align-items: center;
+  100% {
+    transform: translateY(-15px);
+  }
 }
 
-.loginEntry{
-    background: white;
-    width: 85%;
-    display: flex;
-    align-items: center;
-    text-align: center;
-    font-size: 2rem;
-    border-radius: 50px;
-    border: none;
-    margin: 10px 0;
-    border-top-right-radius: 0;
-    border-bottom-right-radius: 0;
+.registerBtn {
+  margin: 20px 0 0 0;
+  /* width: calc(80vw - 20px); */
+  background: var(--mid);
+  border: none;
+  color: white;
+  padding: 5px;
+  border-radius: 50px;
 }
-.searchSubmit{
-    background:var(--mid);
-    color: white;
-    font-size: 1.4rem;
-    border: none;
-    border-top-left-radius: 50px;
-    border-bottom-left-radius: 50px;
-    display: flex;
-    justify-content: start;
-    align-items:center;
+.inputBox {
+  border-radius: 50px;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  border: none;
+  background: #ffffff;
+}
+.topExt {
+  position: fixed;
+  top: 0;
+  width: 100vw;
+  height: 13vh;
+  background: rgb(22, 22, 22);
+  z-index: 9999999;
+}
+#submit {
+  /* width: 45vw; */
+  /* position: absolute; */
+  /* margin-top: 30px; */
+  font-size: 1.5rem;
+  font-weight: bold;
+  /* letter-spacing: 3px; */
+  /* right: 0; */
+}
+.loginForm div {
+  /* position: absolute; */
+  /* right: 0; */
+  display: flex;
+  width: 100vw;
+  justify-content: end;
+  align-items: center;
 }
 
-.friendSearchBar{
-    background: white;
-    width: 100%;
-    border: none;
-    font-size: 1.4rem;
-    border-top-right-radius: 50px;
-    border-bottom-right-radius: 50px;
+.loginEntry {
+  background: white;
+  width: 85%;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  font-size: 2rem;
+  border-radius: 50px;
+  border: none;
+  margin: 10px 0;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+.searchSubmit {
+  background: var(--mid);
+  color: white;
+  font-size: 1.4rem;
+  border: none;
+  border-top-left-radius: 50px;
+  border-bottom-left-radius: 50px;
+  display: flex;
+  justify-content: start;
+  align-items: center;
 }
 
-.reqPageBody{
-    width: 100vw;
-    position: absolute;
-    top: 10vh;
+.friendSearchBar {
+  background: white;
+  width: 100%;
+  border: none;
+  font-size: 1.4rem;
+  border-top-right-radius: 50px;
+  border-bottom-right-radius: 50px;
+}
+
+.reqPageBody {
+  width: 100vw;
+  position: absolute;
+  top: 10vh;
 }

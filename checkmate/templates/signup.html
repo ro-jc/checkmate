@@ -1,159 +1,192 @@
 <!DOCTYPE html>
 
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="apple-mobile-web-app-capable" content="yes"/>
-    <meta name="mobile-web-app-capable" content="yes"/>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="mobile-web-app-capable" content="yes" />
     <title>checkmate</title>
-    <link rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
-          integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
-          crossorigin="anonymous" referrerpolicy="no-referrer"/>
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static',
-            filename='styleSignUp.css') }}">
-</head>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+      integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{ url_for('static',
+            filename='styleSignUp.css') }}"
+    />
+  </head>
 
-<body>
-<form action="/signup" method="post" enctype="multipart/form-data">
-    {{ form.hidden_tag() }}
-    <div class="signupTopBar">
+  <body>
+    <form action="/signup" method="post" enctype="multipart/form-data">
+      {{ form.hidden_tag() }}
+      <div class="signupTopBar">
         <a href="/">
-            <div class="logoNameSec">
-                CHECKMATE
-            </div>
+          <div class="logoNameSec">CHECKMATE</div>
         </a>
         <div class="picUpload">
-            <div class="uploadCont">
-                <div class="center">
-                    <div class="form-input">
-                        <div class="preview">
-                            <img class="barLogo" id="file-ip-1-preview">
-                        </div>
-                        <label id="selectImgBtn" for="file-ip-1">
-                            <i class="fa-solid fa-cloud-arrow-up"></i>
-                        </label>
-                        {{ form.avatar(id = 'file-ip-1',
-                                onchange='showPreview(event)') }}
-                    </div>
-                    <div class="errorMsg">
-                        {% for error in form.avatar.errors %}
-                            {{ error }}
-                        {% endfor %}
-                    </div>
+          <div class="uploadCont">
+            <div class="center">
+              <div class="form-input">
+                <div class="preview">
+                  <img class="barLogo" id="file-ip-1-preview" />
                 </div>
+                <label id="selectImgBtn" for="file-ip-1">
+                  <i class="fa-solid fa-cloud-arrow-up"></i>
+                </label>
+                {{ form.avatar(id = 'file-ip-1', onchange='showPreview(event)')
+                }}
+              </div>
+              <div class="errorMsg">
+                {% for error in form.avatar.errors %} {{ error }} {% endfor %}
+              </div>
             </div>
+          </div>
         </div>
-    </div>
+      </div>
 
-
-    <div id="setUser">
+      <div id="setUser">
         <div class="signUpFormContainer">
-            <label class="enterUnameTxt" for="uname">enter username:</label>
-            <br>
-            {{ form.username(id='uname', placeholder='nickname') }}
-            <br>
-            <div class="errorMsg" id="unameError">
-            </div>
-            <br>
-            <input id="startSignUpBtn"
-                   onclick="moveForward('setUser')" class="uNameSignUp"
-                   type="button"
-                   value="next">
+          <label class="enterUnameTxt" for="uname">enter username:</label>
+          <br />
+          {{ form.username(id='uname', placeholder='nickname') }}
+          <br />
+          <div class="errorMsg" id="unameError"></div>
+          <br />
+          <input
+            id="startSignUpBtn"
+            onclick="moveForward('setUser')"
+            class="uNameSignUp"
+            type="button"
+            value="next"
+          />
         </div>
-        <img src="{{ url_for('static',
-                    filename='images/signup/bwusername.svg') }}" class="uNameImg"
-             alt="">
-    </div>
+        <img
+          src="{{ url_for('static',
+                    filename='images/signup/bwusername.svg') }}"
+          class="uNameImg"
+          alt=""
+        />
+      </div>
 
-    <div id="setPswd">
-        <i onclick="moveBack('setPswd')" id="pswdPrev" class=" prevEntry
-                    fa-solid fa-angles-left"></i>
+      <div id="setPswd">
+        <i
+          onclick="moveBack('setPswd')"
+          id="pswdPrev"
+          class="prevEntry fa-solid fa-angles-left"
+        ></i>
         <div class="signUpFormContainer">
-            <label class="enterPswdTxt" for="pswd">enter password:</label>
-            <br>
-            {{ form.password(id='pswd', placeholder='password') }}
-            <br>
-            <label class="reEnterPswdTxt" for="rePswd">re enter
-                password:</label>
-            <br>
-            {{ form.re_password(id='rePswd',
-                    placeholder='re-enter password') }}
-            <br>
-            <div class="errorMsg" id="pswdError">
-            </div>
-            <input onclick="moveForward('setPswd')" class="pswdSubmit"
-                   type="button" value="next">
+          <label class="enterPswdTxt" for="pswd">enter password:</label>
+          <br />
+          {{ form.password(id='pswd', placeholder='password') }}
+          <br />
+          <label class="reEnterPswdTxt" for="rePswd">re enter password:</label>
+          <br />
+          {{ form.re_password(id='rePswd', placeholder='re-enter password') }}
+          <br />
+          <div class="errorMsg" id="pswdError"></div>
+          <input
+            onclick="moveForward('setPswd')"
+            class="pswdSubmit"
+            type="button"
+            value="next"
+          />
         </div>
-        <img src="{{ url_for('static',
-                    filename='images/signup/bwpassword.svg') }}" class="pswdImg"
-             alt="">
-    </div>
+        <img
+          src="{{ url_for('static',
+                    filename='images/signup/bwpassword.svg') }}"
+          class="pswdImg"
+          alt=""
+        />
+      </div>
 
-    <div id="setName">
-        <i onclick="moveBack('setName')" id="namePrev" class=" prevEntry
-                    fa-solid fa-angles-left"></i>
+      <div id="setName">
+        <i
+          onclick="moveBack('setName')"
+          id="namePrev"
+          class="prevEntry fa-solid fa-angles-left"
+        ></i>
         <div class="signUpFormContainer">
-            <label class="enterNameTxt" for="fname">enter full name:</label>
-            <br>
-            {{ form.name(id='fname', placeholder='your name') }}
-            <br>
-            <div class="errorMsg" id="fnameError">
-            </div>
-            <input onclick="moveForward('setName')" class="nameSubmit"
-                   type="button" value="next">
+          <label class="enterNameTxt" for="fname">enter full name:</label>
+          <br />
+          {{ form.name(id='fname', placeholder='your name') }}
+          <br />
+          <div class="errorMsg" id="fnameError"></div>
+          <input
+            onclick="moveForward('setName')"
+            class="nameSubmit"
+            type="button"
+            value="next"
+          />
         </div>
-        <img src="{{ url_for('static',
-                    filename='images/signup/bwname.svg') }}" class="nameImg"
-             alt="">
-    </div>
+        <img
+          src="{{ url_for('static',
+                    filename='images/signup/bwname.svg') }}"
+          class="nameImg"
+          alt=""
+        />
+      </div>
 
-    <div id="setMail">
-        <i onclick="moveBack('setMail')" id="mailPrev" class=" prevEntry
-                    fa-solid fa-angles-left"></i>
+      <div id="setMail">
+        <i
+          onclick="moveBack('setMail')"
+          id="mailPrev"
+          class="prevEntry fa-solid fa-angles-left"
+        ></i>
         <div class="signUpFormContainer">
-            <label class="enterMailTxt" for="mail">enter E-mail ID:</label>
-            <br>
-            {{ form.email(id='mail', placeholder='abc@xyz.com') }}
-            <br>
-            <div class="errorMsg" id="mailError">
-                {% for error in form.email.errors %}
-                    {{ error }}
-                {% endfor %}
-            </div>
-            <br>
-            <input onclick="moveForward('setMail')" class="mailSubmit"
-                   type="button" value="next">
-
+          <label class="enterMailTxt" for="mail">enter E-mail ID:</label>
+          <br />
+          {{ form.email(id='mail', placeholder='abc@xyz.com') }}
+          <br />
+          <div class="errorMsg" id="mailError">
+            {% for error in form.email.errors %} {{ error }} {% endfor %}
+          </div>
+          <br />
+          <input
+            onclick="moveForward('setMail')"
+            class="mailSubmit"
+            type="button"
+            value="next"
+          />
         </div>
-        <img src="{{ url_for('static',
-                    filename='images/signup/bwmail.svg') }}" class="mailImg"
-             alt="">
-    </div>
+        <img
+          src="{{ url_for('static',
+                    filename='images/signup/bwmail.svg') }}"
+          class="mailImg"
+          alt=""
+        />
+      </div>
 
-    <div id="setTT">
-        <i onclick="moveBack('setTT')" id="TTPrev" class=" prevEntry
-                    fa-solid fa-angles-left"></i>
+      <div id="setTT">
+        <i
+          onclick="moveBack('setTT')"
+          id="TTPrev"
+          class="prevEntry fa-solid fa-angles-left"
+        ></i>
         <div class="signUpFormContainer">
-            <label class="enterTTTxt" for="TT">enter TimeTable code:</label>
-            <br>
-            {{ form.timetable(id='TT', placeholder='Theory to L94') }}
-            <br>
-            <div class="errorMsg">
-                {% for error in form.timetable.errors %}
-                    {{ error }}
-                {% endfor %}
-            </div>
-            <br>
-            {{ form.submit(class='TTSubmit') }}
+          <label class="enterTTTxt" for="TT">enter TimeTable code:</label>
+          <br />
+          {{ form.timetable(id='TT', placeholder='Theory to L94') }}
+          <br />
+          <div class="errorMsg">
+            {% for error in form.timetable.errors %} {{ error }} {% endfor %}
+          </div>
+          <br />
+          {{ form.submit(class='TTSubmit') }}
         </div>
-        <img src="{{ url_for('static',
-                    filename='images/signup/bwtimetable.svg') }}" class="pswdImg"
-             alt="">
-    </div>
-</form>
-<script src="{{ url_for('static', filename='script.js') }}"></script>
-</body>
-
+        <img
+          src="{{ url_for('static',
+                    filename='images/signup/bwtimetable.svg') }}"
+          class="pswdImg"
+          alt=""
+        />
+      </div>
+    </form>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+  </body>
 </html>

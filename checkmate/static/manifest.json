@@ -1,18 +1,18 @@
 {
-    "name": "CheckMate",
-    "short_name": "CheckMate",
-    "description": "Check up on your mates",
-    "icons": [
-        {
-            "src": "/static/images/icon.png",
-            "sizes": "512x512",
-            "type": "image/png"
-        }
-    ],
-    "theme_color": "#8d4e22",
-    "background_color": "#e9b077",
-    "display": "fullscreen",
-    "orientation": "portrait",
-    "scope": "/",
-    "start_url": "/"
-  }
+  "name": "CheckMate",
+  "short_name": "CheckMate",
+  "description": "Check up on your mates",
+  "icons": [
+    {
+      "src": "/static/images/icon.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "theme_color": "#8d4e22",
+  "background_color": "#e9b077",
+  "display": "fullscreen",
+  "orientation": "portrait",
+  "scope": "/",
+  "start_url": "/"
+}

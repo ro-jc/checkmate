@@ -1,169 +1,193 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="apple-mobile-web-app-capable" content="yes"/>
-        <meta name="mobile-web-app-capable" content="yes"/>
-        <title>checkmate</title>
-        <!-- <link rel="preload"
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <title>checkmate</title>
+    <!-- <link rel="preload"
             href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
         <link rel="preload" href="{{ url_for('static',
             filename='styleIndex.css') }}"> -->
-        <link rel="stylesheet"
-            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
-            integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
-            crossorigin="anonymous" referrerpolicy="no-referrer"/>
-        <link rel="stylesheet" type="text/css" href="{{ url_for('static',
-            filename='styleIndex.css') }}">
-        <link rel="manifest"
-            href="{{ url_for('static', filename='manifest.json') }}">
-    </head>
-    <body>
-        <div id="myContainer">
-        <div class="topBar">
-            <div onclick="openNav()">
-                <i class="fa-solid fa-bars-staggered"></i>
-            </div>
-            <div>
-                <a href="{{ url_for('views.requests') }}">
-                    <i class="fa-solid fa-masks-theater"></i>
-                </a>
-            </div>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+      integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{ url_for('static',
+            filename='styleIndex.css') }}"
+    />
+    <link
+      rel="manifest"
+      href="{{ url_for('static', filename='manifest.json') }}"
+    />
+  </head>
+  <body>
+    <div id="myContainer">
+      <div class="topBar">
+        <div onclick="openNav()">
+          <i class="fa-solid fa-bars-staggered"></i>
         </div>
+        <div>
+          <a href="{{ url_for('views.requests') }}">
+            <i class="fa-solid fa-masks-theater"></i>
+          </a>
+        </div>
+      </div>
 
-        <div id="mySidenav" class="sidenav">
-            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-            <div class="profilePicBox">
-                <img class="navAvatar" src="{{ url_for('views.avatar',
+      <div id="mySidenav" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"
+          >&times;</a
+        >
+        <div class="profilePicBox">
+          <img
+            class="navAvatar"
+            src="{{ url_for('views.avatar',
                     username=session.username) }}"
-                    alt="{{ session.username }}">
-            </div>
-            <a class="sidenavOptions" href="/profiles/{{ session.username }}">Profile</a>
-            <a class="sidenavOptions" href="{{ url_for('views.themes') }}">Themes</a>
-            <a class="sidenavOptions sideLogOut" href="/logout">Logout</a>
+            alt="{{ session.username }}"
+          />
         </div>
+        <a class="sidenavOptions" href="/profiles/{{ session.username }}"
+          >Profile</a
+        >
+        <a class="sidenavOptions" href="{{ url_for('views.themes') }}"
+          >Themes</a
+        >
+        <a class="sidenavOptions sideLogOut" href="/logout">Logout</a>
+      </div>
 
-        <div id="friendsPage">
-            <div class="ffImg">
-                <div class="emptyInfo">add friends to view their timetables</div>
-                <div class="ffShortcut">
-                    <a href="">
-                        <i class="fa-solid fa-masks-theater"></i>
-                    </a>
-                </div>
-                <img src="{{ url_for('static',
-                    filename='images/index/findFriends.svg') }}" class=""
-                    alt="">
-            </div>
-            {% for friend in friends %}
-            <div id="cardExpand" class="card2">
-                <div class="picBox">
-                    <img class="cardAvatar" src="{{ url_for('views.avatar',
+      <div id="friendsPage">
+        <div class="ffImg">
+          <div class="emptyInfo">add friends to view their timetables</div>
+          <div class="ffShortcut">
+            <a href="">
+              <i class="fa-solid fa-masks-theater"></i>
+            </a>
+          </div>
+          <img
+            src="{{ url_for('static',
+                    filename='images/index/findFriends.svg') }}"
+            class=""
+            alt=""
+          />
+        </div>
+        {% for friend in friends %}
+        <div id="cardExpand" class="card2">
+          <div class="picBox">
+            <img
+              class="cardAvatar"
+              src="{{ url_for('views.avatar',
                         username=friend.username) }}"
-                        alt="{{ friend.username }}">
-                </div>
-                <div class="infoBox">
-                    <div class="subName2">
-                        {% if friend.period %}
-                        {{ friend.period.title }}
-                        {% endif %}
-                    </div>
-                    <div class="subTimeLoc2">
-                        <div class="subTimeUpto">
-                            {% if friend.period %}
-                            <i class="fa-solid fa-clock timeIcon"></i>
-                            {{ friend.period.start }}-{{ friend.period.end }}
-                            {% endif %}
-                        </div>
-                        <div class="subLoc">
-                            {% if friend.period %}
-                            {{ friend.period.venue }}
-                            <i class="fa-solid fa-location-dot locIcon"></i>
-                            {% endif %}
-                        </div>
-                    </div>
-                    <div class="nextSub2">
-                        {% if 'next_period' in friend %}
-                        {{ friend.next_period.time }} in {{
-                        friend.next_period.venue }}
-                        {% else %}
-                        last class...
-                        {% endif %}
-                    </div>
-                </div>
+              alt="{{ friend.username }}"
+            />
+          </div>
+          <div class="infoBox">
+            <div class="subName2">
+              {% if friend.period %} {{ friend.period.title }} {% endif %}
             </div>
-            {% endfor %}
+            <div class="subTimeLoc2">
+              <div class="subTimeUpto">
+                {% if friend.period %}
+                <i class="fa-solid fa-clock timeIcon"></i>
+                {{ friend.period.start }}-{{ friend.period.end }} {% endif %}
+              </div>
+              <div class="subLoc">
+                {% if friend.period %} {{ friend.period.venue }}
+                <i class="fa-solid fa-location-dot locIcon"></i>
+                {% endif %}
+              </div>
+            </div>
+            <div class="nextSub2">
+              {% if 'next_period' in friend %} {{ friend.next_period.time }} in
+              {{ friend.next_period.venue }} {% else %} last class... {% endif
+              %}
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+      <div id="groupsPage">
+        <div class="gpImg">
+          <div>
+            work in progress
+            <br />
+            will be available soon...
+          </div>
+          <img
+            src="{{ url_for('static',
+                    filename='images/index/underConstruction.svg') }}"
+            class=""
+            alt=""
+          />
+        </div>
+      </div>
+      <div class="bottomBar">
+        <div>
+          <i
+            onclick="groupPageOnly()"
+            id="groupBtn"
+            class="fa-solid bottomBarIcon fa-user-group"
+          ></i>
+        </div>
+        <div>
+          <i
+            onclick="friendPageOnly()"
+            id="friendBtn"
+            class="fa-solid bottomBarIcon bottomBarIcon-active fa-user"
+          ></i>
+        </div>
+      </div>
+    </div>
 
-
-        </div>
-        <div id="groupsPage">
-            <div class="gpImg">
-                <div>work in progress
-                    <br>
-                    will be available soon...
-                </div>
-                <img src="{{ url_for('static',
-                    filename='images/index/underConstruction.svg') }}" class=""
-                    alt="">
-            </div>
-        </div>
-        <div class="bottomBar">
-            <div>
-                <i onclick="groupPageOnly()" id="groupBtn" class="fa-solid
-                    bottomBarIcon fa-user-group"></i>
-            </div>
-            <div>
-                <i onclick="friendPageOnly()" id="friendBtn"
-                    class="fa-solid bottomBarIcon bottomBarIcon-active fa-user"></i>
-            </div>
-        </div>
-        </div>
-
-        <div id="myModal" class="Modal is-hidden is-visuallyHidden">
-            <div class="Modal-content">
-                <span id="closeModal" class="Close">
-                    <i class="fa-solid fa-xmark"></i>
-            </span>
-            <div class="inTTEmpty"></div>
-            <div class="profilePicBox">
-                <img class="navAvatar" src="{{ url_for('views.avatar',
+    <div id="myModal" class="Modal is-hidden is-visuallyHidden">
+      <div class="Modal-content">
+        <span id="closeModal" class="Close">
+          <i class="fa-solid fa-xmark"></i>
+        </span>
+        <div class="inTTEmpty"></div>
+        <div class="profilePicBox">
+          <img
+            class="navAvatar"
+            src="{{ url_for('views.avatar',
                     username=session.username) }}"
-                    alt="{{ session.username }}">
-            </div>
-            <div class="popName">
-                Naveen George Joseph
-            </div>
-            <div class="curDayTT">
-                <h3 class="dayName">Monday</h3>
-                <table>
-                        <tr>
-                            <td class="ttSubName">chemistry lab</td>
-                            <td class="ttSubTime">14:00 15:40</td>
-                            <td class="ttSubVenue">PRP124</td>
-                        </tr>
-                        <tr>
-                            <td class="ttSubName">english</td>
-                            <td class="ttSubTime">13:00 12:00</td>
-                            <td class="ttSubVenue">MGB207</td>
-                        </tr>
-                        <tr>
-                            <td class="ttSubName">beee</td>
-                            <td class="ttSubTime">34:00 05:60</td>
-                            <td class="ttSubVenue">PRP124</td>
-                        </tr>
-                        <tr>
-                            <td class="ttSubName">mechanics</td>
-                            <td class="ttSubTime">04:00 75:80</td>
-                            <td class="ttSubVenue">SJT724</td>
-                        </tr>
-                </table>
-            </div>
-            </div>
+            alt="{{ session.username }}"
+          />
         </div>
-        
-        
+        <div class="popName">Naveen George Joseph</div>
+        <div class="curDayTT">
+          <h3 class="dayName">Monday</h3>
+          <table>
+            <tr>
+              <td class="ttSubName">chemistry lab</td>
+              <td class="ttSubTime">14:00 15:40</td>
+              <td class="ttSubVenue">PRP124</td>
+            </tr>
+            <tr>
+              <td class="ttSubName">english</td>
+              <td class="ttSubTime">13:00 12:00</td>
+              <td class="ttSubVenue">MGB207</td>
+            </tr>
+            <tr>
+              <td class="ttSubName">beee</td>
+              <td class="ttSubTime">34:00 05:60</td>
+              <td class="ttSubVenue">PRP124</td>
+            </tr>
+            <tr>
+              <td class="ttSubName">mechanics</td>
+              <td class="ttSubTime">04:00 75:80</td>
+              <td class="ttSubVenue">SJT724</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
 
-        <script src="{{ url_for('static', filename='script.js') }}"></script>
-    </body>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+  </body>
 </html>
