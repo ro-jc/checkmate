@@ -78,7 +78,11 @@
           />
         </div>
         {% for friend in friends %}
-        <div id="cardExpand" class="card2">
+        <div
+          id="cardExpand"
+          class="card2"
+          onclick="openModal('{{ friend.username }}')"
+        >
           <div class="picBox">
             <img
               class="cardAvatar"
@@ -145,9 +149,17 @@
       </div>
     </div>
 
-    <div id="myModal" class="Modal is-hidden is-visuallyHidden">
+    {% for friend in friends %}
+    <div
+      id="{{ friend.username }}Modal"
+      class="Modal is-hidden is-visuallyHidden"
+    >
       <div class="Modal-content">
-        <span id="closeModal" class="Close">
+        <span
+          id="closeModal"
+          class="Close"
+          onclick="closeModal('{{ friend.username }}')"
+        >
           <i class="fa-solid fa-xmark"></i>
         </span>
         <div class="inTTEmpty"></div>
@@ -155,8 +167,8 @@
           <img
             class="navAvatar"
             src="{{ url_for('views.avatar',
-                    username=session.username) }}"
-            alt="{{ session.username }}"
+                    username=friend.username) }}"
+            alt="{{ friend.username }}"
           />
         </div>
         <div class="popName">Naveen George Joseph</div>
@@ -187,6 +199,7 @@
         </div>
       </div>
     </div>
+    {% endfor %}
 
     <script src="{{ url_for('static', filename='script.js') }}"></script>
   </body>
