@@ -109,8 +109,8 @@
             </div>
             <div class="nextSub2">
               {% if 'next_period' in friend %} {{ friend.next_period.time }} in
-              {{ friend.next_period.venue }} {% else %} last class... {% endif
-              %}
+              {{ friend.next_period.venue }} {% elif friend.period %} last
+              class... {% endif %}
             </div>
           </div>
         </div>
@@ -155,15 +155,8 @@
       class="Modal is-hidden is-visuallyHidden"
     >
       <div class="Modal-content">
-        <span
-          id="closeModal"
-          class="Close"
-          onclick="closeModal('{{ friend.username }}')"
-        >
-          <i class="fa-solid fa-xmark"></i>
-        </span>
         <div class="inTTEmpty"></div>
-        <div class="profilePicBox">
+        <div class="profilePicBox" style="margin: 2vh">
           <img
             class="navAvatar"
             src="{{ url_for('views.avatar',
@@ -171,30 +164,21 @@
             alt="{{ friend.username }}"
           />
         </div>
-        <div class="popName">Naveen George Joseph</div>
+        {#
+        <div class="popName">{{ friend.name.split()[0].title() }}' day</div>
+        #}
         <div class="curDayTT">
-          <h3 class="dayName">Monday</h3>
+          <h3 class="dayName">{{ friend.name.split()[0].title() }}'s day</h3>
           <table>
+            {% for period in friend.timetable %}
             <tr>
-              <td class="ttSubName">chemistry lab</td>
-              <td class="ttSubTime">14:00 15:40</td>
-              <td class="ttSubVenue">PRP124</td>
+              <td class="ttSubName">{{ period.title }}</td>
+              <td class="ttSubTime">
+                {{ period.start }}<br />{{ period.end }}
+              </td>
+              <td class="ttSubVenue">{{ period.venue }}</td>
             </tr>
-            <tr>
-              <td class="ttSubName">english</td>
-              <td class="ttSubTime">13:00 12:00</td>
-              <td class="ttSubVenue">MGB207</td>
-            </tr>
-            <tr>
-              <td class="ttSubName">beee</td>
-              <td class="ttSubTime">34:00 05:60</td>
-              <td class="ttSubVenue">PRP124</td>
-            </tr>
-            <tr>
-              <td class="ttSubName">mechanics</td>
-              <td class="ttSubTime">04:00 75:80</td>
-              <td class="ttSubVenue">SJT724</td>
-            </tr>
+            {% endfor %}
           </table>
         </div>
       </div>

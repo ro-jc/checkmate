@@ -160,38 +160,6 @@ function requestReturn(username, action) {
   xhttp.send("username=" + username + "&action=" + action);
 }
 
-// // Get the modal
-// const modal = document.getElementById("myModal");
-// // Get the main container and the body
-// const container = document.getElementById("myContainer");
-// // Get the open button
-// const btnOpen = document.getElementById("cardExpand");
-// // Get the close button
-// const btnClose = document.getElementById("closeModal");
-// // Open the modal
-// btnOpen.onclick = function () {
-//   modal.className = "Modal";
-//   setTimeout(function () {
-//     container.className = "MainContainer is-blurred";
-//     modal.className = "Modal";
-//   }, 1);
-//   container.parentElement.className = "ModalOpen";
-// };
-// // Close the modal
-// btnClose.onclick = function () {
-//   modal.className = "Modal is-hidden is-visuallyHidden";
-//   container.className = "MainContainer";
-//   container.parentElement.className = "";
-// };
-// // When the user clicks anywhere outside the modal, close it
-// window.onclick = function (event) {
-//   if (event.target == modal) {
-//     modal.className = "Modal is-hidden";
-//     container.className = "MainContainer";
-//     container.parentElement.className = "";
-//   }
-// };
-
 function openModal(username) {
   const modal = document.getElementById(username + "Modal");
   const container = document.getElementById("friendsPage");
@@ -206,12 +174,4 @@ function openModal(username) {
       container.parentElement.className = "";
     }
   };
-}
-
-function closeModal(username) {
-  const modal = document.getElementById(username + "Modal");
-  const container = document.getElementById("friendsPage");
-  modal.className = "Modal is-hidden is-visuallyHidden";
-  container.className = "MainContainer";
-  container.parentElement.className = "";
 }

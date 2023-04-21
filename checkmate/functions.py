@@ -26,7 +26,11 @@ def get_user_status(user):
                 "time": timetable[i + 1]["start"].strftime("%H:%M"),
                 "venue": timetable[i + 1]["venue"],
             }
+
+    for period in timetable:
+        period["start"] = period["start"].strftime("%H:%M")
+        period["end"] = period["end"].strftime("%H:%M")
+
     user["free"] = free
-    del user["timetable"]
 
     return user
