@@ -60,7 +60,9 @@
       <a class="sidenavOptions" href="/profiles/{{ session.username }}"
         >Profile</a
       >
-      <a class="sidenavOptions" href="">Themes</a>
+      <a class="sidenavOptions" href="{{ url_for('views.themes') }}"
+          >Themes</a
+        >
       <a class="sidenavOptions" href="/logout">Logout</a>
     </div>
 

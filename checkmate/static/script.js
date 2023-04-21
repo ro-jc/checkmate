@@ -108,13 +108,16 @@ function moveBack(myDiv) {
 }
 
 function requestSend(button, username) {
+  console.log(button);
   let icon = button.children[0];
   icon.className = "fa fa-spinner fa-spin";
 
   let xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function () {
     if (this.readyState == 4 && this.status == 200) {
-      button.onclick = requestCancel;
+      button.onclick = function () {
+        requestCancel(this, username);
+      };
       icon.className = "fa-solid fa-stopwatch";
     }
   };
@@ -124,29 +127,18 @@ function requestSend(button, username) {
 }
 
 function requestCancel(button, username) {
+  console.log("button:");
+  console.log(button);
+  console.log("----");
   let icon = button.children[0];
   icon.className = "fa fa-spinner fa-spin";
 
   let xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function () {
     if (this.readyState == 4 && this.status == 200) {
-      button.onclick = requestSend;
-      icon.className = "fa-solid fa-user-plus";
-    }
-  };
-
-  xhttp.open("GET", "/requests/cancel/" + username);
-  xhttp.send();
-}
-
-function requestCancel(button, username) {
-  let icon = button.children[0];
-  icon.className = "fa fa-spinner fa-spin";
-
-  let xhttp = new XMLHttpRequest();
-  xhttp.onreadystatechange = function () {
-    if (this.readyState == 4 && this.status == 200) {
-      button.onclick = requestSend(this, username);
+      button.onclick = function () {
+        requestSend(this, username);
+      };
       icon.className = "fa-solid fa-user-plus";
     }
   };
