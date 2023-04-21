@@ -1,14 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@600&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Alkatra:wght@500&display=swap');
 
-@media screen and (min-width: 768px) {
-    body {
-        /* display: none; */
-        /* background: #000;; */
-        opacity: 0.1;
-    }
-}
-
 :root {
     --light: #b2e5ed;
     --mid: #00abc5;
@@ -20,8 +12,14 @@
     /* --light: #fd88e6; */
     /* --mid: #425ca8; */
     /* --light: #f0f22f; */
-    --mid: #064c2b;
-    --light: #fec901;
+    /* --mid: #064c2b; */
+    /* --light: #fec901; */
+}
+
+@media screen and (min-width: 768px) {
+    body {
+        opacity: 0.1;
+    }
 }
 
 * {
@@ -39,14 +37,20 @@ a {
     text-decoration: none;
 }
 
+.emptyTop {
+    background: var(--light);
+    height: 16.5vh;
+    width: 100vw;
+    position: fixed;
+    z-index: 99;
+    top: 0;
+}
+
 .topBar {
     background: var(--mid);
     height: 8vh;
     width: calc(100vw - 10px);
-    border-bottom-left-radius: 2rem;
-    border-bottom-right-radius: 2rem;
-    border-top-right-radius: 0.8rem;
-    border-top-left-radius: 0.8rem;
+    border-radius: 0.8rem 0.8rem 2rem 2rem;
     position: fixed;
     z-index: 100;
     margin: 5px;
@@ -66,36 +70,6 @@ a {
     color: white;
     padding: 0 15px;
 }
-
-.bottomBar {
-    background: var(--mid);
-    height: 8vh;
-    width: calc(100vw - 10px);
-    border-top-left-radius: 2rem;
-    border-top-right-radius: 2rem;
-    border-bottom-right-radius: 0.8rem;
-    border-bottom-left-radius: 0.8rem;
-    position: fixed;
-    bottom: 0;
-    z-index: 100;
-    margin: 5px;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    padding: 0 15px;
-}
-
-.bottomBarIcon {
-    color: white;
-    font-size: 2rem;
-    opacity: 0.5;
-}
-
-.bottomBarIcon-active {
-    font-size: 2.5rem;
-    opacity: 1;
-}
-
 
 .sidenav {
     height: calc(100vh - 10px);
@@ -138,14 +112,79 @@ a {
     border-radius: 50%;
     background: white;
     border: none;
+}
+
+.navAvatar {
+    width: 6rem;
+    height: 6rem;
+    border-radius: 50%;
+    border: 2px solid white;
+}
+
+.closebtn {
+    color: white;
+    position: absolute;
+    top: 0;
+    left: 25px;
+    font-size: 3.5rem;
+    /* margin-left: 50px; */
+    z-index: 500 !important;
+}
+
+#main {
+    transition: margin-left .5s;
+    padding: 20px;
+}
+
+@media screen and (max-height: 450px) {
+    .sidenav {
+        padding-top: 15px;
+    }
+
+    .sidenavOptions {
+        font-size: 18px;
+    }
+}
+
+.bottomBar {
+    background: var(--mid);
+    height: 8vh;
+    width: calc(100vw - 10px);
+    border-top-left-radius: 2rem;
+    border-top-right-radius: 2rem;
+    border-bottom-right-radius: 0.8rem;
+    border-bottom-left-radius: 0.8rem;
+    position: fixed;
+    bottom: 0;
+    z-index: 100;
+    margin: 5px;
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
+    padding: 0 15px;
+}
+
+.bottomBarIcon {
+    color: white;
+    font-size: 2rem;
+    opacity: 0.5;
+}
+
+.bottomBarIcon-active {
+    font-size: 2.5rem;
+    opacity: 1;
+}
+
+
+.popName{
+    margin: 2vh 0;
+    color: black;
+    font-size: 1.2rem;
 }
 
 .navAvatar {
     width: 5.5rem;
-    height: 5.5rem;
+    /* height: 5.5rem; */
     border-radius: 50%;
 }
 
@@ -321,18 +360,13 @@ a {
     background: var(--light);
     color: black;
 }
-
-.locIcon {
-
-}
-
-.timeIcon {
-    margin-right: 5px;
+.timeIcon{
+    margin-right: 10px;
 
 }
 
 .locIcon {
-    margin-left: 5px;
+    margin-left: 10px;
 }
 
 .subTimeLoc2 {
@@ -361,10 +395,137 @@ a {
     align-items: center;
 }
 
-.blur-filter {
-    -webkit-filter: blur(2px);
-    -moz-filter: blur(2px);
-    -o-filter: blur(2px);
-    -ms-filter: blur(2px);
-    filter: blur(2px);
+.Modal {
+    display: block;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 9999;
+    width: 100%;
+    height: 100%;
+    padding-top: 14vh;
+    background-color: black;
+    background-color: rgba(0, 0, 0, 0.706);
+    -webkit-transition: 0.5s;
+    overflow: auto;
+    transition: all 0.3s linear;
+}
+
+.Modal-content {
+    background-color: rgb(255, 255, 255);
+    background: var(--light);
+    margin: auto;
+    padding: 17px;
+    border-radius: 8px;
+    width: 92vw;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+}
+
+.ModalOpen {
+    overflow: hidden;
+}
+
+.is-hidden {
+    display: none;
+}
+
+.is-visuallyHidden {
+    opacity: 0;
+}
+
+.Close {
+    color: white;
+    /* float: right; */
+    font-size: 2rem;
+    background: var(--mid);
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 0px 5px 7px 14px;
+    border-bottom-left-radius: 50%;
+}
+
+.Close:hover,
+.Close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.is-blurred {
+    filter: blur(0px);
+    -webkit-filter: blur(0px);
+    animation-name: blurring;
+    animation-duration: 0.3s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes blurring {
+    from {
+        filter: blur(0px);
+        -webkit-filter: blur(0px);
+    }
+
+    to {
+        filter: blur(6px);
+        -webkit-filter: blur(6px);
+    }
+}
+
+.curDayTT {
+    width: 98%;
+    padding-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.ttSubName {
+    width: 40%;
+}
+
+.ttSubTime {
+    width: 28%;
+}
+
+.ttSubVenue {
+    width: 20%;
+}
+
+td {
+    padding: 0.5px 3px;
+    /* border-bottom: 1px solid var(--mid);
+    border-right: 1px solid var(--mid);
+    border-left: 1px solid var(--mid); */
+}
+
+.dayName {
+    background: var(--mid);
+    color: var(--light);
+    padding: 5px 0;
+    text-align: center;
+    width: 100%;
+    border-top-left-radius: 1rem;
+    border-top-right-radius: 1rem;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+table {
+    border: 3px solid var(--mid);
+    border-radius: 0.4rem;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    border-top: none;
+    box-shadow: 10px 10px #000;
+    background: var(--light);
+}
+
+table tr td {
+    padding: 11px;
 }

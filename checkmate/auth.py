@@ -77,6 +77,8 @@ def signup():
                 "name": form.name.data.title(),
                 "timetable": create_timetable(form.timetable.data),
                 "friends": [],
+                "incoming_requests": [],
+                "outgoing_requests": [],
             }
         )
 
