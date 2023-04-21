@@ -94,7 +94,6 @@ a {
   text-decoration: none;
   font-size: 2.3rem;
   color: white;
-  display: block;
   transition: 0.3s;
   width: 100%;
   display: flex;
@@ -233,7 +232,6 @@ a {
   /* background: #ffffff; */
   position: absolute;
   top: calc(8vh + 10px);
-  display: flex;
   justify-content: center;
   align-items: center;
   display: none;
@@ -360,6 +358,7 @@ a {
   background: var(--light);
   color: black;
 }
+
 .timeIcon {
   margin-right: 10px;
 }
@@ -370,7 +369,6 @@ a {
 
 .subTimeLoc2 {
   height: 33.333%;
-  display: flex;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -445,7 +443,7 @@ a {
   position: absolute;
   top: 0;
   right: 0;
-  padding: 0px 5px 7px 14px;
+  padding: 0 5px 7px 14px;
   border-bottom-left-radius: 50%;
 }
 
@@ -500,8 +498,8 @@ a {
 td {
   padding: 0.5px 3px;
   /* border-bottom: 1px solid var(--mid);
-    border-right: 1px solid var(--mid);
-    border-left: 1px solid var(--mid); */
+      border-right: 1px solid var(--mid);
+      border-left: 1px solid var(--mid); */
 }
 
 .dayName {

@@ -3,9 +3,9 @@
 
 :root {
   /* --light: #b2e5ed;
-  --mid: #00abc5;
-  --mid: #8e2426;
-  --light: #ff7a01; */
+            --mid: #00abc5;
+            --mid: #8e2426;
+            --light: #ff7a01; */
   --light: white;
   --mid: black;
   /* --mid: #0d635b; */
@@ -79,9 +79,7 @@ a {
 .searchBarField {
   width: 41vw;
   /* height: ; */
-  border-radius: 20px;
-  border-top-right-radius: 0;
-  border-bottom-right-radius: 0;
+  border-radius: 20px 0 0 20px;
   font-size: 1.4rem;
   border: none;
   padding-left: 10px;
@@ -89,9 +87,7 @@ a {
 
 .searchSubmitBtn {
   font-size: 1.5rem;
-  border-radius: 50%;
-  border-bottom-left-radius: 0;
-  border-top-left-radius: 0;
+  border-radius: 0 50% 50% 0;
   border: 3px solid white;
   border-left: 0;
   padding: 5px;
@@ -122,7 +118,6 @@ a {
   text-decoration: none;
   font-size: 2.3rem;
   color: white;
-  display: block;
   transition: 0.3s;
   width: 100%;
   display: flex;
@@ -210,6 +205,7 @@ a {
   height: 10vh;
   width: calc(100vw - 10px);
   margin: 5px;
+  color: white;
   background: var(--mid);
   /* border: 3px solid var(--mid); */
   border-radius: 8px;
@@ -260,6 +256,7 @@ a {
   font-size: 1.3rem;
   /* color: black; */
 }
+
 .fa-user-plus,
 .fa-spinner {
   padding: 0 8px;
