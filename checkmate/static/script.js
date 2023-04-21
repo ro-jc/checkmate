@@ -61,8 +61,9 @@ function setNextVisibility(myDiv) {
 function moveForward(myDiv) {
   if (["setUser", "setMail"].includes(myDiv)) {
     const id = myDiv == "setUser" ? "uname" : "mail";
+    const data = document.getElementById(id).value;
 
-    if (!document.getElementById(id).value) {
+    if (!data) {
       document.getElementById(id + "Error").innerHTML = "field cannot be empty";
     } else {
       let xhttp = new XMLHttpRequest();
