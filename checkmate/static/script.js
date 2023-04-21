@@ -114,7 +114,7 @@ function requestSend(button, username) {
   let xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function () {
     if (this.readyState == 4 && this.status == 200) {
-      button.onclick = requestCancel(this, username);
+      button.onclick = requestCancel;
       icon.className = "fa-solid fa-stopwatch";
     }
   };
@@ -130,7 +130,7 @@ function requestCancel(button, username) {
   let xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function () {
     if (this.readyState == 4 && this.status == 200) {
-      button.onclick = requestSend(this, username);
+      button.onclick = requestSend;
       icon.className = "fa-solid fa-user-plus";
     }
   };
