@@ -100,14 +100,15 @@
             <div class="buttonSection">
                 {% if user.friend %}
                     <i class="fa-solid fa-heart" style="color:white"></i>
+                {% elif user.sent_req %}
+                    <button class="sendRequestButton"
+                            onclick="requestCancel(this, '{{ user.username }}')">
+                        <i class="fa-solid fa-stopwatch"></i>
+                    </button>
                 {% else %}
                     <button class="sendRequestButton"
                             onclick="requestSend(this, '{{ user.username }}')">
-                        {% if user.sent_req %}
-                            <i class="fa-solid fa-stopwatch"></i>
-                        {% else %}
-                            <i class="fa-solid fa-user-plus"></i>
-                        {% endif %}
+                        <i class="fa-solid fa-user-plus"></i>
                     </button>
                 {% endif %}
             </div>
