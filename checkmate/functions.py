@@ -28,8 +28,9 @@ def get_user_status(user):
             }
 
     for period in timetable:
-        period["start"] = period["start"].strftime("%H:%M")
-        period["end"] = period["end"].strftime("%H:%M")
+        if type(period) != str:
+            period["start"] = period["start"].strftime("%H:%M")
+            period["end"] = period["end"].strftime("%H:%M")
 
     user["free"] = free
 
